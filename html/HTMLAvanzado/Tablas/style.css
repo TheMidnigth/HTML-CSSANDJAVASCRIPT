@@ -1,0 +1,31 @@
+body{
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+
+table{
+    border: 2px solid #ddd;
+    padding: 20px 20px 25px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    border-spacing: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+th,tr{
+    border-bottom: 1px solid;
+    font: italic 600 13px sans-serif;
+    color:#000077;
+    text-transform: capitalize;
+    letter-spacing: 1.3px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+td{
+    font: italic 500 10px tahoma;
+    color: #025283;
+}

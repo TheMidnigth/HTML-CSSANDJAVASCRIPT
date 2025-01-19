@@ -1,0 +1,26 @@
+h1{
+    font: italic 900 50px sans-seri;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    
+}
+
+.box{
+    box-sizing: border-box;
+    width: 350px;
+    height: 100px;
+    margin: auto;
+}
+
+.box-amarrilo{
+    background-color: #ff0;
+}
+
+.box-azul{
+    background-color: #00f;
+}
+
+.box-rojo{
+    background-color: #f00;
+}

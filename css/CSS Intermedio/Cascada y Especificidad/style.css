@@ -1,0 +1,20 @@
+#titulo{
+    font: italic 900 30px monospace;
+    text-align: left;
+    text-transform: capitalize;
+    color: blue;
+    letter-spacing: 1px;
+}
+
+.titulo{
+    font: italic 500 20px sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: purple;
+    letter-spacing: 2px;
+}
+
+h1{
+    color: chocolate !important;
+    text-align: right !important;
+}

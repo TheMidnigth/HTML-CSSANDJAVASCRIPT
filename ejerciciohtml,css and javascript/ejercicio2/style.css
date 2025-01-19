@@ -1,0 +1,98 @@
+.card{
+    box-sizing: border-box;
+    width: 300px;
+    background: #7a6a53;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px 5px #5e412f;
+}
+
+.card-blue{
+    background: #001c43;
+    box-shadow: 0 0 20px 5px #1500a4;
+}
+
+.card-rojo{
+    background:#8e2428 ;
+    box-shadow: 0 0 20px 5px #a20025;
+}
+
+.card-yellow{
+    background:#f7dd0a ;
+    box-shadow: 0 0 20px 5px yellow;
+}
+
+.card-imagen .imagen-hooper{
+    width: 250px;
+    border-radius: 10px;
+    
+}
+
+.card-imagen .imagen-steven{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    
+}
+
+.card-imagen .imagen-dustin{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    
+}
+
+.card-imagen .imagen-sadie{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    
+}
+
+.card-text{
+    padding: 0 6px;
+}
+
+.card-text h2{
+    font: italic 900 30px sans-serif;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.card-text p{
+    font: italic 500 13px/1.4em sans-serif;
+    margin: -9px 0 20px 0;
+    text-align:justify;
+    text-transform: capitalize;
+    color: white;
+}
+
+.card-btn{
+    box-sizing: border-box;
+    background: #5e412f;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font: italic 700 15px sans-serif;
+    text-transform: capitalize;
+    color: white;
+    margin-right: 110px;
+}
+
+.btn-steven{
+    background: #1500a4;
+}
+
+.btn-dustin{
+    background: #a20025;
+}
+
+.btn-sadie{
+    background: yellow;
+}

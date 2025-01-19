@@ -1,0 +1,29 @@
+div{
+    box-sizing: border-box;
+    background-color: purple;
+    width: 400px;
+    height: 200px;
+    border-radius: 40px;
+    border: 5px solid blue;
+    margin: auto;
+}
+
+h2{
+    font: italic 900 25px Tahoma;
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    letter-spacing: 2px;
+}
+
+p{
+    box-sizing: border-box;
+    width: 100%;
+    background-color: cornflowerblue;
+    font: italic 600 14px/1.4 sans-serif;
+    text-align: justify;
+    color:white;
+    text-transform: capitalize;
+    padding: 11px 40px;
+    border-radius:35px;
+}

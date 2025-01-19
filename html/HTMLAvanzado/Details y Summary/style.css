@@ -1,0 +1,19 @@
+body{
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+details{
+    box-sizing: border-box;
+    background: #1d3fc0;
+    padding: 20px 30px 20px;
+    border-left: 3px solid black;
+}
+
+summary{
+    font: italic 600 15px sans-serif;
+    color: #fff;
+    letter-spacing: 1.55px;
+    text-transform: capitalize;
+}

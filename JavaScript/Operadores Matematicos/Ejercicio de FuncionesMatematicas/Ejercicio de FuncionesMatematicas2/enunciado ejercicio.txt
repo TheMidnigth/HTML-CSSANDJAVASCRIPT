@@ -1,0 +1,27 @@
+Calcula el área de un círculo con un radio de 7 utilizando el valor de π (Math.PI) y la fórmula del área del círculo.
+
+Encuentra el número entero más cercano al resultado de dividir 123 por 7 utilizando Math.round().
+
+Calcula el logaritmo natural de 20 utilizando Math.log().
+
+Genera un número aleatorio entre 5 y 15 (incluyendo 5 pero no 15) utilizando Math.random().
+
+Calcula la hipotenusa de un triángulo rectángulo con catetos de 6 y 8 utilizando el teorema de Pitágoras y Math.sqrt().
+
+Convierte un ángulo de 60 grados a radianes utilizando la fórmula (grados * Math.PI) / 180.
+
+Calcula el seno de un ángulo de 30 grados utilizando Math.sin() (convierte primero a radianes).
+
+Encuentra el valor del tercer lado de un triángulo rectángulo si un cateto mide 5 y la hipotenusa mide 13, utilizando Math.sqrt().
+
+Genera un número aleatorio y redondea hacia el entero inferior más cercano utilizando Math.floor().
+
+Encuentra el valor de la raíz cúbica de 125 utilizando Math.cbrt().
+
+
+
+
+
+
+
+

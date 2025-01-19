@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datalist,optional,select</title>
+    <link rel="icon" href="icon/icons8-registro-64.png" type="imagen/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contenido-principal">
+        <form action="">
+            <h2>formulario</h2>
+            <!-- Select y Option-->
+            <div class="input-select">
+                <label>
+                    tipos de carros
+                    <select name="type-of-cars">
+                        <option value="cars1">ferrari</option>
+                        <option value="cars2">mazda</option>
+                        <option value="cars">nissan</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="input-datalist">
+                <label>
+                    referente
+                    <input list="referente" name="lista-referentes">
+                    <datalist id="referente" name="type-of-referentes">
+                        <option value="keyner">estudiante de ingenieria de sistema</option>
+                        <option value="victor">estudiante de ingenieria de civil</option>
+                        <option value="yublian">estudiante de ingenieria ambiental</option>
+                        <option value="jose">estudiante de ingenieria agropecuaeria</option>
+                    </datalist>
+                </label>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

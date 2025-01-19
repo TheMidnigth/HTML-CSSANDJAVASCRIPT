@@ -1,0 +1,27 @@
+h1{
+    font: italic 900 45px sans-serif;
+    text-align: center;
+    color: blue;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    text-shadow: 0 0 10px blue;
+}
+
+span{
+    font: italic 900 50px tahoma;
+    color: black;
+}
+
+h2{
+    font:italic 800 35px tahoma;
+    text-align: center;
+    color: red;
+    text-transform: capitalize;
+}
+
+p{
+    font: italic 400 30px sans-serif;
+    text-align: justify;
+    text-transform: capitalize;
+    color: blueviolet;
+}

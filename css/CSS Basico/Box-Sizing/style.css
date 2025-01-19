@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+
+.Box{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    margin: 10px;
+}
+
+.contenido1{
+    box-sizing: border-box;
+    border: 6px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.contenido1 h2{
+    font: italic 800 25px Tahoma;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    color: white;
+
+}
+
+.contenido2{
+    border: 6px solid black;
+    border-radius: 20px;
+    padding: 20px;
+
+}

@@ -1,0 +1,32 @@
+/** Selectores de hermano adyacente (+): */
+h2 + p{
+    color: red;
+}
+
+/** Selectores de grupo (,): */
+h1,h2{
+    font: italic 900 25px sans-serif;
+    text-align: center;
+    color: blue;
+    text-transform: capitalize;
+}
+
+/** Selectores de hijos directos (>) y tambien por clases */
+.contenido-main > p{
+    font: italic 500 20px/1.4em tahoma;
+    color: blueviolet;
+    text-align: justify;
+    text-transform: capitalize;
+}
+
+p > a{
+    text-decoration: none;
+    color: black;
+}
+
+/** Selectores de hermanos generales (~): */
+.first ~ p {
+    color: red;
+    font: italic 800 20px sans-serif;
+    text-transform: uppercase;
+}

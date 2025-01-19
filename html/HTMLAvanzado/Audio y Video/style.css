@@ -1,0 +1,11 @@
+body{
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+.video{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+}

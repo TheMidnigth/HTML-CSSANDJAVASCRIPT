@@ -1,0 +1,41 @@
+.sombras{
+    box-sizing: border-box;
+    border-radius: 20px;
+    width: 350px;
+    background: #e2e2e2;
+    margin: auto;
+    margin-top: 40px;
+    box-shadow: -10px -10px 40px 5px #0007;
+    text-align: center;
+}
+
+h2{
+    text-shadow: 0 0 5px red;
+    font: italic 900 20px sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 15px 11px;
+    letter-spacing: 5px;
+}
+
+p{
+    text-shadow: 0 0 5px red;
+    font: italic 500 14px/1.4em san-serif;
+    padding:0 35px 10px 35px;
+    text-align: justify;
+    text-transform: capitalize;
+}
+
+.cristiano-ronaldo{
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 50%;
+    box-shadow: -10px -10px 40px 5px #0007;
+}
+
+.ada13{
+    width: 200px;
+    padding-bottom: 10px;
+    filter: drop-shadow(0 0 5px #f92);
+
+}

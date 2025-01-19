@@ -1,0 +1,49 @@
+body{
+    background:#aaee;
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+.contenido-principal{
+    width: 100%;
+    min-width: 400px;
+    max-width: 500px;
+    background:#fff;
+    box-sizing: border-box;
+    padding: 30px 40px;
+    border-radius: 15px;
+}
+
+h1{
+    font: italic 900 30px sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.input-box input{
+    background: #eee;
+    margin-bottom:15px;
+    box-sizing: border-box;
+    padding: 0.8em;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    width: 100%;
+    font: italic 400 15px sans-serif;
+    text-transform: lowercase;
+}
+
+.btn-enviar{
+    box-sizing: border-box;
+    padding: 0.8em;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    width: 100%;
+    font: italic 600 15px sans-serif;
+    cursor:pointer ;
+    background: #0090ffaa;
+    color: #fff;
+    text-transform: uppercase;
+}

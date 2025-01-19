@@ -1,0 +1,24 @@
+h1{
+    color: blue;
+    font: italic 400 70px "Playwrite";
+    text-align: center;
+    text-transform:capitalize;
+    text-decoration: underline;
+    letter-spacing: 5px;
+}
+
+p{
+    font: 900 20px/1.5 "Poppins";
+    color: red;
+    text-align: justify;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+
+.parrafo{
+    color: blueviolet;
+    font: italic 900 20px/2 "Montserrat";
+    text-align: justify;
+    text-transform: capitalize;
+
+}

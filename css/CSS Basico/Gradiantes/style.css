@@ -1,0 +1,31 @@
+body{
+    background:red;
+}
+
+
+.caja{
+    border-radius: 20px;
+    border-right:5px solid white ;
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(to left, #ff0,transparent 80%);
+    padding: 20px;
+    margin: auto;
+}
+
+h2{
+    color: #fff;
+    font: italic 900 34px sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.1em;
+    text-decoration: underline;
+}
+
+p{
+    font: italic 500 14px/1.5em sans-serif;
+    text-align: justify;
+    text-transform: capitalize;
+    color: white;
+}

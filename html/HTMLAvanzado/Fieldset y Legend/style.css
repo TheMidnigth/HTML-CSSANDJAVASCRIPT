@@ -1,0 +1,58 @@
+body{
+    background: linear-gradient(to left,#044fa3,#b4b4cd 130%);
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+h2{
+    font: italic 900 25px tahoma;
+    color: #000093;
+    text-align: center;
+    text-transform: capitalize;
+    text-shadow: 0 0 10px #000093;
+}
+
+form{
+    background:#fff;
+    box-shadow: 0 0 70px 30px #000093;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 450px;
+    height: 660px;
+    border-radius: 8px;
+    padding: 5px 30px 5px 30px;
+}
+
+.input-box label{
+    font: italic 700 14px sans-serif;
+    color: #044fa3;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+.input-box input{
+    background: #ddd;
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0;
+}
+
+fieldset{
+    box-sizing: border-box;
+    margin-top: 40px;
+    border: 2px solid #044fa3;
+    box-shadow: 0 0 30px 10px #044fa3;
+    padding: 10px 40px;
+    border-radius: 4px;
+}
+
+legend{
+    color: #07005c;
+    padding: 0 8px;
+    font: italic 500 15px sans-serif;
+    text-transform: capitalize;
+}

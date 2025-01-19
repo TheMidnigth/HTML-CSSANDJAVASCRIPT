@@ -1,0 +1,12 @@
+body{
+    background: #0af;
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    width: 760px;
+    height: 512px;
+    background:url("https://mejorconsalud.as.com/wp-content/uploads/2021/04/cristiano-ronaldo-768x512.jpg?auto=webp&quality=60&width=1920&crop=16:9,smart,safe")
+    center /cover fixed;
+}

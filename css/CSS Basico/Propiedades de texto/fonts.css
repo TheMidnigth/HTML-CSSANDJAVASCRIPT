@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(Tipografias/fonts/Montserrat-Black.ttf) format("truetype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url(Tipografias/font/Poppins-Black.ttf) format("truetype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Playwrite";
+    src: url(Tipografias/Playwrite_MX_Guides/PlaywriteMXGuides-Regular.ttf) format("truetype");
+    font-weight: 400;
+}

@@ -1,0 +1,24 @@
+div{
+    background-color: purple;
+    width: 400px;
+    height: 250px;
+    box-sizing: border-box;
+    border: 3px solid blue;
+    padding: 0 30px;
+    margin: auto;
+}
+
+div > h1{
+    font: italic 900 34px Tahoma;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: white;
+}
+
+div > p{
+    font: italic 900 15px Tahoma;
+    text-align: justify;
+    text-transform: capitalize;
+
+}

@@ -1,0 +1,97 @@
+/** Pseudo-clases de interacción hover*/
+.enlace-normal{
+    width: 100%;
+    max-width: 100px;
+    display: grid;
+    place-content: left;
+    margin-top: 40px;
+}
+
+.enlace-normal > .enlace{
+    text-align: center;
+    color: darksalmon;
+    font: italic 700 20px sans-serif;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.enlace:hover{
+    color: #3a00ff;
+    text-decoration: underline;
+    border:2px solid #001;
+    padding: 10px;
+}
+
+/** Pseudo-clases de interacción focus*/
+input{
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: #ddd;
+}
+
+input:focus{
+    outline: 2px solid blue;
+    background-color: #eee;
+}
+
+/** Pseudo-clases de interacción active*/
+button{
+    margin: 40px 100px 0;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #3a00ff;
+    color: #fff;
+    font: italic 700 20px monospace;
+    text-transform: capitalize;
+    border: none;
+}
+
+button:active{
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #3a0;
+    color: #fff;
+    font: italic 700 15px tahoma;
+    text-transform: uppercase;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.enlace-visitado{
+    margin-top: 10px;
+    text-align: center;
+    font: italic 700 15px monospace;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: darkblue;
+}
+
+.enlace-visitado:hover{
+    text-decoration:2px underline;
+}
+
+/**Pseudo-clases de interacción visited */
+.enlace-visitado:visited{
+    color: green;
+}
+
+/**Pseudo-clases de interacción link */
+.enlace-visitado:link{
+    color: red;
+}
+
+/**Pseudo-clases de interacción focus-visible */
+input:focus-visible{
+    outline: 2px solid green;
+}
+
+/**Pseudo-clases de interacción focus-within */
+form:focus-within{
+    box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.5);
+}
