@@ -19,3 +19,10 @@ let calificacion = (nota >= 90) ? 'Obtuvo la calificacion maxima A':
     (nota < 60) ? 'Obtuvo la calificacion F':
     '';
 console.log(calificacion);
+
+let mayorEdad = 16;
+let isLicencia = true;
+let Conducir = (mayorEdad >= 18 || isLicencia) 
+    ? 'puede conducir un carro'
+    :'no puedes conducir un carro';
+console.log(Conducir);
