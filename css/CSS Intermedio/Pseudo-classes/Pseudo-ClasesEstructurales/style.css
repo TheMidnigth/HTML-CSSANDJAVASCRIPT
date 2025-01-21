@@ -1,0 +1,110 @@
+ul{
+    box-sizing: border-box;
+    background-color: #ddd;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 2px solid #00a;
+    padding:20px 0 20px 4em;
+}
+
+li{
+    list-style: none;
+    margin-top:5px ;
+}
+
+/* * pseudo-clases estructurales  first-child
+* selecciona al primer elemento*/
+li:first-child{
+    color: red;
+    font: italic 900 17px monospace;
+    text-transform: capitalize;
+}
+
+/* * pseudo-clases estructurales  first-of-type
+* selecciona al primer elemento segun su tipo*/
+li:first-of-type{
+    color: red;
+    font: italic 900 17px monospace;
+    text-transform: capitalize;
+}
+
+/* * pseudo-clases estructurales  last-child
+* selecciona al ultimo*/
+li:last-child{
+    color: blue;
+    font: italic 500 15px sans-serif;
+    text-transform: capitalize;
+}
+
+/* * pseudo-clases estructurales  last-of-type
+* selecciona al ultimo segun su tipo*/
+li:last-of-type{
+    color: blue;
+    font: italic 500 15px sans-serif;
+    text-transform: capitalize;
+}
+
+/* * pseudo-clases estructurales nth-child(n)
+* selecciona a un elemento n de arriba hacia abajo*/
+li:nth-child(5){
+    color: darkgreen;
+    font: italic 900 20px tahoma;
+    text-transform: capitalize;
+}
+
+.contenido-principal{
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    background: #00ff00a8;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+/* * pseudo-clases estructurales nth-child(n)
+* selecciona a un elemento pero escogiendo a cada tanto */
+div:nth-child(2n):not(.contenido-principal,.contenido-segundario,.contenido-tercero){
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #00a;
+    margin: 10px;
+    text-align: justify;
+    color: #fff;
+    font: italic 600 15px monospace;
+    border-bottom: 2px solid black;
+}
+
+/* * pseudo-clases estructurales nth-last-child(n)
+* selecciona a un elemento n de abajo hacia arriba */
+li:nth-last-child(3){
+    color: purple;
+    font: italic 900 20px tahoma;
+    text-transform: capitalize;
+}
+
+/** pseudo-clases estructurales only-child*/
+.contenido-segundario{
+    background-color: #ff0000a9;
+}
+
+.contenido-tercero{
+    background-color: rebeccapurple;
+}
+
+/* * Selecciona un elemento si es el único hijo de su padre only-child.
+* Aplica estilos solo si no hay otros hermanos.*/
+p:only-child{
+    color: yellow;
+    font: italic 900 17px sans-serif;
+    text-align: justify;
+}
+
+/* * Selecciona un elemento si es el único hijo de su padre only-child.
+* Aplica estilos solo si no hay otros hermanos segu su tipo.*/
+p:only-of-type{
+    color: yellow;
+    font: italic 900 17px sans-serif;
+    text-align: justify;
+}

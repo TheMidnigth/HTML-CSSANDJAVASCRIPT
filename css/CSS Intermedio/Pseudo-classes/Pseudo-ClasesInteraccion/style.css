@@ -40,6 +40,7 @@ input:focus{
 
 /** Pseudo-clases de interacción active*/
 button{
+    box-shadow: inset 7px 7px 5px rgba(0, 0, 0, 0.5);
     margin: 40px 100px 0;
     width: 100%;
     max-width: 200px;
@@ -93,5 +94,11 @@ input:focus-visible{
 
 /**Pseudo-clases de interacción focus-within */
 form:focus-within{
+    padding: 30px 40px 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border:2px solid rgba(0, 0, 0, 0.5) ;
+    width: 100%;
+    max-width: 400px;
     box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.5);
 }
