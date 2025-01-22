@@ -1,0 +1,110 @@
+body{
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+form{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.5);
+    padding:3em 6em 3em 0;
+}
+
+.input-box{
+    margin-top: 10px;
+    padding-left:5em;
+}
+
+.input-box > label{
+    display: flex;
+    flex-direction: column;
+    font: italic 700 16px monospace;
+    color: blue;
+    text-transform: capitalize;
+}
+
+.input-box  input{
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+    color: black;
+    font: italic 900 10px sans-serif;
+    margin-top: 5px;
+    width: 100%;
+    max-width: 350px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background: #eee;
+    padding-left: 10px;
+}
+
+
+/* *Selecciona elementos <input> y <textarea> que están mostrando el texto del atributo placeholder */
+.input-box input::placeholder{
+    font: italic 900 10px sans-serif;
+    color: #000000a1;
+}
+
+.input-box input:focus{
+    outline: 2px solid #0080ffaf;
+}
+
+/* * Pseudo-Clase de formulario valid 
+* Selecciona elementos que cumplen con las restricciones de validación */
+.email-input:valid{
+    outline: 2px solid #00ff00af;
+}
+
+/* * Pseudo-Clase de formulario invalid
+* Selecciona elementos que no cumplen con las restricciones de validación.*/
+.email-input:invalid{
+    outline: 2px solid #ff0000af;
+}
+
+.input-chex{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-chex > input{
+    margin-left:6em ;
+}
+
+
+.input-chex > p a{
+    color: blue;
+    font: 800 14px monospace;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.input-chex > p a:hover{
+    text-decoration:underline;
+}
+
+.btn{
+    cursor: pointer;
+    background-color: #0080ffa7;
+    width: 100%;
+    max-width: 335px;
+    height: 40px;
+    margin-left:6em;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    color: white;
+    font: 900 13.4px monospace;
+}
+
+/* * Selecciona elementos <input> cuyos valores están dentro del rango permitido in-range. */
+.input-box .edad-input:in-range{
+    border: 2px solid #00ff00af;
+}
+/* * Selecciona elementos <input> cuyos valores están fuera del rango permitido. out-of-range */
+.input-box .edad-input:out-of-range{
+    border: 2px solid #ff0000af;
+}

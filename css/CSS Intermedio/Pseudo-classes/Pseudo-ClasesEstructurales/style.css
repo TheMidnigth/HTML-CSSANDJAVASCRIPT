@@ -108,3 +108,12 @@ p:only-of-type{
     font: italic 900 17px sans-serif;
     text-align: justify;
 }
+
+/** Selecciona elementos que no tienen contenido (ni texto, ni elementos hijos). empty */
+.contenido-vacio{
+    border: 2px solid red;
+}
+
+.contenido-vacio:empty{
+    border: none;
+}

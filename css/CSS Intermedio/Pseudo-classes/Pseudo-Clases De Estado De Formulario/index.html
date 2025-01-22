@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Clases De Formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="">
+        <div class="input-box">
+            <label>
+                nombre
+                <input type="text" name="username" placeholder="escribe tu nombre" required>
+            </label>
+        </div>
+
+        <div class="input-box">
+            <label>
+                edad
+                <input class="edad-input" type="number" name="number" placeholder="digite su edad" required min="18" max="60">
+            </label>
+        </div>
+        
+        <div class="input-box">
+            <label>
+                contraseña
+                <input type="password" name="password" placeholder="escribe tu contraseña" required>
+            </label>
+        </div>
+
+        <div class="input-box">
+            <label>
+                correo
+                <input class="email-input" type="email" name="email" placeholder="escribe tu correo" required>
+            </label>
+        </div>
+
+        <div class="input-chex">
+            <input type="checkbox" name="checkbox">
+            <p><a href="">Remember Forgot</a></p>
+        </div>
+
+        <button class="btn" type="submit">Login Up</button>
+    </form>
+</body>
+</html>
