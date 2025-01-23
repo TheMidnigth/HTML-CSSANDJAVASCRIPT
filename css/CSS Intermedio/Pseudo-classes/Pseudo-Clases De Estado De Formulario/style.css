@@ -49,18 +49,18 @@ form{
 }
 
 .input-box input:focus{
-    outline: 2px solid #0080ffaf;
+    outline: 2px solid #0080ff;
 }
 
 /* * Pseudo-Clase de formulario valid 
 * Selecciona elementos que cumplen con las restricciones de validación */
-.email-input:valid{
+.email-input:valid:not(:placeholder-shown){
     outline: 2px solid #00ff00af;
 }
 
 /* * Pseudo-Clase de formulario invalid
 * Selecciona elementos que no cumplen con las restricciones de validación.*/
-.email-input:invalid{
+.email-input:invalid:not(:placeholder-shown){
     outline: 2px solid #ff0000af;
 }
 
@@ -101,10 +101,19 @@ form{
 }
 
 /* * Selecciona elementos <input> cuyos valores están dentro del rango permitido in-range. */
-.input-box .edad-input:in-range{
+.input-box .edad-input:in-range:not(:placeholder-shown){
     border: 2px solid #00ff00af;
 }
 /* * Selecciona elementos <input> cuyos valores están fuera del rango permitido. out-of-range */
-.input-box .edad-input:out-of-range{
+.input-box .edad-input:out-of-range:not(:placeholder-shown){
     border: 2px solid #ff0000af;
+}
+
+/* * Selecciona elementos de formulario deshabilitados disabled
+* Diferenciar elementos no interactivos*/
+.input-disable input:disabled{
+    background-color: lightgray;
+    color: darkgray;
+    border: 2px solid gray;
+    cursor: not-allowed;
 }
