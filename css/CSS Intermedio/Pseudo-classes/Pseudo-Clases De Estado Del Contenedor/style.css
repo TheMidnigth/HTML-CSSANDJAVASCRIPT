@@ -1,0 +1,62 @@
+/* * Selecciona elementos que coinciden con uno o más selectores dentro de una lista :is */
+:is(h1,h2,h3,h4){
+    font: 900 30px monospace;
+    color: blueviolet;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+div:not(.contenido-sinhas, .contenido-conhas){
+    background-color: blue;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    max-width: 500px;
+    padding: 20px 0 20px 0;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+div > :is(.contenido-1, .contenido-2, .contenido-3, .contenido-4){
+    box-sizing: border-box;
+    background: purple;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding: 0 20px;
+    text-align: justify;
+    font: 800 15px monospace;
+    color: white;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+}
+
+/* * Selecciona elementos que contienen un elemento hijo o un selector específico :has */
+.contenido-conhas > img{
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.contenido-conhas > p{
+    width: 100%;
+    max-width: 200px;
+    height: 300px;
+    text-align: justify;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.contenido-conhas:has(img){
+    box-sizing: border;
+    width: 100%;
+    height: 400px;
+    max-width: 200px;
+    background-color: purple;
+    display: grid;
+    place-items: center;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow:inset 10px 10px 30px rgba(0, 0, 0, 0.5);
+}

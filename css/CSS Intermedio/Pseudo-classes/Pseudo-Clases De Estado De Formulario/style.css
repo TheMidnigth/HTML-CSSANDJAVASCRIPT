@@ -41,19 +41,13 @@ form{
     padding-left: 10px;
 }
 
-
-/* *Selecciona elementos <input> y <textarea> que están mostrando el texto del atributo placeholder */
-.input-box input::placeholder{
-    font: italic 900 10px sans-serif;
-    color: #000000a1;
-}
-
 .input-box input:focus{
     outline: 2px solid #0080ff;
 }
 
 /* * Pseudo-Clase de formulario valid 
-* Selecciona elementos que cumplen con las restricciones de validación */
+* Selecciona elementos que cumplen con las restricciones de validación
+*Selecciona elementos <input> y <textarea> que están mostrando el texto del atributo placeholder */
 .email-input:valid:not(:placeholder-shown){
     outline: 2px solid #00ff00af;
 }
@@ -117,3 +111,4 @@ form{
     border: 2px solid gray;
     cursor: not-allowed;
 }
+
