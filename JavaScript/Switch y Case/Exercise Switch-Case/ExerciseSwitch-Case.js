@@ -242,3 +242,12 @@ switch (categoria) {
         break;
 }
 
+if (precio > 0) {
+    let pagar = parseInt(prompt(`Cuantos productos de: ${nombreProducto} quire comprar?`))
+    if (isNaN(pagar) || pagar <= 0) {
+        alert(`Cantidad invalida`);
+    } else{
+        let total = pagar * precio;
+        alert(`Has seleccionado ${quantity} de ${productName} a $${price} cada uno. Total a pagar: $${total}.`);
+    } 
+} 
