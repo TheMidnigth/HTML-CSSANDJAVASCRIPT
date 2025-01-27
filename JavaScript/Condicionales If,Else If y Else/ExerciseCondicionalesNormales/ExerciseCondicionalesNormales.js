@@ -146,3 +146,42 @@ if (number1 % 2 === 0 && number2 % 2 === 0) {
     console.log(`El resultado de esto es: ${resultado}`);
 }
 
+/* Solicita al usuario que ingrese una temperatura y muestra un mensaje dependiendo de su rango:
+Menor a 0: "Hace mucho frío."
+Entre 0 y 15: "Hace frío."
+Entre 16 y 30: "El clima es agradable."
+Mayor a 30: "Hace calor." */
+
+let temperatura = 30;
+
+if (temperatura < 0) {
+    console.log('Hace mucho frio');
+} else if (temperatura >= 0 && temperatura <= 15) {
+    console.log('Hace frio');
+} else if (temperatura >= 16 && temperatura <= 30) {
+    console.log('El clima es agradable');
+} else if (temperatura > 30) {
+    console.log('Hace calor');
+} else{
+    console.log('Ingresa una temperatura valida');
+}
+
+/* Crea un programa que guarde un número secreto (por ejemplo, 7). 
+Luego, pide al usuario que adivine el número.
+Si acierta, muestra: "¡Adivinaste!", si es mayor, muestra:
+"El número es menor.", y si es menor, muestra: "El número es mayor." */
+let numero4 = 10;
+let numeroSecreto = Math.round(Math.random()*20);
+
+if (numero4 === numeroSecreto) {
+    console.log('Adivinaste');
+    console.log(numeroSecreto);
+} else if(numero4 > numeroSecreto){
+    console.log('El numero es menor');
+    console.log(numeroSecreto);
+} else if(numero4 < numeroSecreto){
+    console.log('El numero es mayor');
+    console.log(numeroSecreto);
+} else{
+    console.log('Ingrese un numero valido');
+}

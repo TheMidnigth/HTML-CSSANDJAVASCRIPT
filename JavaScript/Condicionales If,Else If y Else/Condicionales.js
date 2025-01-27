@@ -26,5 +26,3 @@ let Conducir = (mayorEdad >= 18 || isLicencia)
     ? 'puede conducir un carro'
     :'no puedes conducir un carro';
 console.log(Conducir);
-
-//*Condicionales Anidadas
