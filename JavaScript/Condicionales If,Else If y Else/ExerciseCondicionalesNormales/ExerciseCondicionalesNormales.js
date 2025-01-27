@@ -100,8 +100,49 @@ if (password.length >= 8) {
     console.log(`La contraseña: ${password} es insegura`);
 }
 
+/* Escribe una función que reciba la edad de una persona y devuelva el costo de entrada al parque:
+Menores de 5 años: entrada gratis.
+De 5 a 17 años: $10.
+Mayores de 17: $20. */
+let year = 18;
+if (year <= 5) {
+    console.log(`El costo de la entrada es gratis`);
+} else if (year >= 6 && year <= 17) {
+    console.log(`El costo de la entrada es de $10`);
+} else{
+    console.log(`El costo de la entrada es de $20`);
+}
 
+/* Crea una función que reciba una palabra y determine si es un palíndromo 
+(se lee igual al derecho y al revés).Devuelve "Es palíndromo" o "No es palíndromo". */
+let palabra = 'hola'.toLowerCase();
+let isPalindromo = palabra.split('').reverse().join('');
 
+if (palabra === isPalindromo ) {
+    console.log(`La palabra: ${palabra} es palindromo`);
+} else {
+    console.log(`La palabra: ${palabra} no es palindromo`);
+}
 
+/* Crea una función que reciba dos números. Si ambos son pares, devuelve su producto; 
+si ambos son impares, devuelve su división (redondeada hacia abajo).
+Si son diferentes, devuelve la suma de ambos. */
 
+let number1 = 12;
+let number2 = 23;
+
+if (number1 % 2 === 0 && number2 % 2 === 0) {
+    resultado = number1 * number2;
+    console.log(`Ambos numeros son pares`);
+    console.log(`El resultado de esto es: ${resultado}`);
+} else if (number1 % 2 !== 0 && number2 % 2 !== 0) {
+    resultado = number1 / number2;
+    redondeoAbajo = Math.floor(resultado);
+    console.log(`Ambos numeros son impares`);
+    console.log(`El resultado de esto es: ${redondeoAbajo}`);
+} else{
+    resultado = number1 + number2;
+    console.log(`Ambos numeros son diferentes`);
+    console.log(`El resultado de esto es: ${resultado}`);
+}
 
