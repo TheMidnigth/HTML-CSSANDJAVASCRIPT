@@ -6,6 +6,7 @@ body{
 
 
 table{
+    border-collapse: collapse;
     border: 2px solid #ddd;
     padding: 20px 20px 25px;
     border-radius: 8px;
@@ -16,16 +17,20 @@ table{
 }
 
 th,tr{
-    border-bottom: 1px solid;
     font: italic 600 13px sans-serif;
     color:#000077;
     text-transform: capitalize;
     letter-spacing: 1.3px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     text-align: center;
 }
 
+tr:nth-child(2n){
+    background-color: #ddd;
+}
+
 td{
-    font: italic 500 10px tahoma;
+    font: italic 700 10px tahoma;
     color: #025283;
+    padding: 10px 0;
 }

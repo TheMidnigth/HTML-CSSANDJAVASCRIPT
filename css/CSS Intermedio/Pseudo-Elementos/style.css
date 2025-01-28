@@ -1,0 +1,82 @@
+p{
+    font: italic 900 20px monospace;
+    text-transform: capitalize;
+    color: blue;
+}
+
+/**Pseudo-elemento before */
+p:not(.parrafo):before{
+    content: 'antes';
+    color: red;
+    font: italic 900 30px Time New Roman;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+/**Pseudo-elemento after */
+p:not(.parrafo)::after{
+    content: ':despues';
+    font: italic 900 40px sans-serif;
+    text-transform: uppercase;
+}
+
+h1{
+    font: italic 900 30px sans-serif;
+    color: blueviolet;
+    text-transform: capitalize;
+}
+
+/**Pseudo-elemento first-letter */
+h1::first-letter{
+    color: darkgreen;
+    font: italic 900 50px sans-serif;
+}
+
+.parrafo{
+    color: darkmagenta;
+    font: italic 600 20px/1.4em sans-serif;
+    text-align: justify;
+}
+
+/**Pseudo-elemento first-line */
+.parrafo::first-line{
+    color: chocolate;
+    font: 900 30px monospace;
+}
+
+/**Pseudo-elemento selection */
+::selection{
+    background-color: crimson;
+    color: black;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    font: italic 900 20px/2em monospace;
+    letter-spacing:3px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+input{
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 8px;
+    border: none;
+    color: blue;
+    font: italic 800 15px monospace;
+}
+
+/**Pseudo-elemento placeholder */
+input::placeholder{
+    font: italic 800 15px monospace;
+    text-transform: capitalize;
+    color: cornflowerblue;
+}
+
+input:focus-visible{
+    outline: 2px solid #0000ffb1;
+}

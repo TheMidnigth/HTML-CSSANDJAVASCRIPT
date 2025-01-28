@@ -1,0 +1,36 @@
+/**Bloque principal llamado lista */
+.lista{
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 20px 40px;
+    background-color: #ddd;
+}
+
+/** Modificadores */
+.lista--vieja{
+    opacity: 0.5;
+    border: 2px solid red;
+}
+
+/** Modificadores */
+.lista--nueva{
+    border: 2px solid green;
+}
+
+/**Elemento principal llamado lista__item */
+.lista__item{
+    font: italic 800 20px monospace;
+    color: purple;
+    text-transform: capitalize;
+    list-style: none;
+}
+
+/** Modificadores */
+.item--harina{
+    color: darkblue;
+}
+
+/** Modificadores */
+.item--lacteos{
+    color: green;
+}
