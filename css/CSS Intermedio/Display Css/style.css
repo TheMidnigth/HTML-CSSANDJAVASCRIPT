@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+}
+
+.content{
+    background-color: #ddd;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    height: 100%;
+    max-height: 230px;
+    padding: 20px 10px 40px 10px;
+    margin-bottom:10px;
+}
+
+/* * Display block coloca los elementos de lineas en bloques es decir
+* uno abajo del otro como en este caso los a*/
+.content__item{
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font: italic 800 18px monospace;
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    display: block;
+    margin-bottom:10px;
+}
+
+
+/* * Display inline coloca los elementos de bloques en linea es decir
+* uno al lado del otro como en este caso los p*/
+.content__text{
+    background-color: black;
+    color: #fff;
+    display: inline;
+    margin: 5px;
+    padding:10px;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+
+.nav{
+    background-color: #48f;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.nav__lista{
+    margin: 0;
+}
+
+/** Display inline-block Se comporta como un elemento en línea, pero permite modificar width y height. */
+.lista__item{
+    display: inline-block;
+    padding: 4px;
+}
+
+.item__link:hover{
+    background-color:#59e;
+}
+
+.item__link{
+    color: #fff;
+    text-decoration: none;
+    font: italic 800 15px monospace;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.link--button{
+    text-transform: capitalize;
+    font: italic 600 15px sans-serif;
+    border: 2px solid #fff;
+    background-color: #fff;
+    color: #48f;
+    padding: 4px 25px;
+    border-radius: 4px;
+    margin-left: 60px;
+}
+
+.link--button:hover{
+    background-color: transparent;
+    color: #fff;
+}

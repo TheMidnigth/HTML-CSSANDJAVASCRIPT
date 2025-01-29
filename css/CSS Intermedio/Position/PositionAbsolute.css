@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+
+.content{
+    border: 2px solid black;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 30px;
+    position: relative;
+}
+
+.content__box{
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+.box--red{
+    background-color: red;
+}
+
+.box--blue{
+    background-color: blue;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+}
+
+.box--green{
+    background-color: green;
+}

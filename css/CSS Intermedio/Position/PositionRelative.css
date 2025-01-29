@@ -1,0 +1,29 @@
+/* * Position relative mantiene la posicion original del elemento
+*Pero ahora la puedo mover para donde yo quiera arriba,abajo,izquierda y derecha */
+.box{
+    width: 100%;
+    max-width: 200px;
+    background-color: orange;
+    color: #fff;
+    padding: 0 10px;
+    position: relative;
+    border: 2px solid red;
+    border-radius: 8px;
+}
+
+.box--blue{
+    background: blue;
+    top: 120px;
+    left: 15%;
+    z-index: 1;
+}
+
+.box--green{
+    background-color: green;
+}
+
+.box:first-child{
+    top: 230px;
+    left: 30%;
+    z-index: 2;
+}
