@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+}
+
+.boxsticky{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 350px;
+    background-color: red;
+    padding: 5px;
+    position: sticky;
+    top: 50px;
+}
+
+.sticky--first{
+    top: 140px;
+}
+
+.sticky--secund{
+    top: 230px;
+}

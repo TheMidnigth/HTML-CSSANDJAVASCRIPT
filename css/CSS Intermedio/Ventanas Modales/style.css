@@ -1,0 +1,66 @@
+.modal{
+    background-color: #ddd;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid black;
+    border-radius: 8px;
+
+}
+
+.modal::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.content__title{
+    font: italic 900 26px monospace;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    text-align: center;
+    color: purple;
+}
+
+.content__text{
+    font: italic 600 17px monospace;
+    text-transform: capitalize;
+    text-align: justify;
+    color: midnightblue;
+}
+
+.content__button{
+    font: italic 500 16px monospace;
+    text-transform: capitalize;
+    width: 100%;
+    max-width: 80px;
+    height: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.button--yes{
+    background-color: green;
+    color: #fff;
+    border: none;
+}
+
+.button--no{
+    background-color: red;
+    color: #fff;
+    border: none;
+    position: absolute;
+    left: 18.5em;
+}
+
+.content__buttonclose{
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
