@@ -1,3 +1,4 @@
+//* Variables con la palabra reservada var
 // ejercicio de convertir de celsius a faren
 let gradosCelsius = 24;
 let Formula = (gradosCelsius * 9/5) + 32;
@@ -18,32 +19,6 @@ let kilometros = 20;
 let conversionMillas = kilometros * 0.621371;
 console.log(conversionMillas);
 //document.write(conversionMillas);
-//document.write('<br>');
-
-// un objeto de una persona con clave y valor
-let persona = {nombre:'keiner',edad:22};
-console.log(persona);
-//document.write(persona);
-//document.write('<br>');
-
-// una lista de colores
-let colores = ['rojo','azul','amarrillo','verde'];
-console.log(colores);
-//document.write(colores);
-//document.write('<br>');
-
-//variables vacias
-let vacio = null;
-console.log(vacio);
-//document.write(vacio);
-//document.write('<br>');
-
-// variables boolean
-let esverdadero = true;
-let esfalso = false;
-console.log(esverdadero,esfalso);
-console.log(esfalso)
-//document.write(esverdadero);
 //document.write('<br>');
 
 //calculo de notas
@@ -71,3 +46,14 @@ const velocidadInicial = 220;
 const result = velocidadFinal - velocidadInicial;
 //alert(result);
 console.log(result);
+
+const nombreTienda = 'LosMancos';
+console.log(nombreTienda);
+
+let precio = 100;
+console.log(`El precio anterior es: ${precio}`);
+
+precio = 150;
+console.log(`El precio actual es: ${precio}`);
+
+const PI = 3.14;
