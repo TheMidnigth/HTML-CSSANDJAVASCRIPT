@@ -103,7 +103,7 @@ while (numero8 <= 15) {
 El tanque tiene una capacidad máxima de 100 litros y comienza vacío.
 En cada iteración, se debe agregar una cantidad aleatoria de agua entre 5 y 15 litros.
 El programa debe mostrar el nivel actual del tanque en cada iteración y detenerse cuando el tanque esté lleno. */
-let tanqueAgua = null;
+/* let tanqueAgua = null;
 let suma = 0;
 
 while (true) {
@@ -123,14 +123,52 @@ while (true) {
     } else{
         alert(`Ingrese un numero por favor`);
     }
+} */
+
+/* Escribe un programa en JavaScript que use un bucle while para sumar números ingresados por el usuario.
+El programa debe seguir pidiendo números y sumarlos hasta que el usuario ingrese 0
+,momento en el cual mostrará la suma total y finalizará. */
+/* let numero9 = 0;
+let suma = 0;
+
+while (true) {
+    numero9 = parseInt(prompt('Ingrese un numero: ',0));
+
+    if (isNaN(numero9)) {
+        alert('Ingrese un numero por favor');
+    } else {
+        suma += numero9;
+    }
+
+    if (numero9 === 0) {
+        break;
+    }
 }
 
-/* Crea un programa en JavaScript que simule una tienda con un stock de 20 productos. En cada iteración, un cliente compra una cantidad aleatoria de productos (entre 1 y 5).
+alert(`La suma total es: ${suma}`);
+ */
 
-El programa debe:
+/* Escribe un programa en JavaScript que use un bucle while para adivinar un número secreto. El programa debe generar un número aleatorio entre 1 y 10 y luego pedir al usuario que adivine el número. Seguirá pidiendo intentos hasta que el usuario acierte, mostrando mensajes de "Incorrecto, intenta de nuevo" o "¡Felicidades, adivinaste el número!" cuando acierte. */
 
-Mostrar cuántos productos compra el cliente en cada iteración.
-Restar esa cantidad del stock.
-Mostrar el stock restante.
-Detenerse cuando el stock llegue a 0 y mostrar un mensaje de "Stock agotado". */
+
+let numeroSecreto = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+let numero10 = parseInt(prompt('Ingrese un numero entre 1 y 10: ',1));
+
+while (numero10 >= 1 && numero10 <= 10) {
+
+    numero10 = parseInt(prompt('Ingrese un numero entre 1 y 10: ',1));
+
+    if (isNaN(numero10)) {
+        alert('Ingrese un numero valido');
+    } 
+
+    if (numero10 === numeroSecreto) {
+        alert(`Felicidades el numero: ${numero10} es igual a: ${numero10}`);
+        break;
+    } else{
+        alert(`Incorrecto intenta de nuevo`);
+    }
+    
+
+}
 
