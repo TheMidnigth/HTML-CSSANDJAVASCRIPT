@@ -151,7 +151,7 @@ alert(`La suma total es: ${suma}`);
 /* Escribe un programa en JavaScript que use un bucle while para adivinar un número secreto. El programa debe generar un número aleatorio entre 1 y 10 y luego pedir al usuario que adivine el número. Seguirá pidiendo intentos hasta que el usuario acierte, mostrando mensajes de "Incorrecto, intenta de nuevo" o "¡Felicidades, adivinaste el número!" cuando acierte. */
 
 
-let numeroSecreto = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+/* let numeroSecreto = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 let numero10 = parseInt(prompt('Ingrese un numero entre 1 y 10: ',1));
 
 while (numero10 >= 1 && numero10 <= 10) {
@@ -169,6 +169,38 @@ while (numero10 >= 1 && numero10 <= 10) {
         alert(`Incorrecto intenta de nuevo`);
     }
     
+} */
+
+/* Desarrolla un programa en JavaScript que utilice un bucle while para simular un cajero automático. El usuario debe comenzar con un saldo inicial y podrá realizar operaciones de retiro ingresando un monto. El bucle debe continuar hasta que el usuario elija salir o hasta que el saldo sea insuficiente para realizar un retiro. Al final, debe mostrar el saldo restante. */
+
+let saldoInicial = 50000;
+let monto = 0;
+
+while (monto <= saldoInicial) {
+    let entrada = prompt('Ingrese un monto para retirar: ',0).toLowerCase();
+
+    if (entrada === 'salir') {
+        alert('Usted a salido del cajero automatico');
+        break;
+    }
+
+    monto = parseInt(entrada);
+
+    if (monto !== 10000 && monto !== 20000 && monto !== 50000) {
+        alert("Monto no permitido. Inténtelo de nuevo.");
+    } else{
+        saldoInicial -= monto;
+        alert(`El monto que esta retirando es: $${monto} y le queda en su saldo: $${saldoInicial}`);
+    }
 
 }
 
+alert(`El saldo restante que te quedo es: $${saldoInicial}`);
+
+/* Escribe un programa en JavaScript que use un bucle while para contar cuántos números pares hay en un rango dado por el usuario.
+
+Requisitos:
+Pedir al usuario un número inicial y un número final.
+Contar cuántos números pares hay en ese rango.
+Mostrar el resultado al final.
+ */
