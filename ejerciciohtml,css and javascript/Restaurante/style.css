@@ -157,7 +157,7 @@ span {
     padding: 0;
 }
 
-.menu{
+.platos{
     width: 100vw;  
     padding: 500px 0; 
     background: #eee;
@@ -203,7 +203,7 @@ span {
     max-width: 150px;
     height: 40px;
     margin: 0 0.5em;
-    border-radius: 10px;
+    border-radius: 40px;
     border: none;
     cursor: pointer;
     background-color: #eee;
@@ -217,3 +217,76 @@ span {
     box-shadow: inset 5px 5px 13px rgba(0, 0,0, 0.5);
 }
 
+.contenido__card{
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    margin:10em 0;
+}
+
+.card__comida{
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+    height: 350px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0,0, 0.5),
+                -10px -10px 20px #fff;
+    transform: translateY(0);
+    transition: transform 1s ease-in-out;
+}
+
+.card__comida:hover{
+    transform: translateY(-20%);
+}
+
+
+.comida__img{
+    position: absolute;
+    top: -7em;
+    left: 20px;
+}
+
+.comida__img > .img__item{
+    width: 100%;
+    max-width: 230px;
+    filter: drop-shadow(5px 15px 10px rgba(0, 0,0, 0.4) );
+
+}
+
+
+.comida__information{
+    padding-top: 120px;
+}
+
+.information__title{
+    font: 900 20px "Poppins";
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.information__text{
+    font: 500 15px "Poppins";
+    padding: 0 20px;
+}
+
+.information__link{
+    box-sizing: border-box;
+    text-decoration: none;
+    background: #000084;
+    padding: 10px 10px;
+    color: #fff;
+    border-radius: 20px;
+    font: 500 15px "Poppins";
+    cursor: pointer;
+    text-transform: capitalize;
+    position: relative;
+    top: 20px;
+    left: 0;
+}
+
+.information__link:active{
+    box-shadow: inset 5px 5px 10px rgba(0, 0,0, 0.5);
+}
