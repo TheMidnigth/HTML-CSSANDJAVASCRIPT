@@ -1,3 +1,11 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
 .hero {
     background: url('assets/image/restaurantedefondo.jpg') center/cover;
     position: absolute;
@@ -7,10 +15,22 @@
     height: 100vh;
 }
 
+.nav__img{
+    position: absolute;
+    top: -20px;
+    left: -4em;
+}
+
+.nav__img > img{
+    width: 100%;
+    max-width: 150px;
+}
+
 .header__nav {
+    position: relative;
     display: flex;
     justify-content: right;
-    margin: 0.9em 5em;
+    margin: 0.2em 5em;
 }
 
 .nav__list {
@@ -117,7 +137,7 @@ span {
     width: 100%;
     height: 100%;
     background-color: #000084;
-    transform: translateX(-100%);
+    transform:translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: -1; 
 }
@@ -129,5 +149,71 @@ span {
 .inicio__link:hover {
     color: #fff; 
     z-index: 2;
+}
+
+.main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu{
+    width: 100vw;  
+    padding: 500px 0; 
+    background: #eee;
+    text-align: center;
+}
+
+
+.menu__title{
+    position: relative;
+    font: 900 40px "Poppins";
+    text-transform: capitalize;
+    color: black;
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+.menu__title::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 44.4%;
+    background-color: #000084;
+    width: 100%;
+    max-width: 50px;
+    height: 4px;
+}
+
+.menu__text{
+    width: 100%;
+    max-width: 95%;
+    font: 500 20px "Poppins";
+    margin: -1.4em 0;
+    text-align: center;
+}
+
+.menu__bnt{
+    margin: 4em 0;
+    text-align: center;
+}
+
+.btn__comida{
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    margin: 0 0.5em;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #eee;
+    box-shadow: 10px 10px 12px rgba(0, 0,0, 0.5),
+                -10px -10px 12px #fff;
+    font: 500 15px "Poppins";
+    text-transform: capitalize;
+}
+
+.btn__comida:active{
+    box-shadow: inset 5px 5px 13px rgba(0, 0,0, 0.5);
 }
 
