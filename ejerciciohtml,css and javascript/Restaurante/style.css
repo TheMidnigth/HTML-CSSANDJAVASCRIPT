@@ -249,13 +249,21 @@ span {
     left: 20px;
 }
 
+.img--changed{
+    left: 10px;
+}
+
+.img--changed2{
+    left: 25px;
+}
+
+
 .comida__img > .img__item{
     width: 100%;
     max-width: 230px;
     filter: drop-shadow(5px 15px 10px rgba(0, 0,0, 0.4) );
 
 }
-
 
 .comida__information{
     padding-top: 120px;
