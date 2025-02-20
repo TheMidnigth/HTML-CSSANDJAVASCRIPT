@@ -64,7 +64,7 @@ body, html {
     bottom: -1px;
     width: 0;
     height: 2.7px;
-    background-color: #000084;
+    background-color: #f8370a;
     transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
 }
 
@@ -75,7 +75,7 @@ body, html {
 }
 
 .link--btn {
-    background-color: #000084;
+    background-color: #cc1c05;
     padding: 5px 25px;
     border-radius: 40px;
     color: #fff;
@@ -87,7 +87,7 @@ body, html {
 }
 
 .link--btn:hover {
-    background-color: #0f25cf;
+    background-color: #f8370a;
 }
 
 .inicio {
@@ -101,7 +101,7 @@ body, html {
 }
 
 span {
-    color: #000084;
+    color: #f8370a;
 }
 
 .inicio__text {
@@ -123,7 +123,7 @@ span {
     text-decoration: none;
     margin-left: 3em;
     background-color: transparent;
-    border: 2px solid #000084;
+    border: 2px solid #f8370a;
     padding: 10px 15px;
     overflow: hidden;
     z-index: 1; 
@@ -136,7 +136,7 @@ span {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #000084;
+    background-color: #f8370a;
     transform:translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: -1; 
@@ -159,7 +159,7 @@ span {
 
 .platos{
     width: 100vw;  
-    padding: 500px 0; 
+    padding: 500px 0 5px; 
     background: #eee;
     text-align: center;
 }
@@ -179,7 +179,7 @@ span {
     position: absolute;
     bottom: 0;
     left: 44.4%;
-    background-color: #000084;
+    background-color: #f8370a;
     width: 100%;
     max-width: 50px;
     height: 4px;
@@ -270,6 +270,7 @@ span {
 }
 
 .information__title{
+    color: #f8370a;
     font: 900 20px "Poppins";
     text-align: center;
     text-transform: capitalize;
@@ -283,7 +284,7 @@ span {
 .information__link{
     box-sizing: border-box;
     text-decoration: none;
-    background: #000084;
+    background: #f8370a;
     padding: 10px 10px;
     color: #fff;
     border-radius: 20px;
@@ -298,3 +299,99 @@ span {
 .information__link:active{
     box-shadow: inset 5px 5px 10px rgba(0, 0,0, 0.5);
 }
+
+/* Section de nosotros */
+.Nosotros{
+    padding: 50px 0;
+}
+
+.content__nosotros{
+    position: relative;
+}
+
+.nosotros__title{
+    position: relative;
+    font: 900 45px "Poppins";
+    text-transform: capitalize;
+    margin-left: 1.5em;
+}
+
+.nosotros__title::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    width: 100%;
+    max-width: 60px;
+    height: 4px;
+    background-color: #f8370a;
+}
+
+.nosotros__text{
+    font: 500 20px "Poppins";
+    text-transform: capitalize;
+    margin:-30px 0 20px 3.4em;
+    width: 100%;
+    max-width: 400px;
+    text-align: justify;
+}
+
+.nosotros__link{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 15px;
+    border: 2px solid #f8370a;
+    color: #000;
+    font: 500 20px "Poppins";
+    text-decoration: none;
+    margin: 0 69px;
+    text-transform: capitalize;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nosotros__link::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    background-color: #f8370a;
+    z-index: -1;
+}
+
+.nosotros__link:hover::before{
+    transform: translateX(0);
+}
+
+.nosotros__link:hover{
+    z-index: 2;
+}
+
+.nosotros__img{
+    margin-right: 3em;
+    float: right;
+    position: relative;
+    top: -19em;
+}
+
+.item__nosotros{
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 10px 10px 25px rgba(0, 0,0, 0.5);
+}
+
+
+.nosotros--changed2{
+    position: absolute;
+    left: -30%;
+    top: 70%;
+    z-index: 1;
+}
+
+
