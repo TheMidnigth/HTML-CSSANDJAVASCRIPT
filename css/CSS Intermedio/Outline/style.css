@@ -1,0 +1,15 @@
+body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.form{
+    width: 100%;
+    max-width: 400px;
+    background: purple;
+    height: 300px;
+    border-radius: 10px;
+}
