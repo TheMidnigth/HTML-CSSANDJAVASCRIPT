@@ -309,14 +309,20 @@ span {
     position: relative;
 }
 
-.nosotros__title{
+.nosotros__page{
+    margin-top: -50px;
+    padding-bottom: 40px;
+}
+
+.page__title{
     position: relative;
     font: 900 45px "Poppins";
     text-transform: capitalize;
     margin-left: 1.5em;
+
 }
 
-.nosotros__title::before{
+.page__title::before{
     content: "";
     position: absolute;
     left: 0;
@@ -327,7 +333,7 @@ span {
     background-color: #f8370a;
 }
 
-.nosotros__text{
+.page__text{
     font: 500 20px "Poppins";
     text-transform: capitalize;
     margin:-30px 0 20px 3.4em;
@@ -336,7 +342,7 @@ span {
     text-align: justify;
 }
 
-.nosotros__link{
+.page__link{
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -351,7 +357,7 @@ span {
     z-index: 1;
 }
 
-.nosotros__link::before{
+.page__link::before{
     content: "";
     position: absolute;
     top: 0;
@@ -364,28 +370,27 @@ span {
     z-index: -1;
 }
 
-.nosotros__link:hover::before{
+.page__link:hover::before{
     transform: translateX(0);
 }
 
-.nosotros__link:hover{
+.page__link:hover{
     z-index: 2;
 }
 
 .nosotros__img{
-    margin-right: 3em;
+    margin-right: 2em;
     float: right;
     position: relative;
-    top: -19em;
+    top: -24em;
 }
 
 .item__nosotros{
     border-radius: 5px;
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
     box-shadow: 10px 10px 25px rgba(0, 0,0, 0.5);
 }
-
 
 .nosotros--changed2{
     position: absolute;
@@ -394,4 +399,82 @@ span {
     z-index: 1;
 }
 
+/* Contenido welcome de los chef */
+.contenido__welcome{
+    padding: 80px 0 50px 0;
+    background-color: #f8370a;
+}
 
+
+.welcome__content > .content__title{
+    position: relative;
+    font: 900 45px "Poppins";
+    text-transform: capitalize;
+    margin-left: 1em;
+    color: #fff;
+}
+
+.welcome__content > .content__title:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 70px;
+    height: 5px;
+    background: #fff;
+
+}
+
+.welcome__content > .content__text{
+    width: 100%;
+    max-width: 500px;
+    color: #fff;
+    font: 500 20px "Poppins";
+    text-align: justify;
+    margin-left: 2em;
+}
+
+.welcome__content > .content__link{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background-color: transparent;
+    border: 3px solid #fff;
+    margin-left: 2em;
+    padding: 10px 15px;
+    font: 500 20px "Poppins";
+    text-decoration: none;
+    color: #000;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.welcome__content > .content__link::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: #fff;
+    transition: transform 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.welcome__content > .content__link:hover::before{
+    transform: translateX(0%);
+}
+
+.welcome__content > .content__link:hover{
+    z-index: 2;
+}
+
+.content__img{
+    float: right;
+    margin: -25em 0 0 0;
+}
+
+.content__img > .img__chef{
+    mask-image: linear-gradient(#f8370a 80%,transparent);
+}
