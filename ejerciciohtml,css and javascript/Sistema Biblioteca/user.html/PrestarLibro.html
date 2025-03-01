@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="../admin.css/fonts.css">
 </head>
 <body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Lista Préstamos</a></li>
+            <li><a href="#">Prestar Libros</a></li>
+        </ul>
+        <ul>
+            <li class="dropdown">
+                <a href="#">Users ▼</a>
+                <div class="dropdown-content">
+                    <a href="login.html">Cerrar Sesión</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <section class="registro-prestamo">
         <h2 class="titulo">Registrar Préstamo de Libro</h2>
         <form id="form-prestamo">
@@ -29,7 +45,7 @@
             </div>
     
             <div class="campo">
-                <label for="fecha-devolucion">Fecha de Devolución:</label>
+                <label for="fecha-devolucion">Fecha De Prestamos:</label>
                 <input type="date" id="fecha-devolucion" name="fecha-devolucion" required>
             </div>
     

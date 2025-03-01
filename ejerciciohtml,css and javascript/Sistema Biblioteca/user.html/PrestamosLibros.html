@@ -8,24 +8,29 @@
     <link rel="stylesheet" href="../admin.css/fonts.css">
 </head>
 <body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Lista Préstamos</a></li>
+            <li><a href="#">Prestar Libros</a></li>
+        </ul>
+        <ul>
+            <li class="dropdown">
+                <a href="#">Users ▼</a>
+                <div class="dropdown-content">
+                    <a href="login.html">Cerrar Sesión</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <section class="usuarios-prestamo"> 
-        <div class="header-section">
-            <h2 class="titulo">Prestamos/Devoluciones</h2>
-            <div class="actions">
-                <a href="PrestarLibro.html" class="boton-prestar">Prestar</a>
-                <a href="#" class="boton-devolver">Devolver</a>
-            </div>
-            <input type="text" id="search" placeholder="Buscar..." class="search-bar">
-        </div>
-    
         <table class="tabla">
             <thead>
                 <tr>
                     <th>Usuario</th>
                     <th>Libro</th>
-                    <th>Stock</th>
                     <th>Fecha de Préstamo</th>
-                    <th>Fecha de Devolución</th>
                     <th>Estado</th>
                 </tr>
             </thead>
@@ -33,17 +38,13 @@
                 <tr>
                     <td>Juan Pérez</td>
                     <td>Cien Años de Soledad</td>
-                    <td>2</td>
                     <td>2025-02-10</td>
-                    <td>2025-03-10</td>
                     <td><button class="boton-estado prestamo">En Préstamo</button></td>
                 </tr>
                 <tr>
-                    <td>María Gómez</td>
+                    <td>Juan Pérez</td>
                     <td>El Principito</td>
-                    <td>2</td>
                     <td>2025-02-05</td>
-                    <td>2025-03-05</td>
                     <td><button class="boton-estado devuelto">Devuelto</button></td>
                 </tr>
             </tbody>

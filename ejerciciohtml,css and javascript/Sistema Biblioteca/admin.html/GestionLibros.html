@@ -11,15 +11,22 @@
     <header class="header">
         <nav class="header__nav">
             <ul class="nav__lista">
-                <li><a class="lista__item" href="">Gestion De Libros</a></li>
-                <li><a class="lista__item" href="../admin.html/RegistrarLibros.html">Registrar Libros</a></li>
-                <li><a class="lista__item" href="">Editar Libros</a></li>
-                <li><a class="lista__item" href="../admin.html/GestionPrestamos.html">Gestionar Prestamos</a></li>
-                <li><a class="lista__item" href="../admin.html/ListaUsuario.html">Lista Usuarios</a></li>
-                <li><a class="lista__item item--admin">ADMIN</a></li>
+                <li><a class="lista__item" href="#">Gestion De Libros</a></li>
+                <li><a class="lista__item" href="#">Registrar Libros</a></li>
+                <li><a class="lista__item" href="#">Gestionar Prestamos</a></li>
+                <li><a class="lista__item" href="#">Lista Prestamos</a></li>
+                
+                <!-- Menú desplegable en ADMIN -->
+                <li class="dropdown">
+                    <a class="lista__item item--admin" href="#">ADMIN</a>
+                    <ul class="dropdown__menu">
+                        <li><a href="../Formularios/login.html" class="dropdown__item">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
+    
     <section class="bienvenida">
         <div class="bienvenida__contenido">
             <h1 class="bienvenida__titulo">Bienvenido,Administrador</h1>
