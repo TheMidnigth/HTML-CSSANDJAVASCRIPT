@@ -11,7 +11,7 @@
 
     <nav class="navbar">
         <ul>
-            <li><a href="#">Lista Préstamos</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Prestar Libros</a></li>
         </ul>
         <ul>
@@ -28,43 +28,84 @@
         <table class="tabla">
             <thead>
                 <tr>
+                    <th>Libro</th>
+                    <th>Autor</th>
+                    <th>Género</th>
+                    <th>Año</th>
+                    <th>Número de Páginas</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>El Principito</td>
+                    <td>Antoine de Saint-Exupéry</td>
+                    <td>Ficción</td>
+                    <td>1943</td>
+                    <td>100</td>
+                    <td>10</td>
+                    <td>
+                        <button class="boton boton-prestar">Prestar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cien Años de Soledad</td>
+                    <td>Gabriel García Márquez</td>
+                    <td>Ficción</td>
+                    <td>1967</td>
+                    <td>200</td>
+                    <td>5</td>
+                    <td>
+                        <button class="boton boton-prestar">Prestar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="tabla tabla-grande">
+            <thead>
+                <tr>
                     <th>Usuario</th>
                     <th>Libro</th>
                     <th>Fecha de Préstamo</th>
-                    <th>Estado</th>
+                    <th>Autor</th>
+                    <th>Género</th>
+                    <th>Año</th>
+                    <th>Número de Páginas</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody id="tabla-body">
+            <tbody>
                 <tr>
                     <td>Juan Pérez</td>
                     <td>Cien Años de Soledad</td>
                     <td>2025-02-10</td>
-                    <td><button class="boton-estado prestamo">En Préstamo</button></td>
+                    <td>Gabriel García Márquez</td>
+                    <td>Ficción</td>
+                    <td>1967</td>
+                    <td>200</td>
+                    <td>5</td>
+                    <td>
+                        <button class="boton boton-devolver">Devolver</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>Juan Pérez</td>
                     <td>El Principito</td>
                     <td>2025-02-05</td>
-                    <td><button class="boton-estado devuelto">Devuelto</button></td>
+                    <td>Antoine de Saint-Exupéry</td>
+                    <td>Ficción</td>
+                    <td>1943</td>
+                    <td>100</td>
+                    <td>10</td>
+                    <td>
+                        <button class="boton boton-devolver">Devolver</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </section>
-    <script>
-        document.getElementById("search").addEventListener("keyup", function() {
-        let filtro = this.value.toLowerCase();
-        let filas = document.querySelectorAll("#tabla-body tr");
-
-        filas.forEach(function(fila) {
-            let textoFila = fila.textContent.toLowerCase();
-            if (textoFila.includes(filtro)) {
-                fila.style.display = "";
-            } else {
-                fila.style.display = "none";
-            }
-        });
-    });
-    </script>
-</table>
 </body>
 </html>

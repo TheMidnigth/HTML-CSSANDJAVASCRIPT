@@ -85,36 +85,6 @@ body{
     background-color: #f2f2f2;
 }
 
-/* Botones de estado */
-.boton-estado {
-    font-weight: bold;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 14px;
-    color: white;
-    font-size: 13px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    min-width: 110px; /* Asegura un tamaño uniforme */
-}
 
-/* Estado "En Préstamo" (naranja) */
-.prestamo {
-    background-color: #e67e22;
-}
 
-.prestamo:hover {
-    background-color: #d35400;
-    transform: scale(1.05);
-}
 
-/* Estado "Devuelto" (verde) */
-.devuelto {
-    background-color: #27ae60;
-}
-
-.devuelto:hover {
-    background-color: #1e8449;
-    transform: scale(1.05);
-}
