@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Sign In And Sing Up</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <span>or use your email for registeration</span>
+                <div class="input-box">
+                    <input type="text" required autocomplete="off" name="Nombre" id="nombre">
+                    <label for="Nombre">Nombre</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required autocomplete="off" name="Apellido" id="apellido">
+                    <label for="Apellido">Apellido</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required autocomplete="off" name="Cedula" id="cedula">
+                    <label for="Cedula">Cedula</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" required autocomplete="off" name="Email" id="email">
+                    <label for="Email">Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required autocomplete="off" name="Telefono" id="telefono">
+                    <label for="Telefono">Telefono</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required autocomplete="off" name="Password" id="password">
+                    <label for="Password">Password</label>
+                </div>
+                <button type="submit">Sig Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <span>or use your email password</span>
+                <div class="input-box">
+                    <input type="email" required autocomplete="off" name="Email" id="email">
+                    <label for="Email">Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required autocomplete="off" name="Password" id="password">
+                    <label for="Password">Password</label>
+                </div>
+                <a href="#">Forget Your Password?</a>
+                <button type="submit">Sig In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left"> 
+                    <h1>Bienvenido</h1>
+                    <p>Ingresa tus datos personales para usar todas las funciones del sitio</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>¡Hola, amigo!</h1>
+                    <p>Regístrate con tus datos personales para usar todas las funciones del sitio</p>
+                    <button class="hidden" id="register">Sing Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Login.js"></script>
+</body>
+
+</html>
