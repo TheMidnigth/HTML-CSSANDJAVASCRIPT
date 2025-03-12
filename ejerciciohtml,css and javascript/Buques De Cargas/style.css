@@ -112,30 +112,6 @@ body {
 }
 
 
-/* Botón Sign Up */
-.btn--signup {
-    padding: 8px 25px;
-    background-color: var(--color-secundario);
-    border: 2px solid var(--color-secundario);
-    border-radius: 30px;
-    position: relative;
-    display: inline-block;
-    color: var(--color-primario);
-    font: 400 18px "NotoSans";
-    text-align: center;
-    text-transform: capitalize;
-    transform: scale(1);
-    transition: transform .5s ease;
-}
-
-.btn--signup:hover{
-    transform: scale(1.1);
-}
-
-.btn--signup::after {
-    content: none;
-}
-
 .sectioninicio {
     width: 100vw;
     height: 100vh;
