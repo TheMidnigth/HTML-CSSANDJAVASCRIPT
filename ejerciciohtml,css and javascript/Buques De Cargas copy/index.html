@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="font.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
         <nav class="header__nav">
             <ul class="nav__list">
                 <li class="list__item"><a class="item__link" href="#inicio">inicio</a></li>
-                <li class="list__item"><a class="item__link" href="#nosotros">nosotros</a></li>
+                <li class="list__item"><a class="item__link" href="#somos">quienes somos</a></li>
                 <li class="list__item"><a class="item__link" href="#servicios">servicios</a></li>
                 <li class="list__item"><a class="item__link" href="#">Noticias y Actualizaciones</a></li>
                 <li class="list__item"><a class="item__link" href="#">Testimonios</a></li>
@@ -40,7 +41,8 @@
 
                 <div class="list__unit">
                     <div class="item__content">
-                        <h1 class="content__title">Gestión Integral De <span>Buques</span> & <span>Contenedores</span> Cartagena</h1>
+                        <h1 class="content__title title--changed">Gestión Integral De <span>Buques</span> &
+                            <span>Contenedores</span> Cartagena</h1>
                         <p class="content__text">
                             Bienvenido a la plataforma líder en gestión y control de buques en el <strong>Puerto de
                                 Cartagena</strong>.
@@ -53,11 +55,11 @@
 
                 <div class="list__unit ">
                     <div class="item__content">
-                        <h2 class="content__title title--changed1">Nuestro Puerto</h2>
+                        <h2 class="content__title">Nuestro Puerto</h2>
                         <p class="content__text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequatur in molestias
-                            nobis iusto totam, autem vel, vero asperiores, odio deleniti sint consectetur assumenda
-                            magni eligendi dolor! Ipsa, non sed?
+                            Bienvenidos a nuestro puerto, un lugar donde el mar y la historia se encuentran.
+                            Aquí, cada muelle es testigo del esfuerzo y la dedicación de quienes trabajan día a día
+                            para que el comercio, la exploración y la conexión entre naciones nunca se detengan.
                         </p>
                         <a class="content__btn" href="">Mas Informacion</a>
                     </div>
@@ -65,11 +67,11 @@
 
                 <div class="list__unit ">
                     <div class="item__content">
-                        <h2 class="content__title title--changed2">Nuestros Buques</h2>
+                        <h2 class="content__title">Nuestros Buques</h2>
                         <p class="content__text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consequatur in molestias
-                            nobis iusto totam, autem vel, vero asperiores, odio deleniti sint consectetur assumenda
-                            magni eligendi dolor! Ipsa, non sed?
+                            Cada buque que zarpa desde nuestro puerto es un emblema de determinación y compromiso.
+                            Grandes embarcaciones mercantes, elegantes barcos de pasajeros y resistentes naves de carga
+                            surcan nuestras aguas, llevando consigo historias, productos y esperanzas.
                         </p>
                         <a class="content__btn" href="">Mas Informacion</a>
                     </div>
@@ -86,6 +88,104 @@
         </div>
     </section>
 
+    <section class="sectionsomos" id="somos">
+        <div class="sectionsomos__content">
+
+            <h2 class="content__title title--somos">quienes somos</h2>
+            <p class="content__text text--somos">
+                En Gestión Integral de Buques & Contenedores Cartagena, somos una empresa comprometida con la excelencia
+                en la administración,
+                operación y logística de embarcaciones y contenedores en uno de los puertos más estratégicos del Caribe.
+                Nuestra misión es ofrecer soluciones eficientes y seguras para la gestión de buques y carga,
+                garantizando procesos optimizados que cumplan con los más altos estándares de calidad y seguridad.
+                Trabajamos de la mano con armadores, operadores portuarios y empresas logísticas para asegurar un flujo
+                continuo y confiable en cada operación.
+            </p>
+            
+
+            <img loading="lazy" src="assets/image/puerto-somos.png" alt="quienes somos">
+
+            <!-- Modal del video -->
+            <div id="videoModal" class="modal">
+                <div class="modal-content">
+                    <span class="close"><i class="ri-close-line"></i></span>
+                    <video id="videoPlayer" controls >
+                        <source src="assets/video/videopuerto.mp4" type="video/mp4">
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+            </div>
+
+            <button class="content__icon"><i class="ri-play-large-line"></i></button>
+            <p class="content__video">ver video</p>
+        </div>
+
+        <div class="Nosotros__content">
+
+            <h2 class="Nosotros__titleinicio">Nosotros</h2>
+            <p class="Nosotros__textinicio">"Gestión y control de buques en el <strong>Puerto de Cartagena</strong>., tu
+                aliado estratégico en el transporte marítimo y la logística de carga. Con experiencia, innovación y
+                compromiso, llevamos tu mercancía a su destino de manera segura y eficiente. ¡Naveguemos juntos hacia el
+                éxito!"</p>
+
+            <div class="content__main">
+                <div class="content__left">
+                    <div class="content__item">
+                        <span class="item__icon"><i class="fa-solid fa-ship"></i></span>
+                        <h2 class="item__title">Soluciones Marítimas y Logísticas</h2>
+                        <p class="item__text">
+                            En <strong>Gestión Integral De Buques & Contenedores Cartagena</strong>, somos líderes en el
+                            sector marítimo y logístico en Cartagena, brindando soluciones integrales para el transporte
+                            y manejo de carga a nivel nacional e internacional.
+                        </p>
+                        <a class="item__btn" href="">ver mas</a>
+                    </div>
+
+                    <div class="content__item">
+                        <span class="item__icon"><i class="fa-solid fa-ferry"></i></span>
+                        <h2 class="item__title">Experiencia y Seguridad</h2>
+                        <p class="item__text">
+                            Con años de experiencia en la industria, nos especializamos en la operación de buques,
+                            almacenamiento y transporte de contenedores, garantizando eficiencia, seguridad y
+                            cumplimiento en cada envío.
+                        </p>
+                        <a class="item__btn" href="">ver mas</a>
+                    </div>
+                </div>
+
+                <div class="content__img">
+                    <img loading="lazy" src="assets/image/nosotros.jpg" alt="puerto nosotros">
+                </div>
+
+                <div class="content__rigth">
+                    <div class="content__item">
+                        <span class="item__icon"><i class="fa-solid fa-anchor"></i></span>
+                        <h2 class="item__title">Compromiso con la Calidad</h2>
+                        <p class="item__text">
+                            Nuestro compromiso es ofrecer un servicio de calidad que optimice la cadena de suministro de
+                            nuestros clientes, adaptándonos a sus necesidades con tecnología avanzada
+                        </p>
+                        <a class="item__btn" href="">ver mas</a>
+                    </div>
+
+                    <div class="content__item">
+                        <span class="item__icon"><i class="fa-solid fa-water"></i></span>
+                        <h2 class="item__title">Innovación y Confiabilidad</h2>
+                        <p class="item__text">
+                            En <strong>Gestión Integral De Buques & Contenedores Cartagena</strong>, navegamos hacia el
+                            futuro con innovación y confiabilidad. ¡Confía en nosotros para llevar tu carga a su destino
+                        
+                        </p>
+                        <a class="item__btn" href="">ver mas</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <script src="js/main.js"></script>
+    <script src="js/video.js"></script>
 </body>
+
 </html>

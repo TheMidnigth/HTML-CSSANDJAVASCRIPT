@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {  
+    /*Carrusel */
     const carouselList = document.querySelector(".carousel__list");
     const slides = document.querySelectorAll(".list__unit");
     const indicators = document.querySelectorAll(".indicator");
@@ -40,4 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Iniciar el carrusel
     interval = setInterval(nextSlide, slideDuration);
     updateCarousel();
+
+    
 });
