@@ -356,11 +356,24 @@ span{
 }
 
 .content__titulo {
+    position: relative;
     font: 700 50px/1.2 "Poppins";
     color: var(--color-primario);
     text-transform: capitalize;
     max-width: 1500px;
     margin: 0 0 40px 0;
+}
+
+.content__titulo::before{
+    content: "";
+    position: absolute;
+    left: 35.7%;
+    bottom: -2px;
+    background-color: var(--color-secundario);
+    width: 100%;
+    max-width: 70px;
+    height: 5px;
+
 }
 
 .content__texto {
@@ -398,18 +411,19 @@ span{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-top: 30px;
 }  
 
-.content__img img{
-    margin: -110px 0 0 0;
-}
 
 /* Mantiene el tamaño de las imágenes */
 .content__img img {
     width: 650px;
     height: 700px;
     object-fit: cover;
+    margin: -110px 0 0 0;
+
 }
+
 
 /* Ajuste para la segunda imagen y su texto */
 .img-text {
@@ -422,15 +436,28 @@ span{
 .img-text img {
     width: 600px;
     height: 300px;
-    margin: -40px 0px 10px 0;
+    margin: -82px 0px 10px 0;
 }
+
 
 /* Estilo para el subtítulo (h3) */
 .impacto__subtitulo {
+    position: relative;
     font: 600 30px "Poppins";
     color: var(--color-primario);
     margin-top: 20px;
     width: 500px;
+}
+
+.impacto__subtitulo::before{
+    content: "";
+    position: absolute;
+    left: 17%;
+    bottom: -3px;
+    background-color: var(--color-secundario);
+    width: 100%;
+    max-width: 60px;
+    height: 5px;
 }
 
 /* Estilo para el párrafo (p) */
@@ -442,6 +469,165 @@ span{
     line-height: 1.6;
 }
 
+/* Section Lineas Navieras */
+.lineas-navieras {
+    margin-bottom: 100px;
+    text-align: center;
+    background-color: var(--color-tercario);
+    padding: 30px 20px;
+    border-top: 2px solid var(--color-cuartario);
+    border-bottom: 2px solid var(--color-cuartario);
+}
+
+.lineas-navieras__titulo {
+    position: relative;
+    font: 700 35px "Poppins";
+    color: var(--color-cuartario);
+    margin-bottom: 20px;
+}
+
+.lineas-navieras__titulo::before{
+    content: "";
+    position: absolute;
+    left: 40.5%;
+    bottom: -3px;
+    background-color: var(--color-secundario);
+    width: 100%;
+    max-width: 60px;
+    height: 5px;
+}
+
+.lineas-navieras__contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
 
 
+.lineas-navieras__carousel {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 100%;
+    padding: 10px 0;
+}
+
+
+.lineas-navieras__carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+.lineas-navieras__item {
+    flex: 0 0 auto;
+    width: 180px; 
+    height: 120px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform .5s ease;
+}
+
+.lineas-navieras__item:hover{
+    transform: scale(1.1);
+}
+
+.lineas-navieras__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    padding: 10px;
+}
+
+
+.lineas-navieras__boton {
+    background: var(--color-cuartario);
+    border: none;
+    font-size: 24px; 
+    cursor: pointer;
+    position: absolute;
+    width: 50px; 
+    height: 50px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.lineas-navieras__boton i {
+    font-size: 30px; 
+}
+
+
+.lineas-navieras__boton:hover {
+    background:#3099ff;
+}
+
+.lineas-navieras__boton--prev { left: -100px; }
+.lineas-navieras__boton--next { right: -100px; }
+
+
+.lineas-navieras__ver-todas {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.lineas-navieras__boton-ver-todas {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--color-cuartario);
+    color: var(--color-tercario);
+    font: 500 20px "Noto Sans";
+    text-transform: capitalize;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: transform .5s ease,background .8s ease;
+    transform: scale(1);
+
+}
+
+.lineas-navieras__boton-ver-todas:hover{
+    transform:scale(1.1) ;
+    background-color: #3099ff;
+}
+
+/* Section Preguntas Frecuentes */
+.pqf{
+    padding: 0 0 100px 0;
+}
+
+.pqf__title{
+    font: 700 45px "Poppins";
+    color: var(--color-primario);
+    position: relative;
+    text-align: center;
+}
+
+.pqf__title::before{
+    content: "";
+    position: absolute;
+    left: 28.7%;
+    bottom: -3px;
+    background-color: var(--color-secundario);
+    width: 100%;
+    max-width: 65px;
+    height: 5px;
+}
 
