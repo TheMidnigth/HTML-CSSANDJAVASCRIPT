@@ -471,7 +471,7 @@ span{
 
 /* Section Lineas Navieras */
 .lineas-navieras {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     text-align: center;
     background-color: var(--color-tercario);
     padding: 30px 20px;
@@ -611,6 +611,7 @@ span{
 /* Section Preguntas Frecuentes */
 .pqf{
     padding: 0 0 100px 0;
+    
 }
 
 .pqf__title{
@@ -624,10 +625,160 @@ span{
     content: "";
     position: absolute;
     left: 28.7%;
-    bottom: -3px;
+    bottom: 8px;
     background-color: var(--color-secundario);
     width: 100%;
     max-width: 65px;
     height: 5px;
 }
 
+.pqf__content{
+    margin: 50px 0 0 80px;
+}
+
+.pqf__text{
+    font: 400 20px/1.5 "Montserrat";
+    width: 600px;
+    text-align:justify;
+    margin-bottom: 30px;
+} 
+
+.pqf__button{
+    display: inline-block;
+    font: 500 20px "Noto Sans";
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: var(--color-secundario);
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--color-primario);
+    transform: scale(1);
+    transition: transform .5s ease;
+}
+
+.pqf__button:hover{
+    transform: scale(1.1);
+}
+
+.pqf__questions{
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: -340px;
+}
+
+.questions__details{
+    text-align: right;
+    background-color:transparent;
+    width: 100%;
+    max-width: 700px;
+    padding: 25px 0;
+    border-radius: 20px;
+    margin: 0 50px 25px 0;
+    box-shadow:  0px 10px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: 2px solid var(--color-cuartario);
+}
+
+.questions__details[open] .details__summary{
+    border-bottom: 2px solid #007bff; 
+    border-radius: 10px 10px 0 0;
+    padding: 0 0 20px 0;
+}
+
+.details__summary{
+    position: relative;
+    text-transform: capitalize;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:-5px;
+    font: 500 20px "Noto Sans";
+    color: var(--color-primario);
+}
+
+.summary__numero{
+    font: 700 25px "Noto Sans";
+    position: absolute;
+    left: 20px;
+}
+
+.summary__icon i{
+    font: 700 35px "Noto Sans";
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: transform 0.3s ease-in-out;
+}
+
+.questions__details[open] .summary__icon i {
+    transform: rotate(180deg);
+}
+
+.summary__text{
+    font: 500 15px/2 "Montserrat";
+    text-align: justify;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+/* Section Servicios */
+.servicios{
+    padding: 10px 0 100px 0;
+}
+
+.servicios__title{
+    font: 700 50px "Poppins";
+    color: var(--color-primario);
+    position: relative;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+
+}
+
+.servicios__title::before{
+    content: "";
+    position: absolute;
+    left: 42.6%;
+    bottom: 5px;
+    background-color: var(--color-secundario);
+    width: 100%;
+    max-width: 60px;
+    height: 5px;
+}
+
+.servicios__text{
+    font: 500 20px/1.6 "Montserrat";
+    color: var(--color-primario);
+    width: 1500px;
+    padding: 0 100px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.servicios__btn{
+    display: inline-block;
+    font: 500 20px "Noto Sans";
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: var(--color-secundario);
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: capitalize;
+    margin:0 0 20px 45%;
+    color: var(--color-primario);
+    transform: scale(1);
+    transition: transform .5s ease;
+}
+
+.servicios__btn:hover{
+    transform: scale(1.1);
+}

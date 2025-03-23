@@ -48,22 +48,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.querySelector('.lineas-navieras__boton--next');
 
     if (navierasCarousel && prevBtn && nextBtn) {
-        let scrollAmount = 0;
-        const scrollStep = 220; // Ajusta el tamaño del desplazamiento
-        let maxScroll = navierasCarousel.scrollWidth - navierasCarousel.clientWidth;
+        const scrollStep = 220; // Tamaño del desplazamiento
         let autoScroll;
 
+        // Función para duplicar elementos infinitamente
+        function duplicateItems() {
+            const items = [...navierasCarousel.children];
+            items.forEach(item => {
+                let clone = item.cloneNode(true);
+                navierasCarousel.appendChild(clone);
+            });
+        }
+
+        duplicateItems();
+
         function nextSlide() {
-            if (scrollAmount < maxScroll) {
-                scrollAmount += scrollStep;
-            } else {
-                scrollAmount = 0; // Reinicia el carrusel al inicio
+            navierasCarousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+
+            if (navierasCarousel.scrollLeft + navierasCarousel.clientWidth >= navierasCarousel.scrollWidth - scrollStep) {
+                duplicateItems();
             }
-            navierasCarousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        }
+
+        function prevSlide() {
+            if (navierasCarousel.scrollLeft <= 0) {
+                duplicateItems();
+                navierasCarousel.scrollLeft = scrollStep * 5;
+            }
+            navierasCarousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
         }
 
         function startAutoScroll() {
-            autoScroll = setInterval(nextSlide, 4000);
+            autoScroll = setInterval(nextSlide, 3000);
         }
 
         function resetAutoScroll() {
@@ -77,15 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         prevBtn.addEventListener('click', () => {
-            if (scrollAmount > 0) {
-                scrollAmount -= scrollStep;
-            } else {
-                scrollAmount = maxScroll; // Vuelve al final si está al inicio
-            }
-            navierasCarousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+            prevSlide();
             resetAutoScroll();
         });
 
         startAutoScroll();
     }
+
+    
+
 });
