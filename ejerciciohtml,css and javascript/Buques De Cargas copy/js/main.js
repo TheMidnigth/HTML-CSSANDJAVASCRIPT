@@ -101,5 +101,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     
+    /* Apertura y cierre suave de <details> */
+    const detailsElements = document.querySelectorAll(".questions__details");
 
+    detailsElements.forEach((details) => {
+        const summary = details.querySelector(".details__summary");
+        const content = details.querySelector(".summary__text");
+
+        summary.addEventListener("click", (event) => {
+            event.preventDefault(); // Evita el comportamiento predeterminado del <summary>
+
+            if (details.open) {
+                closeDetails(details, content);
+            } else {
+                detailsElements.forEach((el) => {
+                    if (el !== details && el.open) {
+                        closeDetails(el, el.querySelector(".summary__text"));
+                    }
+                });
+                openDetails(details, content);
+            }
+        });
+    });
+
+    function openDetails(details, content) {
+        details.open = true;
+        content.style.height = content.scrollHeight + "px";
+        content.style.opacity = "1";
+    }
+
+    function closeDetails(details, content) {
+        content.style.height = "0";
+        content.style.opacity = "0";
+        setTimeout(() => {
+            details.open = false;
+        }, 300);
+    }
+    
 });
