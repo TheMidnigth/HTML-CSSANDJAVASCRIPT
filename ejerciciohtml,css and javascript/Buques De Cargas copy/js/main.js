@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const content = details.querySelector(".summary__text");
 
         summary.addEventListener("click", (event) => {
-            event.preventDefault(); // Evita el comportamiento predeterminado del <summary>
+            event.preventDefault(); 
 
             if (details.open) {
                 closeDetails(details, content);
