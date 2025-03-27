@@ -148,11 +148,72 @@ body{
     transition-delay: .3s; 
 }
 
+/* Nuestra Historia */
+.historia{
+    padding: 50px 0 50px 0;
+
+}
+
+.historia__title{
+    font: 700 45px "Poppins";
+    color: var(--color-primario);
+    position: relative;
+    margin: 0 0 30px 40px;
+}
+
+.historia__title::before{
+    content: "";
+    position:absolute;
+    left: 0.1%;
+    bottom: 1px;
+    width: 100%;
+    max-width: 60px;
+    height: 5px;
+    background-color: var(--color-secundario);
+}
+
+
+.historia__text{
+    font: 500 20px/1.5 "Montserrat";
+    width: 700px;
+    margin: 0 0 40px 40px;
+}
+
+.historia__btn{
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    font: 500 20px "Noto Sans";
+    margin: 0 0 0 40px;
+    transform: scale(1);
+    transition: transform .5s ease;
+
+}
+
+.historia__btn:hover{
+    transform: scale(1.1);
+}
+
+.historia__img{
+    position: relative;
+}
+
+.historia__img .img__puerto{
+    width: 650px;
+    height: 500px;
+    position: absolute;
+    top: -540px;
+    left: 53%;
+    border-radius: 10px;
+}
 
 /* Section quienes somos */
 .sectionsomos{
     padding: 350px 0 150px 0;
-    background-color: #eee;
 }
 
 
