@@ -151,7 +151,7 @@ body{
 
 /* Section quienes somos */
 .sectionsomos{
-    padding: 350px 0 50px 0;
+    padding: 350px 0 150px 0;
     background-color: #eee;
 }
 
@@ -316,30 +316,32 @@ body{
 
 .Nosotros__titleinicio{
     position: relative;
-    font: 800 50px "Poppins";
+    font: 700 50px "Poppins";
     color: var(--color-primario);
     text-align: center;
     letter-spacing: 1.5px;
     margin-bottom: 20px;
+
 }
 
 .Nosotros__titleinicio::before{
     content: "";
     position: absolute;
     left: 42%;
-    bottom: 2px;
+    bottom: 4px;
     width: 100%;
-    max-width: 80px;
-    height: 4px;
+    max-width: 70px;
+    height: 5px;
     background-color: var(--color-secundario);
 }
 
 
 .Nosotros__textinicio{
-    font: 400 20px "Montserrat";
+    font: 500 20px "Montserrat";
     text-align: center;
     color: var(--color-primario);
     width: 100%;
+    padding: 0 100px;
 
 }
 
@@ -385,7 +387,7 @@ body{
 }
 
 .item__title{
-    font: 400 15px "Montserrat";
+    font: 400 15px "Poppins";
     text-align: justify;
     margin:50px 0 0 0;
 }
@@ -437,6 +439,125 @@ body{
     position: absolute;
     left: 15px;
     bottom: 10px;
+}
+
+/* Nuestros Valores */
+.valores{
+    padding: 50px 0 100px 0;
+}
+
+.valores__title{
+    position: relative;
+    font: 700 45px "Poppins";
+    text-align: center;
+    color: var(--color-primario);
+    margin: 0 0 25px 0;
+}
+
+.valores__title::before{
+    content: "";
+    position: absolute;
+    left: 37%;
+    bottom: 3px;
+    width: 100%;
+    max-width: 60px;
+    height: 5px;
+    background-color: var(--color-secundario);
+}
+
+.valores__text{
+    position: relative;
+    font: 500 20px "Montserrat";
+    text-align: center;
+    padding: 0 50px;
+    color: var(--color-primario);
+    margin: 0 0 50px 0;
+}
+
+/* Card Servicios */
+.valores__container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.container--changed{
+    margin: 40px 0 0 0;
+}
+
+.valores__container .container__card{
+    position: relative;
+    width: 440px;
+    height: 470px;
+    background-color: var(--color-cuartario);
+    border-radius: 40px;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+
+.valores__container .container__card:hover{
+    transform: scale(1.1);
+}
+
+
+.valores__container .container__card .card__img{
+    position: relative;
+    width: 100%;
+    height: 370px;
+    background-color: var(--color-cuartario);
+}
+
+.valores__container .container__card .card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.valores__container .container__card .card__img::before{
+    content: "";
+    position: absolute;
+    bottom: -170px;
+    width: 100%;
+    height: 240px;
+    border-radius: 40px;
+    background-color: var(--color-tercario);
+}
+
+.valores__container .container__card .card__img::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 70px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: transparent;
+    box-shadow: -75px 70px 0 40px var(--color-tercario);
+}
+
+.valores__container .container__card .card__content{
+    position: relative;
+    top: -50px;
+    z-index: 10;
+    padding: 0 30px;
+}
+
+.card__title{
+    font: 600 20px "Poppins";
+    text-transform: capitalize;
+    color: var(--color-cuartario);
+}
+
+.card__text{
+    font: 400 15px "Montserrat";
+    margin: 5px 0 20px 0 ;
+    text-align: justify;
+    
 }
 
 
