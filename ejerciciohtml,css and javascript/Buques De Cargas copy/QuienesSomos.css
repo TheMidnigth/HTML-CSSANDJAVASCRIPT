@@ -425,7 +425,7 @@ body{
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     padding: 20px; /* Espaciado interno */
     border-bottom: 3px solid var(--color-cuartario);
-    margin: 30px 180px 0 180px;
+    margin: 20px 190px 0 190px;
     transform: scale(1);
     transition: transform .7s ease;
 }
@@ -486,7 +486,7 @@ body{
 
 .content__rigth{
     float: right;
-    margin-top: -590px;
+    margin-top: -580px;
 }
 
 .item__btn{

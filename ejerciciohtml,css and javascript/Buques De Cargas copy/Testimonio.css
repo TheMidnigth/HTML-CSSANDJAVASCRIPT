@@ -149,6 +149,137 @@ body{
 }
 
 /* Section Testimonios */
+#testimonials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    padding: 50px 0 100px 0;
+}
+.testimonial-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-heading .heading__title{
+    font: 700 55px "Poppins";
+    color: var(--color-primario);
+    position: relative;
+    
+}
+
+.testimonial-heading .heading__title::before{
+    content: "";
+    position: absolute;
+    left: 3%;
+    bottom: 4px;
+    width: 100%;
+    max-width: 70px;
+    height: 5px;
+    background-color: var(--color-secundario);
+}
+
+.testimonial-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:100%;
+}
+.testimonial-box{
+    width:600px;
+    height: 250px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: translateY(0px);
+    transition: transform .4s ease;
+}
+.testimonial-box:hover{
+    transform: translateY(-10px);
+}
+
+.profile-img{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.name-user{
+    display: flex;
+    flex-direction: column;
+}
+.name-user strong{
+    color: #3d3d3d;
+    font: 800 1.1rem "Poppins";
+    letter-spacing: 0.5px;
+}
+.name-user span{
+    color: #979797;
+    font:500 0.8rem "Noto Sans";
+}
+.reviews{
+    color: #f9d71c;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.client-comment p{
+    font:400 0.9rem "Montserrat";
+    color: #4b4b4b;
+}
+
+
+@media(max-width:1060px){
+    .testimonial-box{
+        width:45%;
+        padding: 10px;
+    }
+}
+@media(max-width:790px){
+    .testimonial-box{
+        width:100%;
+    }
+    .testimonial-heading h1{
+        font-size: 1.4rem;
+    }
+}
+@media(max-width:340px){
+    .box-top{
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .reviews{
+        margin-top: 10px;
+    }
+}
+::selection{
+    color: #ffffff;
+    background-color: #252525;
+}
+
 
 
 /* footer */
