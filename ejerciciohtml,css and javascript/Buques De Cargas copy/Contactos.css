@@ -240,7 +240,7 @@ body {
 
 .contact__input {
     width: 100%;
-    padding: 10px 10px 10px 40px;
+    padding: 10px 10px 10px 10px;
     border: 1px solid #b0d4e3;
     border-radius: 5px;
     font:500 16px "Noto Sans";
@@ -259,7 +259,7 @@ body {
 /* Iconos en los inputs */
 .contact__icon {
     position: absolute;
-    left: 10px;
+    left: 96%;
     top: 50%;
     transform: translateY(-50%);
     color: var(--color-cuartario);
@@ -295,7 +295,7 @@ body {
     justify-content: center;
     margin-right: 10px;
     color: var(--color-tercario);
-    font-size: 30px;
+    font-size: 25px;
     padding: 15px 15px;
     border-radius: 50%;
     background-color: var(--color-cuartario);
@@ -306,7 +306,7 @@ body {
 }
 
 .contact__detail{
-    font: 700 15px "Montserrat";
+    font: 700 19px "Montserrat";
     margin: 0 0 0 5px;
 }
 

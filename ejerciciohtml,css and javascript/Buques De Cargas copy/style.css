@@ -691,97 +691,6 @@ span{
     transform: scale(1.1);
 }
 
-/* Card Servicios */
-.servicios__container{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-
-.servicios__container .container__card{
-    position: relative;
-    width: 440px;
-    height: 520px;
-    background-color: var(--color-cuartario);
-    border-radius: 40px;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform .5s ease-in-out;
-}
-
-.servicios__container .container__card:hover{
-    transform: scale(1.1);
-}
-
-
-.servicios__container .container__card .card__img{
-    position: relative;
-    width: 100%;
-    height: 370px;
-    background-color: var(--color-cuartario);
-}
-
-.servicios__container .container__card .card__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-
-.servicios__container .container__card .card__img::before{
-    content: "";
-    position: absolute;
-    bottom: -170px;
-    width: 100%;
-    height: 240px;
-    border-radius: 40px;
-    background-color: var(--color-tercario);
-}
-
-.servicios__container .container__card .card__img::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 70px;
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    background-color: transparent;
-    box-shadow: -75px 70px 0 40px var(--color-tercario);
-}
-
-.servicios__container .container__card .card__content{
-    position: relative;
-    top: -50px;
-    z-index: 10;
-    padding: 0 30px;
-}
-
-.card__title{
-    font: 600 20px "Poppins";
-    text-transform: capitalize;
-    color: var(--color-cuartario);
-}
-
-.card__text{
-    font: 400 15px "Montserrat";
-    margin: 5px 0 20px 0 ;
-    text-align: justify;
-    
-}
-
-.card__btn{
-    background-color: var(--color-cuartario);
-    padding: 10px 15px;
-    border-radius: 30px;
-    color: var(--color-tercario);
-    cursor: pointer;
-    text-decoration: none;
-    font: 400 15px "Noto Sans";
-}
 
 /* Section Noticias */
 .noticias{
@@ -853,6 +762,16 @@ span{
 
 .content__card:nth-child(3) .imgnoticias {
     height: 280px; 
+    object-fit: cover; 
+}
+
+.content__card:nth-child(3) .imgnoticias--changed {
+    height: 330px; 
+    object-fit: cover; 
+}
+
+.content__card:nth-child(2) .imgnoticias--changed {
+    height: 330px; 
     object-fit: cover; 
 }
 
