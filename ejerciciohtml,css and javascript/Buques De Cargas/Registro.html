@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="login.css">
-    <title>Iniciar Seccion</title>
+    <link rel="stylesheet" href="Registro.css">
+    <title>Registro</title>
 </head>
 
 <body>
 
     <div class="contenido" id="contenido">
         <div class="form-contenido sign-in">
-            <form action="" method="">
-                <h1>Iniciar Seccion</h1>
+            <form>
+                <h1>Registrese</h1>
                 <div class="icono">
                     <ul class="example-2">
                         <li class="icon-content">
@@ -32,8 +32,11 @@
                         <li class="icon-content">
                             <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/">
                                 <div class="filled"></div>
-                                <svg xml:space="preserve" viewBox="0 0 24 24" class="bi bi-facebook" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="currentColor" d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path>
+                                <svg xml:space="preserve" viewBox="0 0 24 24" class="bi bi-facebook" fill="currentColor"
+                                    height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="currentColor"
+                                        d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z">
+                                    </path>
                                 </svg>
                             </a>
                             <div class="tooltip">Facebook</div>
@@ -65,25 +68,72 @@
                     </ul>
 
                 </div>
-                <span>use su contraseña para iniciar seccion</span>
-                <div class="input-box">
-                    <input type="text" required autocomplete="off" name="Email" id="username">
-                    <label for="Email">Email</label>
-                    <span><i class="fa-solid fa-envelope"></i></span>
+                <h2>Registre Todos Sus Datos</h2>
+                <div class="flex">
+                    <div class="input-box">
+                        <input type="text" required autocomplete="off" name="Nombre" id="nombre">
+                        <label for="Nombre">Nombre</label>
+                        <span><i class="fa-solid fa-file-signature"></i></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" required autocomplete="off" name="Apellido" id="apellido">
+                        <label for="Apellido">Apellido</label>
+                        <span><i class="fa-solid fa-file-signature"></i></span>
+                    </div>
                 </div>
-                <div class="input-box">
-                    <input type="password" required autocomplete="off" name="Password" id="password">
-                    <label for="Password">Password</label>
-                    <span><i id="toggleIcon" class="fa-solid fa-eye"></i></span>
+                <div class="flex">
+                    <div class="input-box">
+                        <div class="custom-select">
+                            <div class="select-box" id="selectBox">
+                                <span class="selected">Selecciona Tipo de Identificación</span>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <ul class="options-list" id="optionsList">
+                                <li class="option" data-value="Cedula">CC("Cédula de Ciudadanía")</li>
+                                <li class="option" data-value="C.Extranjeria">CE("Cédula de Extranjería")</li>
+                                <li class="option" data-value="D.Extranjería">DE("Documento de Extranjería")</li>
+                                <li class="option" data-value="NIT">NIT("Número de Identificación Tributaria")</li>
+                                <li class="option" data-value="PP">PP("Pasaporte")</li>
+                                <li class="option" data-value="RUT">RUT("Registro Único Tributario")</li>
+                                <li class="option" data-value="TEC">TE("Tarjeta de Extranjería")</li>
+                                <li class="option" data-value="T"> TI("Tarjeta de Identidad")</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="input-box box--changed">
+                        <input type="text" required autocomplete="off" name="Cedula" id="cedula">
+                        <label for="Cedula">Cedula</label>
+                        <span><i class="fa-solid fa-address-card"></i></span>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-box">
+                        <input type="email" required autocomplete="off" name="Email" id="email">
+                        <label for="Email">Email</label>
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required autocomplete="off" name="Telefono" id="telefono">
+                        <label for="Telefono">Telefono</label>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-box">
+                        <input type="password" required autocomplete="off" name="Password" id="password">
+                        <label for="Password">Password</label>
+                        <span><i id="toggleIcon" class="fa-solid fa-eye"></i></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required autocomplete="off" name="RepetirPassword" id="repeatPassword">
+                        <label for="RepetirPassword">Repetir Password</label>
+                        <span><i id="toggleIcon2" class="fa-solid fa-eye"></i></span>
+                    </div>
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Acepto Terminos y Condiciones</label>
-                    <a href="">Recordar contraseña?</a>
                 </div>
-                <button type="submit">Iniciar Seccion</button>
-                <div class="registre-link">
-                    <p>No tienes una cuenta?<a href="Registro.html" target="_blank">Registrese</a></p>
-                </div>
+                <button type="submit">Registrar</button>
             </form>
         </div>
     </div>

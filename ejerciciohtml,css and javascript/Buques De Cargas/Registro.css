@@ -23,9 +23,9 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 600px;
-    max-width: 90%;
-    min-height: 570px;
+    width: 900px;
+    max-width: 100%;
+    min-height: 580px;
 }
 
 .contenido p {
@@ -39,6 +39,10 @@ body {
     font-size: 14px;
 }
 
+.contenido h2 {
+    font-size: 15px;
+} 
+
 .contenido a {
     color: #333;
     font-size: 14px;
@@ -46,14 +50,25 @@ body {
     margin: 15px 0 10px;
 }
 
+span i{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    color: #666;
+    font-size: 20px;
+}
+
+span i:last-child{
+    cursor: pointer;
+}
+
 
 .contenido button {
-    font: 500 15px "Montserrat";
+    font: 500 20px "Montserrat";
     background-color: #fff;
-    color: #000;
-    width: 520px;
+    width: 100%;
     height: 50px;
-    margin: 10px;
+    margin: 30px 0 0 0;
     border-radius: 8px;
     font-size: 15px;
     font-family: inherit;
@@ -84,10 +99,6 @@ body {
     width: 100%;
 }
 
-.contenido button:hover{
-    color: #fff;
-}
-
 .contenido form {
     background-color: #fff;
     display: flex;
@@ -96,6 +107,15 @@ body {
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
+}
+
+.flex{
+    display: flex;
+}
+
+.box--changed{
+    position: absolute;
+    left: 10px;
 }
 
 .input-box {
@@ -113,18 +133,6 @@ body {
     transition: all 0.3s ease;
 }
 
-span i{
-    position: absolute;
-    top: 25px;
-    right: 30px;
-    color: #666;
-    font-size: 20px;
-}
-
-span i:last-child{
-    cursor: pointer;
-}
-
 .input-box input {
     margin: 10px;
     background-color: #eee;
@@ -132,7 +140,7 @@ span i:last-child{
     padding: 10px 15px;
     font-size: 1em;
     border-radius: 8px;
-    width: 520px;
+    width: 400px;
     height: 50px;
     letter-spacing: 1px;
     outline: none;
@@ -156,11 +164,85 @@ span i:last-child{
     border-radius: 100px;
 }
 
+.custom-select {
+    position: relative;
+    width: 400px;
+    margin: 10px 0 10px 0;
+}
+
+.selected {
+    font-size: 15px !important;  
+    font-weight: bold;  
+    color: #333;
+}
+
+.select-box {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.arrow {
+    transition: 0.3s;
+    font-size: 16px;
+    color: #666;
+}
+
+.select-box.open .arrow {
+    transform: rotate(180deg);
+}
+
+
+.options-list {
+    list-style: none;
+    margin: 8px 0 0 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    padding: 0 10px;
+    max-height: 200px;  
+    overflow-y: auto;  
+}
+
+
+.option {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.option:first-child {
+    margin-top: 10px;
+}
+
+.option:hover {
+    background-color: #f2f2f2;
+}
+
+.select-box.open + .options-list {
+    display: block;
+}
+
 .form-contenido {
     position: absolute;
     top: 0;
     height: 100%;
-    min-height: 75vh;
+    min-height: 50vh;
     margin: auto;
 }
 
@@ -280,52 +362,13 @@ ul {
     #34A853); /* Verde */
 }
 
-
-.contenido .remember-forgot {
-    justify-content: space-between;
-    font-size: 13.5px;
-    margin: 10px;
-}
-
 .remember-forgot label {
     accent-color: #fff;
-    margin-right: 90px;
+    margin-right: 530px;
 }
 
 .remember-forgot input {
     margin-right: 20px;
-}
-.remember-forgot a { 
-    color: gray;
-    text-decoration: none;
-    font-weight: 600;
-    position: relative;
-}
-
-
-
-.remember-forgot a:hover {
-    text-decoration: underline;
-}
-
-.contenido .registre-link {
-    font-size: 14.5px;
-    text-align: center;
-    margin: 8px 0 8px;
-}
-
-.registre-link a {
-    margin: 20px;
-}
-
-.registre-link p a {
-    color: gray;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.registre-link p a:hover {
-    text-decoration: underline;
 }
 
 
