@@ -14,8 +14,8 @@
 
 <body>
 
-    <form class="form">
-        <h1 class="formulario__title">Registro</h1>
+    <form>
+        <h1>Registro</h1>
         <div class="icono">
             <ul class="example-2">
                 <li class="icon-content">
@@ -67,35 +67,28 @@
                     <div class="tooltip">Google</div>
                 </li>
             </ul>
-        </div>
-        <span class="formulario__title2">Registre Todos Sus Datos</span>
 
-        <div class="formulario">
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="text" required autocomplete="off" name="Nombre" id="nombre">
-                    <label for="Nombre">Nombre</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error">
-                    El nombre debe tener al menos 3 letras y no contener números.
-                </p>
+        </div>
+        <h2>Registre Todos Sus Datos</h2>
+            <div class="input-box">
+                <input type="text" required autocomplete="off" name="Nombre" id="nombre">
+                <label for="Nombre">Nombre</label>
+                <span class="box__icon"><i class="ri-check-line"></i></span>
+                <span class="box__icon"><i class="ri-close-line"></i></span>
             </div>
-            
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="text" required autocomplete="off" name="Apellido" id="apellido">
-                    <label for="Apellido">Apellido</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error">
-                    El nombre debe tener al menos 3 letras y no contener números.
-                </p>
+            <p class="input__error">
+                El nombre debe tener al menos 3 letras y no contener números.
+            </p>
+            <div class="input-box">
+                <input type="text" required autocomplete="off" name="Apellido" id="apellido">
+                <label for="Apellido">Apellido</label>
+                <span class="box__icon"><i class="ri-check-line"></i></span>
+                <span class="box__icon"><i class="ri-close-line"></i></span>
             </div>
-            
-            <div class="formulario__input">
+            <p class="input__error">
+                El nombre debe tener al menos 3 letras y no contener números.
+            </p>
+            <div class="input-box">
                 <div class="custom-select">
                     <div class="select-box" id="selectBox">
                         <span class="selected">Tipo De Identificación</span>
@@ -112,86 +105,31 @@
                         <li class="option" data-value="T"> TI(Tarjeta de Identidad)</li>
                     </ul>
                 </div>
-                <p class="input__error error--changed">
-                    Por favor, seleccione un tipo de identificación.
-                </p>
             </div>
-            
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="text" required autocomplete="off" name="Cedula" id="cedula">
-                    <label for="Cedula">Cedula</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error">
-                    La cédula debe contener entre 6 y 10 dígitos numéricos.
-                </p>
+            <div class="input-box box--changed">
+                <input type="text" required autocomplete="off" name="Cedula" id="cedula">
+                <label for="Cedula">Cedula</label>
             </div>
-            
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="email" required autocomplete="off" name="Email" id="email">
-                    <label for="Email">Email</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error error--changed2">
-                    El correo solo puede contener letras,numeros,puntos,guiones y guion bajo.
-                </p>
+            <div class="input-box">
+                <input type="email" required autocomplete="off" name="Email" id="email">
+                <label for="Email">Email</label>
             </div>
-            
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="text" required autocomplete="off" name="Telefono" id="telefono">
-                    <label for="Telefono">Telefono</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error">
-                    El teléfono solo puede contener numeros y el maximo son 15 digitos.
-                </p>
+            <div class="input-box">
+                <input type="password" required autocomplete="off" name="Telefono" id="telefono">
+                <label for="Telefono">Telefono</label>
             </div>
-            
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="password" required autocomplete="off" name="Password" id="password">
-                    <label for="Password">Password</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error">
-                    La contraseña tiene que ser de 4 a 12 digitos
-                </p>
+            <div class="input-box">
+                <input type="password" required autocomplete="off" name="Password" id="password">
+                <label for="Password">Password</label>
             </div>
-            
-            <div class="formulario__input">
-                <div class="input-box">
-                    <input type="password" required autocomplete="off" name="RepetirPassword" id="repeatPassword">
-                    <label for="RepetirPassword">Repetir Password</label>
-                    <span class="box__icon"><i class="ri-check-line"></i></span>
-                    <span class="box__icon"><i class="ri-close-line"></i></span>
-                </div>
-                <p class="input__error">
-                    Ambas contraseña tienen que ser iguales.
-                </p>
+            <div class="input-box">
+                <input type="password" required autocomplete="off" name="RepetirPassword" id="repeatPassword">
+                <label for="RepetirPassword">Repetir Password</label>
             </div>
-
-            <div class="formulario__input">
-                <div class="remember-forgot">
-                    <label class="forgot__label"><input type="checkbox" name="terminos">Acepto Terminos Y Condiciones</label>
-                </div>
-            </div>
-
-            <p class="input__advertencia">
-                <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
-            </p>
-            
-            <div class="formulario__input formulario__btn-container">
-                <button class="formulario__btn" type="submit">Registrar</button>
-            </div>
+        <div class="remember-forgot">
+            <label><input type="checkbox">Acepto Terminos y Condiciones</label>
         </div>
-
+        <button type="submit">Registrar</button>
     </form>
 
     <script src="js/formularios.js"></script>
