@@ -14,160 +14,21 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
-}
-
-.contenido {
-    border-radius: 30px;
-    position: relative;
-    overflow: hidden;
-    width: 600px;
-    max-width: 90%;
-    min-height: 570px;
-}
-
-.contenido p {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.3px;
-    margin: 20px 0;
-}
-
-.contenido span {
-    font-size: 14px;
-}
-
-.contenido a {
-    color: #333;
-    font-size: 14px;
-    text-decoration: none;
-    margin: 15px 0 10px;
+    min-height:95vh;
 }
 
 
-.contenido button {
-    font: 500 15px "Montserrat";
-    background-color: #fff;
-    color: #000;
-    width: 520px;
-    height: 50px;
-    margin: 10px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: inherit;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 6px 6px 12px rgba(0, 0, 0,0.3),
-        -6px -6px 12px #fff;
-    cursor: pointer;
-}
-
-.contenido button::before {
-    content: '';
-    width: 0;
-    height: 50px;
-    border-radius: 8px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(to right, #4D8FD8, #512da8 100%);
-    transition: .5s ease;
-    display: block;
-    z-index: -1;
-}
-
-.contenido button:hover::before{
-    width: 100%;
-}
-
-.contenido button:hover{
-    color: #fff;
-}
-
-.contenido form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    height: 100%;
-}
-
-.input-box {
-    position: relative;
-}
-
-.input-box label {
-    position: absolute;
-    color: #8d8d8d;
-    pointer-events: none;
-    background-color: transparent;
-    left: 30px;
-    top: 15px;
-    transform: translateY(0.6rem);
-    transition: all 0.3s ease;
-}
-
-span i{
-    position: absolute;
-    top: 25px;
-    right: 30px;
-    color: #666;
-    font-size: 20px;
-}
-
-span i:last-child{
-    cursor: pointer;
-}
-
-.input-box input {
-    margin: 10px;
-    background-color: #fff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 8px;
-    width: 520px;
-    height: 50px;
-    letter-spacing: 1px;
-    outline: none;
-}
-
-.input-box input:focus,
-.input-box input:valid {
-    outline: none;
-    border:1px solid #0034de;
-}
-
-.input-box input:focus~label,
-.input-box input:valid~label {
-    background-color: #fff;
-    transform: translateY(-80%) translateX(-10px) scale(0.8);
-    padding: 0 5px;
-    color: #0034de;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 100px;
-}
-
-.form-contenido {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    min-height: 75vh;
-    margin: auto;
-}
-
-.sign-in {
-    left: 0;
-    width: 100%;
-    z-index: 2;
+.form .formulario__title{
+    font: 700 35px "Montserrat";
+    text-align: center;
+    margin: 0 0 20px 0;
 }
 
 /* * Estilo para el login los iconos*/
+.icono{
+    margin:0 0 20px 0;
+}
+
 ul {
     list-style: none;
 }
@@ -278,51 +139,203 @@ ul {
 }
 
 
-.contenido .remember-forgot {
-    justify-content: space-between;
-    font-size: 13.5px;
-    margin: 10px;
+.form .formulario__title2{
+    font: 900 15px "Montserrat";
+    text-align: center;
+    margin: 0 0 0 25%;
 }
 
-.remember-forgot label {
-    accent-color: #fff;
-    margin-right: 90px;
+
+.input-box {
+    position: relative;
 }
+
+.input-box label {
+    font: 500 15px "Montserrat";
+    position: absolute;
+    color: #8d8d8d;
+    pointer-events: none;
+    background-color: transparent;
+    left: 50px;
+    top: 20px;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
+}
+
+.input-box input {
+    margin: 10px 0 25px 30px;
+    background-color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    width: 550px;
+    height: 55px;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    outline: none;
+    border:1px solid #0034de;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    background-color: #fff;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+    padding: 0 5px;
+    color: #0034de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
+}
+
+
+.box__icon i{
+    position: absolute;
+    top: 25px;
+    left: 92%;
+    font:900 18px "Montserrat";
+    
+}
+
+.box__icon .ri-check-line{
+    background-color: #34A853;
+    border-radius: 50%;
+    padding: 1px 1px;
+    color: #fff;
+    display: none;
+}
+
+.box__icon .ri-close-line{
+    background-color: #fd1f1f;
+    border-radius: 50%;
+    padding: 1px 1px;
+    color: #fff;
+    display: none;
+}
+
+.input__error{
+    font: 600 15px "Montserrat";
+    width: 500px;
+    margin: 0 0 15px 33px;
+    display: none;
+}
+
+
+.error--changed{
+    margin: 30px 0 0 33px;
+}
+
+.input__advertencia{
+    font:700 15px "Montserrat";
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 550px;
+    background-color: #fd1f1f;
+    padding: 20px 15px;
+    border-radius: 5px;
+    grid-column: span 2; 
+    margin: 20px 0 0 30px; 
+    display: flex;
+    justify-content: flex-start;
+    display:none;
+}
+
+.input__advertencia i {
+    font-size: 1.7rem; 
+    margin:-5px 10px 0 0; 
+}
+
+
+
+.remember-forgot .forgot__label {
+    accent-color: #0034de;
+    font: 700 15px "Montserrat";
+    margin-left: 30px;
+}
+
 
 .remember-forgot input {
-    margin-right: 20px;
+    margin-right: 15px;
 }
+
 .remember-forgot a { 
     color: gray;
     text-decoration: none;
     font-weight: 600;
     position: relative;
+    margin: 0 0 0 90px;
 }
-
-
 
 .remember-forgot a:hover {
     text-decoration: underline;
 }
 
-.contenido .registre-link {
-    font-size: 14.5px;
-    text-align: center;
-    margin: 8px 0 8px;
+
+.form .formulario__btn {
+    font: 700 20px "Montserrat";
+    background-color: #fff;
+    width:100%;
+    max-width: 600px;
+    height: 55px;
+    margin: 30px 0 30px 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0,0.3),
+        -6px -6px 12px #fff;
+    cursor: pointer;
+}
+
+.form .formulario__btn::before {
+    content: '';
+    width: 0;
+    height: 50px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #4D8FD8, #512da8 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+
+.form .formulario__btn:hover::before{
+    width: 100%;
+}
+
+.formulario__btn-container {
+    grid-column: span 2;
+    margin-top: 5px; 
+    display: flex;
+    justify-content: center; 
+}
+
+.registre-link{
+    margin: 0 0 0 150px;
 }
 
 .registre-link a {
-    margin: 20px;
+    margin: 20px 0 0 20px;
 }
 
 .registre-link p a {
     color: gray;
     text-decoration: none;
     font-weight: 600;
+    margin: 20px 0 0 20px;
 }
 
 .registre-link p a:hover {
     text-decoration: underline;
 }
-
-
