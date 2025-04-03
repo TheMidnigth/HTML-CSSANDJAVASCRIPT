@@ -175,14 +175,13 @@ ul {
     outline: none;
 }
 
-.input-box input:focus,
-.input-box input:valid {
+.input-box input:focus {
     outline: none;
-    border:1px solid #0034de;
+    border:2px solid #0034de;
 }
 
 .input-box input:focus~label,
-.input-box input:valid~label {
+.input-box input:not(:placeholder-shown)~label {
     background-color: #fff;
     transform: translateY(-80%) translateX(-10px) scale(0.8);
     padding: 0 5px;
@@ -197,7 +196,7 @@ ul {
 .box__icon i{
     position: absolute;
     top: 25px;
-    left: 92%;
+    left: 93%;
     font:900 18px "Montserrat";
     
 }
@@ -216,6 +215,10 @@ ul {
     padding: 1px 1px;
     color: #fff;
     display: none;
+}
+
+.input-box.input-error label {
+    color: #fd1f1f !important;
 }
 
 .input__error{
@@ -298,7 +301,7 @@ ul {
 .form .formulario__btn::before {
     content: '';
     width: 0;
-    height: 50px;
+    height: 55px;
     border-radius: 5px;
     position: absolute;
     top: 0;
@@ -339,3 +342,4 @@ ul {
 .registre-link p a:hover {
     text-decoration: underline;
 }
+

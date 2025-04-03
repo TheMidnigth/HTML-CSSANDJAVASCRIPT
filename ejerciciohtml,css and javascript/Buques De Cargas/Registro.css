@@ -180,14 +180,13 @@ ul {
     outline: none;
 }
 
-.input-box input:focus,
-.input-box input:valid {
+.input-box input:focus {
     outline: none;
-    border:1px solid #0034de;
+    border:2px solid #0034de;
 }
 
 .input-box input:focus~label,
-.input-box input:valid~label {
+.input-box input:not(:placeholder-shown)~label {
     background-color: #fff;
     transform: translateY(-80%) translateX(-10px) scale(0.8);
     padding: 0 5px;
@@ -197,6 +196,7 @@ ul {
     border: none;
     border-radius: 100px;
 }
+
 
 .custom-select {
     position: relative;
