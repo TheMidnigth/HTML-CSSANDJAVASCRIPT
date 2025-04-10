@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+
+<body>
+
+    <div class="grid__perfil">
+        <div class="perfil__item item--usuario">
+            <img class="item__img" src="assets/image/testimonio2.jpg" alt="">
+            <h2 class="item__nombre">Keyner Reyes</h2>
+            <h3 class="item__rol">Ninguno</h3>
+            <h2 class="item__details">Detalles</h2>
+            <hr>
+            <p class="item__info"><strong>Nombre:</strong>Keyner Alfonso </p>
+            <p class="item__info"><strong>Apellido:</strong> Reyes Tejedor</p>
+            <p class="item__info"><strong>Rol</strong>Ninguno</p>
+            <p class="item__info"><strong>Nit:</strong>001015465</p>
+            <p class="item__info"><strong>Email:</strong>Keyner@gmail.com</p>
+            <p class="item__info"><strong>Tipo Identificacion:</strong>Cedula</p>
+            <p class="item__info"><strong>Identificacion:</strong>1043650217</p>
+            <p class="item__info"><strong>Telefono:</strong>3136431536</p>
+            <p class="item__info"><strong>Pais:</strong>Francia</p>
+            <p class="item__info"><strong>Ciudad:</strong>Paris</p>
+            <p class="item__info"><strong>Direccion:</strong>MFLT9</p>
+            <button class="item__btn" type="submit">Editar</button>
+        </div>
+
+        <div class="perfil__item item--contraseña">
+            <h2>Cambiar Contraseña</h2>
+
+            <form action="">
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="password" autocomplete="off" placeholder="" name="Password" id="password">
+                        <label for="password">Password</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        La contraseña tiene que ser de 4 a 15 digitos
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="password" autocomplete="off" placeholder="" name="RepetirPassword"
+                            id="repeatPassword">
+                        <label for="repeatPassword">Repetir Password</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        Ambas contraseña tienen que ser iguales.
+                    </p>
+                </div>
+
+                <p class="input__advertencia">
+                    <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
+                </p>
+
+                <button type="submit">Cambiar Contraseña</button>
+            </form>
+        </div>
+
+        <div class="perfil__item item--notificacion">
+            <div class="item__notification">
+                <div class="notification__avatar">
+                    <img src="persona.jpg" alt="Avatar de la persona" />
+                </div>
+                <div class="notification__details">
+                    <div class="notification__header">
+                        <span class="notification__name">Juan Pérez</span>
+                        <span class="notification__email">juan.perez@email.com</span>
+                    </div>
+                    <div class="notification__message">
+                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
+                    </div>
+                    <div class="notification__time">
+                        <span>Hace 5 horas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item__notification">
+                <div class="notification__avatar">
+                    <img src="persona.jpg" alt="Avatar de la persona" />
+                </div>
+                <div class="notification__details">
+                    <div class="notification__header">
+                        <span class="notification__name">Juan Pérez</span>
+                        <span class="notification__email">juan.perez@email.com</span>
+                    </div>
+                    <div class="notification__message">
+                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
+                    </div>
+                    <div class="notification__time">
+                        <span>Hace 5 horas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item__notification">
+                <div class="notification__avatar">
+                    <img src="persona.jpg" alt="Avatar de la persona" />
+                </div>
+                <div class="notification__details">
+                    <div class="notification__header">
+                        <span class="notification__name">Juan Pérez</span>
+                        <span class="notification__email">juan.perez@email.com</span>
+                    </div>
+                    <div class="notification__message">
+                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
+                    </div>
+                    <div class="notification__time">
+                        <span>Hace 5 horas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item__notification">
+                <div class="notification__avatar">
+                    <img src="persona.jpg" alt="Avatar de la persona" />
+                </div>
+                <div class="notification__details">
+                    <div class="notification__header">
+                        <span class="notification__name">Juan Pérez</span>
+                        <span class="notification__email">juan.perez@email.com</span>
+                    </div>
+                    <div class="notification__message">
+                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
+                    </div>
+                    <div class="notification__time">
+                        <span>Hace 5 horas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="perfil__item empresa--rellenar">
+            <div class="perfil__cabecera">
+                <img src="https://via.placeholder.com/80" alt="Foto de perfil" class="perfil__imagen">
+                <div class="perfil__botones">
+                    <button class="perfil__boton perfil__boton--upload">Upload New Photo</button>
+                    <button class="perfil__boton perfil__boton--reset">Reset</button>
+                    <small class="perfil__nota">Allowed JPG, GIF or PNG. Max size of 800K</small>
+                </div>
+            </div>
+
+            <form class="perfil__formulario">
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Nit" id="nit">
+                        <label for="nit">Nit</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        
+                    </p>
+                </div>
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombre">
+                        <label for="Nombre">Nombre</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombre">
+                        <label for="Nombre">Nombre</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="custom-select">
+                        <div class="select-box" id="selectBox">
+                            <span class="selected">Pais</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </div>
+                        <ul class="options-list" id="optionsList">
+                            <li class="option" data-value="España">España</li>
+                            <li class="option" data-value="Portugal">Portugal</li>
+                            <li class="option" data-value="Francia">Francia</li>
+                            <li class="option" data-value="Italia">Italia</li>
+                            <li class="option" data-value="China">China</li>
+                            <li class="option" data-value="Japon">Japon</li>
+                            <li class="option" data-value="Russia">Russia</li>
+                            <li class="option" data-value="Suiza">Suiza</li>
+                        </ul>
+                    </div>
+                    <p class="input__error error--changed">
+                        Por favor, seleccione un pais.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Direccion" id="direccion">
+                        <label for="direccion">Direccion</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="email"  autocomplete="off" placeholder="" name="Email" id="email">
+                        <label for="email">Email</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--changed2">
+                        El correo solo puede contener letras,numeros,puntos,guiones y guion bajo.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Telefono" id="telefono">
+                        <label for="telefono">Telefono</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        El teléfono solo puede contener numeros y el maximo son 10 digitos.
+                    </p>
+                </div>
+
+                <p class="input__advertencia">
+                    <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
+                </p>
+                
+                <div class="formulario__input formulario__btn-container">
+                    <button class="formulario__btn" type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
