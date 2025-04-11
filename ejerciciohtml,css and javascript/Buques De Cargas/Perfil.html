@@ -6,39 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Perfil de Usuario</title>
     <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="grid__perfil">
-        <div class="perfil__item item--usuario">
-            <img class="item__img" src="assets/image/testimonio2.jpg" alt="">
+    <div class="parent">
+        <div class="parent__item">
+            <img class="item__img" src="assets/image/testimonio3.avif" alt="">
             <h2 class="item__nombre">Keyner Reyes</h2>
             <h3 class="item__rol">Ninguno</h3>
-            <h2 class="item__details">Detalles</h2>
+            <h4 class="item__details">Detalles</h4>
             <hr>
-            <p class="item__info"><strong>Nombre:</strong>Keyner Alfonso </p>
-            <p class="item__info"><strong>Apellido:</strong> Reyes Tejedor</p>
-            <p class="item__info"><strong>Rol</strong>Ninguno</p>
-            <p class="item__info"><strong>Nit:</strong>001015465</p>
-            <p class="item__info"><strong>Email:</strong>Keyner@gmail.com</p>
-            <p class="item__info"><strong>Tipo Identificacion:</strong>Cedula</p>
-            <p class="item__info"><strong>Identificacion:</strong>1043650217</p>
-            <p class="item__info"><strong>Telefono:</strong>3136431536</p>
-            <p class="item__info"><strong>Pais:</strong>Francia</p>
-            <p class="item__info"><strong>Ciudad:</strong>Paris</p>
-            <p class="item__info"><strong>Direccion:</strong>MFLT9</p>
+            <p class="item__info"><strong class="info__imp">Nombre:</strong>Keyner Alfonso </p>
+            <p class="item__info"><strong class="info__imp">Apellido:</strong> Reyes Tejedor</p>
+            <p class="item__info"><strong class="info__imp">Empresa:</strong>Marijuana Express</p>
+            <p class="item__info"><strong class="info__imp">Rol:</strong>Ninguno</p>
+            <p class="item__info"><strong class="info__imp">Nit:</strong>001015465</p>
+            <p class="item__info"><strong class="info__imp">Email:</strong>Keyner@gmail.com</p>
+            <p class="item__info"><strong class="info__imp">Tipo Identificacion:</strong>Cedula</p>
+            <p class="item__info"><strong class="info__imp">Identificacion:</strong>1043650217</p>
+            <p class="item__info"><strong class="info__imp">Telefono:</strong>3136431536</p>
+            <p class="item__info"><strong class="info__imp">Pais:</strong>Francia</p>
+            <p class="item__info"><strong class="info__imp">Ciudad:</strong>Paris</p>
+            <p class="item__info"><strong class="info__imp">Direccion:</strong>MFLT9</p>
             <button class="item__btn" type="submit">Editar</button>
         </div>
+        <div class="div2">
+            <h2 class="pass__title">Cambiar Contraseña</h2>
 
-        <div class="perfil__item item--contraseña">
-            <h2>Cambiar Contraseña</h2>
+            <form class="formulario" action="">
 
-            <form action="">
                 <div class="formulario__input">
                     <div class="input-box">
-                        <input type="password" autocomplete="off" placeholder="" name="Password" id="password">
-                        <label for="password">Password</label>
+                        <input type="password" autocomplete="off" placeholder="" name="ContraseñaAntigua"
+                            id="contraseñaAntigua">
+                        <label class="label" for="contraseñaAntigua">Contraseña Antigua</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
@@ -49,13 +58,26 @@
 
                 <div class="formulario__input">
                     <div class="input-box">
-                        <input type="password" autocomplete="off" placeholder="" name="RepetirPassword"
-                            id="repeatPassword">
-                        <label for="repeatPassword">Repetir Password</label>
+                        <input type="password" autocomplete="off" placeholder="" name="NuevaContraseña"
+                            id="nuevaContraseña">
+                        <label class="label" for="nuevaContraseña">Nueva Contraseña</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
+                        La contraseña tiene que ser de 4 a 15 digitos
+                    </p>
+                </div>
+
+                <div class="formulario__input input--changed">
+                    <div class="input-box">
+                        <input type="password" autocomplete="off" placeholder="" name="ConfirmarNuevaContraseña"
+                            id="CNContraseña">
+                        <label class="label label--changed" for="CNContraseña">Confirmar Nueva Contraseña</label>
+                        <span class="box__icon icon--changed"><i class="ri-check-line"></i></span>
+                        <span class="box__icon icon--changed"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--changed">
                         Ambas contraseña tienen que ser iguales.
                     </p>
                 </div>
@@ -64,85 +86,156 @@
                     <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
                 </p>
 
-                <button type="submit">Cambiar Contraseña</button>
+                <button class="formulario__button" type="submit">Cambiar Contraseña</button>
             </form>
         </div>
+        <div class="div3">
+            <h2 class="notification__title">Notificaciones</h2>
 
-        <div class="perfil__item item--notificacion">
-            <div class="item__notification">
-                <div class="notification__avatar">
-                    <img src="persona.jpg" alt="Avatar de la persona" />
-                </div>
-                <div class="notification__details">
-                    <div class="notification__header">
-                        <span class="notification__name">Juan Pérez</span>
-                        <span class="notification__email">juan.perez@email.com</span>
-                    </div>
-                    <div class="notification__message">
-                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
-                    </div>
-                    <div class="notification__time">
-                        <span>Hace 5 horas</span>
-                    </div>
-                </div>
+            <div class="notification__search-container">
+                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Buscar..."
+                    class="notification__search">
             </div>
 
-            <div class="item__notification">
-                <div class="notification__avatar">
-                    <img src="persona.jpg" alt="Avatar de la persona" />
-                </div>
-                <div class="notification__details">
-                    <div class="notification__header">
-                        <span class="notification__name">Juan Pérez</span>
-                        <span class="notification__email">juan.perez@email.com</span>
+            <div class="notification__table-container">
+                <table class="notification__table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Asunto</th>
+                            <th>Descripción</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <div class="notification__table-scroll">
+                        <tbody id="notificationBody">
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Ana" class="avatar">
+                                        <div>
+                                            <div class="name">Ana López</div>
+                                            <div class="role">Recepcionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Consulta Médica</td>
+                                <td>Recordatorio de cita con el doctor.</td>
+                                <td>2025-04-10</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
+                                        <div>
+                                            <div class="name">Juan Pérez</div>
+                                            <div class="role">Nutricionista</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Plan Alimenticio</td>
+                                <td>Nuevo plan alimenticio disponible.</td>
+                                <td>2025-04-09</td>
+                            </tr>
+                        
+                            
+                            
+                            <!-- Más filas si es necesario -->
+                        </tbody>
                     </div>
-                    <div class="notification__message">
-                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
-                    </div>
-                    <div class="notification__time">
-                        <span>Hace 5 horas</span>
-                    </div>
-                </div>
+                </table>
             </div>
 
-            <div class="item__notification">
-                <div class="notification__avatar">
-                    <img src="persona.jpg" alt="Avatar de la persona" />
-                </div>
-                <div class="notification__details">
-                    <div class="notification__header">
-                        <span class="notification__name">Juan Pérez</span>
-                        <span class="notification__email">juan.perez@email.com</span>
-                    </div>
-                    <div class="notification__message">
-                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
-                    </div>
-                    <div class="notification__time">
-                        <span>Hace 5 horas</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item__notification">
-                <div class="notification__avatar">
-                    <img src="persona.jpg" alt="Avatar de la persona" />
-                </div>
-                <div class="notification__details">
-                    <div class="notification__header">
-                        <span class="notification__name">Juan Pérez</span>
-                        <span class="notification__email">juan.perez@email.com</span>
-                    </div>
-                    <div class="notification__message">
-                        <p>Te invito a unirte a nuestra reunión mañana a las 10 AM... </p>
-                    </div>
-                    <div class="notification__time">
-                        <span>Hace 5 horas</span>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <div class="perfil__item empresa--rellenar">
+        <div class="div4">
             <div class="perfil__cabecera">
                 <img src="https://via.placeholder.com/80" alt="Foto de perfil" class="perfil__imagen">
                 <div class="perfil__botones">
@@ -161,7 +254,7 @@
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-                        
+
                     </p>
                 </div>
                 <div class="formulario__input">
@@ -172,7 +265,7 @@
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-                        
+
                     </p>
                 </div>
 
@@ -184,7 +277,7 @@
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-                        
+
                     </p>
                 </div>
 
@@ -218,13 +311,13 @@
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-                        
+
                     </p>
                 </div>
 
                 <div class="formulario__input">
                     <div class="input-box">
-                        <input type="email"  autocomplete="off" placeholder="" name="Email" id="email">
+                        <input type="email" autocomplete="off" placeholder="" name="Email" id="email">
                         <label for="email">Email</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
@@ -249,7 +342,7 @@
                 <p class="input__advertencia">
                     <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
                 </p>
-                
+
                 <div class="formulario__input formulario__btn-container">
                     <button class="formulario__btn" type="submit">Registrar</button>
                 </div>
@@ -257,6 +350,7 @@
         </div>
     </div>
 
+    <script src="js/Perfil.js"></script>
 
 </body>
 
