@@ -91,143 +91,85 @@
         </div>
         <div class="div3">
             <h2 class="notification__title">Notificaciones</h2>
-
-            <div class="notification__search-container">
-                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Buscar..."
-                    class="notification__search">
-            </div>
+            <a href="" class="notification__btn">Todas</a>
 
             <div class="notification__table-container">
                 <table class="notification__table">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Asunto</th>
+                            <th>Tipo</th>
                             <th>Descripción</th>
                             <th>Fecha</th>
+                            <th>ID/Código</th>
+                            <th>Ubicación</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <div class="notification__table-scroll">
                         <tbody id="notificationBody">
                             <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Ana" class="avatar">
-                                        <div>
-                                            <div class="name">Ana López</div>
-                                            <div class="role">Recepcionista</div>
-                                        </div>
-                                    </div>
+                                <td>Buque</td>
+                                <td class="notification__description">
+                                    El buque "Ocean Pearl" ha llegado al puerto tras completar su travesía desde Asia,
+                                    trayendo mercancía importante para los sectores industriales clave del país.
+                                    Durante su viaje, enfrentó condiciones climáticas adversas que retrasaron
+                                    ligeramente su arribo, sin embargo, logró mantener la integridad de la carga.
+                                    Se espera que la descarga comience en las próximas horas, priorizando productos
+                                    tecnológicos, componentes automotrices y suministros médicos.
                                 </td>
-                                <td>Consulta Médica</td>
-                                <td>Recordatorio de cita con el doctor.</td>
-                                <td>2025-04-10</td>
+                                <td>9 Abril</td>
+                                <td>IMO9834721</td>
+                                <td>Puerto de Manzanillo</td>
+                                <td>Llegado</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
+                                <td>Contenedor</td>
+                                <td class="notification__description">
+                                    El contenedor "ABC123" está en proceso de descarga en el Muelle 5. Este contenedor
+                                    contiene productos químicos peligrosos que requieren manejo especializado para
+                                    garantizar la seguridad en su manipulación.
+                                    La descarga está siendo supervisada por un equipo especializado en materiales
+                                    peligrosos, y se estima que el proceso se completará en las próximas 2 horas, tras
+                                    lo cual se realizará un inspección de seguridad antes de que el contenedor sea
+                                    trasladado al almacén asignado.
                                 </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
+                                </td>
+                                <td>30 Minutos</td>
+                                <td>CONT123456</td>
+                                <td>Muelle 5</td>
+                                <td>Descargando</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
+                                <td>Buque</td>
+                                <td class="notification__description">
+                                    Buque "Viking Star" ha zarpado del puerto después de completar con éxito todas las
+                                    verificaciones de seguridad y documentación necesarias. Esta nave, con destino a
+                                    Europa,
+                                    transporta cargas clave que se espera lleguen a tiempo para la temporada alta. Se
+                                    estima que llegará a su puerto de destino en aproximadamente 10 días, dependiendo de
+                                    las condiciones del mar.
                                 </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
+                                <td>30/03/25</td>
+                                <td>IMO7896543</td>
+                                <td>En tránsito</td>
+                                <td>Zarpado</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
+                                <td>Contenedor</td>
+                                <td class="notification__description">
+                                    El contenedor "ABC123" está actualmente en inspección en el Puerto de Veracruz. Se
+                                    está verificando el cumplimiento de todas las normativas de seguridad y aduaneras
+                                    antes de ser liberado para su distribución.
+                                    El proceso de inspección se espera que dure entre 24 a 48 horas, dependiendo de los
+                                    resultados de la revisión y si se requieren más verificaciones. Este contenedor
+                                    contiene mercancías de alto valor, por lo que el procedimiento está siendo manejado
+                                    con prioridad.
                                 </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
+                                <td>5 Abril</td>
+                                <td>CONT654321</td>
+                                <td>Puerto de Veracruz</td>
+                                <td>En inspección</td>
                             </tr>
-                        
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
-                            </tr>
-                        
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
-                            </tr>
-                        
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
-                            </tr>
-                        
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="assets/image/testimonio1.jpg" alt="Juan" class="avatar">
-                                        <div>
-                                            <div class="name">Juan Pérez</div>
-                                            <div class="role">Nutricionista</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Plan Alimenticio</td>
-                                <td>Nuevo plan alimenticio disponible.</td>
-                                <td>2025-04-09</td>
-                            </tr>
-                        
-                            
-                            
                             <!-- Más filas si es necesario -->
                         </tbody>
                     </div>
@@ -237,100 +179,101 @@
         </div>
         <div class="div4">
             <div class="perfil__cabecera">
-                <img src="https://via.placeholder.com/80" alt="Foto de perfil" class="perfil__imagen">
+                <img id="foto-preview" class="cabecera__img" src="assets/image/testimonio3.avif" alt="Foto de perfil"
+                    class="perfil__imagen">
+
                 <div class="perfil__botones">
-                    <button class="perfil__boton perfil__boton--upload">Upload New Photo</button>
-                    <button class="perfil__boton perfil__boton--reset">Reset</button>
-                    <small class="perfil__nota">Allowed JPG, GIF or PNG. Max size of 800K</small>
+                    <!-- Input file oculto -->
+                    <input type="file" id="input-foto" name="foto" accept="image/*" style="display: none;">
+
+                    <!-- Label que actúa como botón -->
+                    <label for="input-foto" class="perfil__boton perfil__boton--upload">
+                        Cargar Nueva Foto
+                    </label>
+
+                    <button class="perfil__boton perfil__boton--reset">Reiniciar</button>
+                    <small class="perfil__nota">Allowed JPG, GIF o PNG. Tamaño Máximo de 800K</small>
                 </div>
             </div>
 
             <form class="perfil__formulario">
                 <div class="formulario__input">
-                    <div class="input-box">
+                    <div class="input-box box--changed">
                         <input type="text" autocomplete="off" placeholder="" name="Nit" id="nit">
-                        <label for="nit">Nit</label>
+                        <label class="label" for="nit">Nit</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-
+                        El NIT no puede estar vacío y debe contener solo números.
                     </p>
                 </div>
-                <div class="formulario__input">
-                    <div class="input-box">
-                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombre">
-                        <label for="Nombre">Nombre</label>
+                <div class="formulario__input input--cambio">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombreEmpresa">
+                        <label class="label" for="nombreEmpresa">Nombre Empresa</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-
+                        El nombre de la empresa es obligatorio.
                     </p>
                 </div>
 
+                <!-- Selector de país -->
                 <div class="formulario__input">
-                    <div class="input-box">
-                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombre">
-                        <label for="Nombre">Nombre</label>
-                        <span class="box__icon"><i class="ri-check-line"></i></span>
-                        <span class="box__icon"><i class="ri-close-line"></i></span>
-                    </div>
-                    <p class="input__error">
-
-                    </p>
-                </div>
-
-                <div class="formulario__input">
-                    <div class="custom-select">
-                        <div class="select-box" id="selectBox">
-                            <span class="selected">Pais</span>
+                    <div class="custom-select" id="customSelectPais">
+                        <input type="hidden" name="pais" id="inputPais" />
+                        <div class="select-box" id="selectBoxPais">
+                            <span class="selected">País</span>
                             <i class="fa-solid fa-chevron-down arrow"></i>
                         </div>
-                        <ul class="options-list" id="optionsList">
-                            <li class="option" data-value="España">España</li>
-                            <li class="option" data-value="Portugal">Portugal</li>
-                            <li class="option" data-value="Francia">Francia</li>
-                            <li class="option" data-value="Italia">Italia</li>
-                            <li class="option" data-value="China">China</li>
-                            <li class="option" data-value="Japon">Japon</li>
-                            <li class="option" data-value="Russia">Russia</li>
-                            <li class="option" data-value="Suiza">Suiza</li>
-                        </ul>
+                        <ul class="options-list" id="optionsListPais"></ul>
                     </div>
-                    <p class="input__error error--changed">
-                        Por favor, seleccione un pais.
-                    </p>
+                    <p class="input__error error--changed">Por favor, seleccione un país.</p>
+                </div>
+
+                <!-- Selector de ciudad -->
+                <div class="formulario__input">
+                    <div class="custom-select" id="customSelectCiudad">
+                        <input type="hidden" name="ciudad" id="inputCiudad" />
+                        <div class="select-box" id="selectBoxCiudad">
+                            <span class="selected">Ciudad</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </div>
+                        <ul class="options-list" id="optionsListCiudad"></ul>
+                    </div>
+                    <p class="input__error error--changed">Por favor, seleccione una ciudad.</p>
                 </div>
 
                 <div class="formulario__input">
-                    <div class="input-box">
+                    <div class="input-box box--changed">
                         <input type="text" autocomplete="off" placeholder="" name="Direccion" id="direccion">
-                        <label for="direccion">Direccion</label>
+                        <label class="label" for="direccion">Direccion</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error">
-
+                        La dirección no puede estar vacía.
                     </p>
                 </div>
 
                 <div class="formulario__input">
-                    <div class="input-box">
-                        <input type="email" autocomplete="off" placeholder="" name="Email" id="email">
-                        <label for="email">Email</label>
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Name" id="emailEmpresa">
+                        <label class="label" for="emailEmpresa">Email Empresa</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
-                    <p class="input__error error--changed2">
+                    <p class="input__error">
                         El correo solo puede contener letras,numeros,puntos,guiones y guion bajo.
                     </p>
                 </div>
 
                 <div class="formulario__input">
-                    <div class="input-box">
+                    <div class="input-box box--changed">
                         <input type="text" autocomplete="off" placeholder="" name="Telefono" id="telefono">
-                        <label for="telefono">Telefono</label>
+                        <label class="label" for="telefono">Telefono</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
@@ -343,12 +286,28 @@
                     <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
                 </p>
 
-                <div class="formulario__input formulario__btn-container">
-                    <button class="formulario__btn" type="submit">Registrar</button>
+                <div class="formulario__input">
+                    <button class="formulario__button" type="submit">Registrar</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <!-- Modal Detalles -->
+    <div id="modalNotificacion" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Detalles de la Notificación</h2>
+            <p><strong>Tipo:</strong> <span id="modalTipo"></span></p>
+            <p><strong>Fecha:</strong> <span id="modalFecha"></span></p>
+            <p><strong>ID/Código:</strong> <span id="modalCodigo"></span></p>
+            <p><strong>Ubicación:</strong> <span id="modalUbicacion"></span></p>
+            <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
+            <p><strong>Descripción:</strong></p>
+            <div id="modalDescripcion" class="modal__descripcion"></div>
+        </div>
+    </div>
+
 
     <script src="js/Perfil.js"></script>
 
