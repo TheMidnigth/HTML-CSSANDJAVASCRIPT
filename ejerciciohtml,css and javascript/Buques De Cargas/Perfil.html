@@ -27,7 +27,6 @@
             <p class="item__info"><strong class="info__imp">Nombre:</strong>Keyner Alfonso </p>
             <p class="item__info"><strong class="info__imp">Apellido:</strong> Reyes Tejedor</p>
             <p class="item__info"><strong class="info__imp">Empresa:</strong>Marijuana Express</p>
-            <p class="item__info"><strong class="info__imp">Rol:</strong>Ninguno</p>
             <p class="item__info"><strong class="info__imp">Nit:</strong>001015465</p>
             <p class="item__info"><strong class="info__imp">Email:</strong>Keyner@gmail.com</p>
             <p class="item__info"><strong class="info__imp">Tipo Identificacion:</strong>Cedula</p>
@@ -204,7 +203,7 @@
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
-                    <p class="input__error">
+                    <p class="input__error error--cambio2">
                         El NIT no puede estar vacío y debe contener solo números.
                     </p>
                 </div>
@@ -230,7 +229,7 @@
                         </div>
                         <ul class="options-list" id="optionsListPais"></ul>
                     </div>
-                    <p class="input__error error--changed">Por favor, seleccione un país.</p>
+                    <p class="input__error error--cambio1">Por favor, seleccione un país.</p>
                 </div>
 
                 <!-- Selector de ciudad -->
@@ -243,7 +242,7 @@
                         </div>
                         <ul class="options-list" id="optionsListCiudad"></ul>
                     </div>
-                    <p class="input__error error--changed">Por favor, seleccione una ciudad.</p>
+                    <p class="input__error error--cambio5">Por favor, seleccione una ciudad.</p>
                 </div>
 
                 <div class="formulario__input">
@@ -253,19 +252,20 @@
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
-                    <p class="input__error">
-                        La dirección no puede estar vacía.
+                    <p class="input__error error--cambio2">
+                        Ingresa una dirección válida (ej. Calle 45 #10-23, 130002 o San Fernando, Calle 45 #10-23,
+                        130002).
                     </p>
                 </div>
 
                 <div class="formulario__input">
                     <div class="input-box box--changed">
-                        <input type="text" autocomplete="off" placeholder="" name="Name" id="emailEmpresa">
+                        <input type="text" autocomplete="off" placeholder="" name="email" id="emailEmpresa">
                         <label class="label" for="emailEmpresa">Email Empresa</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
-                    <p class="input__error">
+                    <p class="input__error error--cambio3">
                         El correo solo puede contener letras,numeros,puntos,guiones y guion bajo.
                     </p>
                 </div>
@@ -277,18 +277,18 @@
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
-                    <p class="input__error">
+                    <p class="input__error error--cambio4">
                         El teléfono solo puede contener numeros y el maximo son 10 digitos.
                     </p>
                 </div>
 
-                <p class="input__advertencia">
-                    <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
-                </p>
-
                 <div class="formulario__input">
                     <button class="formulario__button" type="submit">Registrar</button>
                 </div>
+
+                <p class="input__advertencia advertencia--changed">
+                    <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
+                </p>
             </form>
         </div>
     </div>
@@ -305,6 +305,170 @@
             <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
             <p><strong>Descripción:</strong></p>
             <div id="modalDescripcion" class="modal__descripcion"></div>
+        </div>
+    </div>
+
+    <!--Modal editar-->
+    <div class="modal__editar" id="modalEditar">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cambiar Contraseña</h2>
+
+            <form class="formulario" action="">
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Name"
+                            id="nombre">
+                        <label class="label" for="nombre">Nombre</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        El nombre debe tener al menos 3 letras.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="text" autocomplete="off" placeholder="" name="Apellido"
+                            id="apellido">
+                        <label class="label" for="nombre">Apellido</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        El nombre debe tener al menos 3 letras.
+                    </p>
+                </div>
+
+                <div class="formulario__input input--cambio">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombreEmpresa">
+                        <label class="label" for="nombreEmpresa">Nombre Empresa</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error">
+                        El nombre de la empresa es obligatorio.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Nit" id="nit">
+                        <label class="label" for="nit">Nit</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--cambio2">
+                        El NIT no puede estar vacío y debe contener solo números.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Email" id="email">
+                        <label class="label" for="email">Email </label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--cambio3">
+                        El correo solo puede contener letras,numeros,puntos,guiones y guion bajo.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="custom-select">
+                        <div class="select-box" id="selectBox">
+                            <span class="selected">Tipo De Identificación</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </div>
+                        <ul class="options-list" id="optionsList">
+                            <li class="option" data-value="Cedula">CC(Cédula de Ciudadanía)</li>
+                            <li class="option" data-value="C.Extranjeria">CE(Cédula de Extranjería)</li>
+                            <li class="option" data-value="D.Extranjería">DE(Documento de Extranjería)</li>
+                            <li class="option" data-value="NIT">NIT(Identificación Tributaria)</li>
+                            <li class="option" data-value="PP">PP(Pasaporte)</li>
+                            <li class="option" data-value="RUT">RUT(Registro Único Tributario)</li>
+                            <li class="option" data-value="TEC">TE(Tarjeta de Extranjería)</li>
+                            <li class="option" data-value="T"> TI(Tarjeta de Identidad)</li>
+                        </ul>
+                    </div>
+                    <p class="input__error error--changed">
+                        Por favor, seleccione un tipo de identificación.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Identificacion" id="identificacion">
+                        <label class="label" for="identificacion">Identificacion</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--cambio4">
+                        La cédula debe contener entre 6 y 10 dígitos numéricos.
+                    </p>
+                </div>
+                
+                <div class="formulario__input">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Telefono" id="telefono">
+                        <label class="label" for="telefono">Telefono</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--cambio4">
+                        El teléfono solo puede contener numeros y el maximo son 10 digitos.
+                    </p>
+                </div>
+
+                <!-- Selector de país -->
+                <div class="formulario__input">
+                    <div class="custom-select" id="customSelectPais">
+                        <input type="hidden" name="pais" id="inputPais" />
+                        <div class="select-box" id="selectBoxPais">
+                            <span class="selected">País</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </div>
+                        <ul class="options-list" id="optionsListPais"></ul>
+                    </div>
+                    <p class="input__error error--cambio1">Por favor, seleccione un país.</p>
+                </div>
+
+                <!-- Selector de ciudad -->
+                <div class="formulario__input">
+                    <div class="custom-select" id="customSelectCiudad">
+                        <input type="hidden" name="ciudad" id="inputCiudad" />
+                        <div class="select-box" id="selectBoxCiudad">
+                            <span class="selected">Ciudad</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </div>
+                        <ul class="options-list" id="optionsListCiudad"></ul>
+                    </div>
+                    <p class="input__error error--cambio5">Por favor, seleccione una ciudad.</p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box box--changed">
+                        <input type="text" autocomplete="off" placeholder="" name="Direccion" id="direccion">
+                        <label class="label" for="direccion">Direccion</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--cambio2">
+                        Ingresa una dirección válida (ej. Calle 45 #10-23, 130002 o San Fernando, Calle 45 #10-23,
+                        130002).
+                    </p>
+                </div>
+
+                <p class="input__advertencia">
+                    <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
+                </p>
+
+                <button class="formulario__button" type="submit">Cambiar Contraseña</button>
+            </form>
         </div>
     </div>
 

@@ -18,7 +18,7 @@ body{
 
 
 .parent {
-    background-color: #c9d6ff;
+    background-color: #f0f0f0;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto auto auto auto auto auto auto auto auto;
@@ -186,13 +186,13 @@ body{
 .box__icon i {
     position: absolute;
     top: 35px;
-    left: 90%;
+    left: 91%;
     font: 900 18px "Montserrat";
 
 }
 
 .icon--changed i {
-    left: 90%;
+    left: 91%;
 }
 
 .box__icon .ri-check-line {
@@ -224,6 +224,27 @@ body{
     margin: -10px 0 10px 20px;
 }
 
+.error--cambio1{
+    margin-top:20px ;
+}
+
+.error--cambio5{
+    margin-top:20px ;
+}
+
+.error--cambio2{
+    width: 99%;
+}
+
+.error--cambio3{
+    width: 100%;
+}
+
+.error--cambio4{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .input__advertencia {
     font: 700 15px "Montserrat";
     box-sizing: border-box;
@@ -237,6 +258,10 @@ body{
     display: flex;
     justify-content: flex-start;
     display: none;
+}
+
+.advertencia--changed{
+    margin-left: 250px;
 }
 
 .input__advertencia i {
@@ -304,7 +329,7 @@ body{
         -6px -6px 12px #fff;
     cursor: pointer;
     top: -10px;
-    right: 20px;
+    right: 35px;
     text-decoration: none;
     transition:background-color .7s ease ;
 }
@@ -469,6 +494,7 @@ body{
 .box--changed input{
     max-width: 610px;
 }
+
 
 .custom-select {
     position: relative;
