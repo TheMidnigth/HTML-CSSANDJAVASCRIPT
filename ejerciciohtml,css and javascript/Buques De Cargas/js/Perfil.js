@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-
+    //input de ciudad y pais
     const paisOptionsList = document.getElementById("optionsListPais");
     const selectedPais = document.querySelector("#selectBoxPais .selected");
     const inputPais = document.getElementById("inputPais");
@@ -305,174 +305,260 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Definición de los campos y sus validaciones  
-const perfilFields = {
-    nit: {
-        regex: /^\d+$/,
-        errorMessage: "El NIT no puede estar vacío y debe contener solo números."
-    },
-    nombreEmpresa: {
-        regex: /^.{1,}$/,
-        errorMessage: "El nombre de la empresa es obligatorio."
-    },
-    direccion: {
-        regex: /^[A-Za-z0-9\s#.,-]{5,}$/,
-        errorMessage: "Ingresa una dirección válida (ej. Calle 45 #10-23, 130002 o San Fernando, Calle 45 #10-23, 130002)."
-    },
-    emailEmpresa: {
-        regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-        errorMessage: "El correo solo puede contener letras, números, puntos, guiones y guion bajo."
-    },
-    telefono: {
-        regex: /^\d{1,10}$/,
-        errorMessage: "El teléfono solo puede contener números y el máximo son 10 dígitos."
-    }
-};
-
-// Campos de inputs regulares
-Object.keys(perfilFields).forEach(fieldId => {
-    const input = document.getElementById(fieldId);
-    if (!input) return;
-
-    const inputBox = input.closest(".input-box");
-    const checkIcon = inputBox.querySelector(".ri-check-line");
-    const errorIcon = inputBox.querySelector(".ri-close-line");
-    const errorMessage = inputBox.nextElementSibling;
-    const label = inputBox.querySelector("label");
-
-    input.addEventListener("input", () => {
-        const value = input.value.trim();
-        if (value === "") {
-            checkIcon.style.display = "none";
-            errorIcon.style.display = "none";
-            errorMessage.style.display = "none";
-            input.style.border = "";
-            label.style.color = "";
-            inputBox.classList.remove("input-error");
-        } else if (perfilFields[fieldId].regex.test(value)) {
-            checkIcon.style.display = "inline-block";
-            errorIcon.style.display = "none";
-            errorMessage.style.display = "none";
-            input.style.border = "2px solid #0034de";
-            label.style.color = "";
-            inputBox.classList.remove("input-error");
-        } else {
-            checkIcon.style.display = "none";
-            errorIcon.style.display = "inline-block";
-            errorMessage.style.display = "block";
-            input.style.border = "2px solid #fd1f1f";
-            label.style.color = "red";
-            inputBox.classList.add("input-error");
+    const perfilFields = {
+        nit: {
+            regex: /^\d+$/,
+            errorMessage: "El NIT no puede estar vacío y debe contener solo números."
+        },
+        nombreEmpresa: {
+            regex: /^.{1,}$/,
+            errorMessage: "El nombre de la empresa es obligatorio."
+        },
+        direccion: {
+            regex: /^(?=.*\d)(?=.*[A-Za-z])[A-Za-z0-9\s#.,-]{5,}$/,
+            errorMessage: "Ingresa una dirección válida (ej. Calle 45 #10-23, 130002 o San Fernando, Calle 45 #10-23, 130002)."
+        },
+        emailEmpresa: {
+            regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+            errorMessage: "El correo solo puede contener letras, números, puntos, guiones y guion bajo."
+        },
+        telefono: {
+            regex: /^\d{1,10}$/,
+            errorMessage: "El teléfono solo puede contener números y el máximo son 10 dígitos."
         }
-    });
-});
+    };
 
-// Select personalizados (país y ciudad)
-function validarSelectCustom(id) {
-    const inputHidden = document.getElementById(`input${id}`);
-    let errorMsg;
-
-    // Seleccionamos el mensaje de error correspondiente según el id
-    if (id === "Pais") {
-        errorMsg = document.querySelector(".error--cambio1"); // Error específico para país
-    } else if (id === "Ciudad") {
-        errorMsg = document.querySelector(".error--cambio5"); // Error específico para ciudad
-    }
-
-    const selectBox = document.getElementById(`selectBox${id}`);
-
-    selectBox.addEventListener("click", () => {
-        errorMsg.style.display = "none"; // Ocultar el mensaje de error cuando se hace clic
-    });
-
-    inputHidden.addEventListener("change", () => {
-        if (inputHidden.value.trim() !== "") {
-            errorMsg.style.display = "none"; // Ocultar el mensaje de error cuando se selecciona un valor
-        }
-    });
-}
-
-// Llamadas a la función de validación para cada select
-validarSelectCustom("Pais");
-validarSelectCustom("Ciudad");
-
-function ocultarAdvertencia() {
-    const advertencia = document.querySelector(".advertencia--changed");
-    
-    // Ocultar al escribir en inputs normales
-    const inputText = document.querySelectorAll("input:not([type='hidden'])");
-    inputText.forEach(input => {
-        input.addEventListener("input", () => {
-            advertencia.style.display = "none";
-        });
-    });
-
-    // Ocultar al seleccionar un país o ciudad (select personalizados)
-    const selectBoxes = [
-        document.getElementById("selectBoxPais"),
-        document.getElementById("selectBoxCiudad")
-    ];
-
-    selectBoxes.forEach(selectBox => {
-        selectBox.addEventListener("click", () => {
-            advertencia.style.display = "none";
-        });
-    });
-
-    // También si cambia el valor oculto
-    const hiddenInputs = [
-        document.getElementById("inputPais"),
-        document.getElementById("inputCiudad")
-    ];
-
-    hiddenInputs.forEach(input => {
-        input.addEventListener("change", () => {
-            advertencia.style.display = "none";
-        });
-    });
-}
-
-// Llamar a la función para ocultar la advertencia
-ocultarAdvertencia();
-
-// Validación general al enviar
-const perfilForm = document.querySelector(".perfil__formulario");
-const advertenciaBox = document.querySelector(".advertencia--changed");
-const inputErrors = document.querySelectorAll(".input__error");
-
-perfilForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // Previene el envío por defecto primero
-    let isValid = true;
-    let isEmpty = true;
-
-    // Verificar si todos los inputs están vacíos
+    // Campos de inputs regulares
     Object.keys(perfilFields).forEach(fieldId => {
-        const value = document.getElementById(fieldId).value.trim();
-        if (value !== "") isEmpty = false;
+        const input = document.getElementById(fieldId);
+        if (!input) return;
+
+        const inputBox = input.closest(".input-box");
+        const checkIcon = inputBox.querySelector(".ri-check-line");
+        const errorIcon = inputBox.querySelector(".ri-close-line");
+        const errorMessage = inputBox.nextElementSibling;
+        const label = inputBox.querySelector("label");
+
+        input.addEventListener("input", () => {
+            const value = input.value.trim();
+            if (value === "") {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else if (perfilFields[fieldId].regex.test(value)) {
+                checkIcon.style.display = "inline-block";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "2px solid #0034de";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "inline-block";
+                errorMessage.style.display = "block";
+                input.style.border = "2px solid #fd1f1f";
+                label.style.color = "red";
+                inputBox.classList.add("input-error");
+            }
+        });
     });
 
-    const pais = document.getElementById("inputPais").value.trim();
-    const ciudad = document.getElementById("inputCiudad").value.trim();
+    // Select personalizados (país y ciudad)
+    function validarSelectCustom(id) {
+        const inputHidden = document.getElementById(`input${id}`);
+        let errorMsg;
 
-    // Solo mostrar el error para el país o ciudad si los demás campos están llenos
-    if (!isEmpty) {
-        if (pais === "") {
-            document.querySelector(".error--cambio1").style.display = "block";
-            isValid = false;
+        // Seleccionamos el mensaje de error correspondiente según el id
+        if (id === "Pais") {
+            errorMsg = document.querySelector(".error--cambio1"); // Error específico para país
+        } else if (id === "Ciudad") {
+            errorMsg = document.querySelector(".error--cambio5"); // Error específico para ciudad
         }
 
-        if (ciudad === "") {
-            document.querySelector(".error--cambio5").style.display = "block";
-            isValid = false;
-        }
+        const selectBox = document.getElementById(`selectBox${id}`);
+
+        selectBox.addEventListener("click", () => {
+            errorMsg.style.display = "none"; // Ocultar el mensaje de error cuando se hace clic
+        });
+
+        inputHidden.addEventListener("change", () => {
+            if (inputHidden.value.trim() !== "") {
+                errorMsg.style.display = "none"; // Ocultar el mensaje de error cuando se selecciona un valor
+            }
+        });
     }
 
-    if (isValid && !isEmpty) {
-        advertenciaBox.style.display = "none"; // Hide warning message
-        perfilForm.submit(); // Submit form if valid
-    } else {
-        advertenciaBox.style.display = "block"; // Show warning if empty
+    // Llamadas a la función de validación para cada select
+    validarSelectCustom("Pais");
+    validarSelectCustom("Ciudad");
+
+    function ocultarAdvertencia() {
+        const advertencia = document.querySelector(".advertencia--changed");
+
+        // Ocultar al escribir en inputs normales
+        const inputText = document.querySelectorAll("input:not([type='hidden'])");
+        inputText.forEach(input => {
+            input.addEventListener("input", () => {
+                advertencia.style.display = "none";
+            });
+        });
+
+        // Ocultar al seleccionar un país o ciudad (select personalizados)
+        const selectBoxes = [
+            document.getElementById("selectBoxPais"),
+            document.getElementById("selectBoxCiudad")
+        ];
+
+        selectBoxes.forEach(selectBox => {
+            selectBox.addEventListener("click", () => {
+                advertencia.style.display = "none";
+            });
+        });
+
+        // También si cambia el valor oculto
+        const hiddenInputs = [
+            document.getElementById("inputPais"),
+            document.getElementById("inputCiudad")
+        ];
+
+        hiddenInputs.forEach(input => {
+            input.addEventListener("change", () => {
+                advertencia.style.display = "none";
+            });
+        });
     }
-});
+
+    // Llamar a la función para ocultar la advertencia
+    ocultarAdvertencia();
+
+    // Validación general al enviar
+    const perfilForm = document.querySelector(".perfil__formulario");
+    const advertenciaBox = document.querySelector(".advertencia--changed");
+    const inputErrors = document.querySelectorAll(".input__error");
+
+    perfilForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Previene el envío por defecto primero
+        let isValid = true;
+        let isEmpty = true;
+
+        // Verificar si los campos están vacíos o inválidos
+        Object.keys(perfilFields).forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            const value = input.value.trim();
+            const regex = perfilFields[fieldId].regex;
+
+            if (value !== "") {
+                isEmpty = false;
+                if (!regex.test(value)) {
+                    isValid = false;
+                }
+            }
+        });
+
+        const pais = document.getElementById("inputPais").value.trim();
+        const ciudad = document.getElementById("inputCiudad").value.trim();
+
+        // Solo mostrar el error para el país o ciudad si los demás campos están llenos
+        if (!isEmpty) {
+            if (pais === "") {
+                document.querySelector(".error--cambio1").style.display = "block";
+                isValid = false;
+            }
+
+            if (ciudad === "") {
+                document.querySelector(".error--cambio5").style.display = "block";
+                isValid = false;
+            }
+        }
+
+        if (isValid && !isEmpty) {
+            advertenciaBox.style.display = "none"; // Hide warning message
+            perfilForm.submit(); // Submit form if valid
+        } else {
+            advertenciaBox.style.display = "block"; // Show warning if empty
+        }
+    });
+
+    //Ventana Modal de editar
+    const btnEditar = document.getElementById("btnEditar");
+    const modaleditar = document.getElementById("modalEditar");
+    const btnCerrar = modaleditar.querySelector(".close");
+
+    // Mostrar modal al hacer clic en el botón de editar
+    btnEditar.addEventListener("click", () => {
+        modaleditar.style.display = "flex"; // usar "flex" para centrar con flexbox
+    });
+
+    // Cerrar modal al hacer clic en la X
+    btnCerrar.addEventListener("click", () => {
+        modaleditar.style.display = "none";
+    });
+
+    // Cerrar modal al hacer clic fuera del contenido
+    window.addEventListener("click", (event) => {
+        if (event.target === modaleditar) {
+            modaleditar.style.display = "none";
+        }
+    });
+
+    
+
+    // Validaciones de formulario editar 
+    const editarForm = {
+        nombre: { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/, errorMessage: "El nombre debe tener al menos 3 letras." },
+        apellido: { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/, errorMessage: "El apellido debe tener al menos 3 letras." },
+        nameEmpresa: { regex: /^.{1,}$/, errorMessage: "El nombre de la empresa es obligatorio." },
+        emailCompany: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, errorMessage: "El correo solo puede contener letras, números, puntos, guiones y guion bajo." },
+        niT: { regex: /^\d+$/, errorMessage: "El NIT no puede estar vacío y debe contener solo números." },
+        email: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, errorMessage: "El correo solo puede contener letras, números, puntos, guiones y guion bajo." },
+        identificacion: { regex: /^\d{6,10}$/, errorMessage: "La cédula debe contener entre 6 y 10 dígitos." },
+        address: { regex: /^(?=.*\d)(?=.*[A-Za-z])[A-Za-z0-9\s#.,-]{5,}$/, errorMessage: "Ingresa una dirección válida (ej. Calle 45 #10-23, 130002 o San Fernando, Calle 45 #10-23, 130002)." },
+        phone: { regex: /^\d{1,10}$/, errorMessage: "El teléfono solo puede contener números y el máximo son 10 dígitos." }
+    };
+
+    Object.keys(editarForm).forEach(formId => {
+        const input = document.getElementById(formId);
+        if (!input) return;
+
+        const inputBox = input.closest(".input-box");
+        const checkIcon = inputBox.querySelector(".ri-check-line");
+        const errorIcon = inputBox.querySelector(".ri-close-line");
+        const errorMessage = inputBox.nextElementSibling;
+        const label = inputBox.querySelector("label");
+
+        input.addEventListener("input", () => {
+            const value = input.value.trim();
+            const { regex, errorMessage: msg } = editarForm[formId];
+
+            if (value === "") {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else if (regex.test(value)) {
+                checkIcon.style.display = "inline-block";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "2px solid #0034de";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "inline-block";
+                errorMessage.style.display = "block";
+                errorMessage.textContent = msg;
+                input.style.border = "2px solid #fd1f1f";
+                label.style.color = "red";
+                inputBox.classList.add("input-error");
+            }
+        });
+    });
+
 
 
 });
