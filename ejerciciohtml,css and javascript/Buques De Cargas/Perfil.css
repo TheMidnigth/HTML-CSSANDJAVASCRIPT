@@ -131,7 +131,7 @@ body{
 }
 
 .input-box .label {
-    font: 500 15px "Montserrat";
+    font: 500 16px "Montserrat";
     position: absolute;
     color: #8d8d8d;
     pointer-events: none;
@@ -222,7 +222,7 @@ body{
 
 
 .error--changed {
-    margin: -10px 0 10px 20px;
+    margin: -10px 0 20px 20px;
 }
 
 .error--cambio1{
@@ -500,84 +500,6 @@ body{
 }
 
 
-.custom-select {
-    position: relative;
-    max-width: 610px;
-    width: 100%;
-    margin: 20px 0 10px 20px;
-}
-
-.selected {
-    font-size: 16px !important;
-    font-weight: 500;
-    font-family: "Noto Sans";
-    font-weight: bold;  
-    color: #8d8d8d;
-}
-
-.select-box {
-    height: 55px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    padding: 12px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease-in-out;
-}
-
-.arrow {
-    transition: 0.3s;
-    font-size: 16px;
-    color: #666;
-}
-
-.custom-select.open .arrow {
-    transform: rotate(180deg);
-}
-
-.custom-select.open .options-list {
-    display: block;
-}
-
-.options-list {
-    list-style: none;
-    margin: 8px 0 0 0;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: none;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    padding: 0 10px;
-    max-height: 200px;
-    overflow-y: auto;
-    font: 400 15px "Noto Sans";
-}
-
-.option {
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: transparent;
-    transition: background-color 1s ease;
-}
-
-.option:first-child {
-    margin-top: 10px;
-}
-
-.option:hover {
-    background-color: #f2f2f2;
-}
-
-
-
 .perfil__formulario .formulario__button {
     background-color: var(--color-cuartario);
     color: var(--color-tercario);
@@ -765,4 +687,64 @@ body{
     margin: 20px 0 -10px 20px;
 }
 
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 425px;
+    margin: 10px 0 10px 20px;
+}
 
+
+
+.wrapper--changed1{
+    max-width: 610px;
+}
+
+.styled-select {
+    width: 100%;
+    max-width: 700px;
+    height: 55px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    font: 400 16px "Poppins";
+    color: #8d8d8d;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.select--change1{
+    max-width: 770px;
+    height: 50px;
+}
+
+.styled-select option {
+    color: #333;
+    background-color: #ffffff;
+    font: 500 17px "Noto Sans";
+}
+
+
+.styled-select:focus {
+    outline: none;
+}
+
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+}
+
+.custom-arrow.rotate {
+    transform: translateY(-50%) rotate(180deg);
+}

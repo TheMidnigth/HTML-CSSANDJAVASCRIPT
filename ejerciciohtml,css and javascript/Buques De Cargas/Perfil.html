@@ -222,26 +222,22 @@
 
                 <!-- Selector de país -->
                 <div class="formulario__input">
-                    <div class="custom-select" id="customSelectPais">
-                        <input type="hidden" name="pais" id="inputPais" />
-                        <div class="select-box" id="selectBoxPais">
-                            <span class="selected">País</span>
-                            <i class="fa-solid fa-chevron-down arrow"></i>
-                        </div>
-                        <ul class="options-list" id="optionsListPais"></ul>
+                    <div class="custom-select-wrapper wrapper--changed1">
+                        <select class="styled-select select--changed1" id="selectPais">
+                            <option disabled selected>Pais</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
                     <p class="input__error error--cambio1">Por favor, seleccione un país.</p>
                 </div>
 
                 <!-- Selector de ciudad -->
                 <div class="formulario__input">
-                    <div class="custom-select" id="customSelectCiudad">
-                        <input type="hidden" name="ciudad" id="inputCiudad" />
-                        <div class="select-box" id="selectBoxCiudad">
-                            <span class="selected">Ciudad</span>
-                            <i class="fa-solid fa-chevron-down arrow"></i>
-                        </div>
-                        <ul class="options-list" id="optionsListCiudad"></ul>
+                    <div class="custom-select-wrapper wrapper--changed1">
+                        <select class="styled-select select--changed1" id="selectCiudad">
+                            <option disabled selected>Ciudad</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
                     <p class="input__error error--cambio5">Por favor, seleccione una ciudad.</p>
                 </div>
@@ -319,8 +315,7 @@
 
                 <div class="formulario__input">
                     <div class="input-box box--change">
-                        <input type="text" autocomplete="off" placeholder="" name="Name"
-                            id="nombre">
+                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nombre">
                         <label class="label label--change" for="nombre">Nombre</label>
                         <span class="box__icon icon--change"><i class="ri-check-line"></i></span>
                         <span class="box__icon icon--change"><i class="ri-close-line"></i></span>
@@ -332,8 +327,7 @@
 
                 <div class="formulario__input">
                     <div class="input-box box--change">
-                        <input type="text" autocomplete="off" placeholder="" name="Apellido"
-                            id="apellido">
+                        <input type="text" autocomplete="off" placeholder="" name="Apellido" id="apellido">
                         <label class="label label--change" for="nombre">Apellido</label>
                         <span class="box__icon icon--change"><i class="ri-check-line"></i></span>
                         <span class="box__icon icon--change"><i class="ri-close-line"></i></span>
@@ -392,22 +386,19 @@
                 </div>
 
                 <div class="formulario__input">
-                    <div class="custom-select select--change">
-                        <input type="hidden" name="TipoDeIdentificación" id="inputTipoDeIdentificación" />
-                        <div class="select-box" id="selectBox">
-                            <span class="selected">Tipo De Identificación</span>
-                            <i class="fa-solid fa-chevron-down arrow"></i>
-                        </div>
-                        <ul class="options-list" id="optionsList">
-                            <li class="option" data-value="Cedula">CC(Cédula de Ciudadanía)</li>
-                            <li class="option" data-value="C.Extranjeria">CE(Cédula de Extranjería)</li>
-                            <li class="option" data-value="D.Extranjería">DE(Documento de Extranjería)</li>
-                            <li class="option" data-value="NIT">NIT(Identificación Tributaria)</li>
-                            <li class="option" data-value="PP">PP(Pasaporte)</li>
-                            <li class="option" data-value="RUT">RUT(Registro Único Tributario)</li>
-                            <li class="option" data-value="TEC">TE(Tarjeta de Extranjería)</li>
-                            <li class="option" data-value="T"> TI(Tarjeta de Identidad)</li>
-                        </ul>
+                    <div class="custom-select-wrapper">
+                        <select class="styled-select" id="tipoIdentificacion">
+                            <option disabled selected>Tipo De Identificación</option>
+                            <option value="Cedula">CC (Cédula de Ciudadanía)</option>
+                            <option value="C.Extranjeria">CE (Cédula de Extranjería)</option>
+                            <option value="D.Extranjería">DE (Documento de Extranjería)</option>
+                            <option value="NIT">NIT (Identificación Tributaria)</option>
+                            <option value="PP">PP (Pasaporte)</option>
+                            <option value="RUT">RUT (Registro Único Tributario)</option>
+                            <option value="TEC">TE (Tarjeta de Extranjería)</option>
+                            <option value="T">TI (Tarjeta de Identidad)</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
                     <p class="input__error error--change">
                         Por favor, seleccione un tipo de identificación.
@@ -428,28 +419,24 @@
 
                 <!-- Selector de país -->
                 <div class="formulario__input">
-                    <div class="custom-select select--change" id="customSelectPais">
-                        <input type="hidden" name="pais" id="inputPais" />
-                        <div class="select-box" id="selectBoxPais">
-                            <span class="selected">País</span>
-                            <i class="fa-solid fa-chevron-down arrow"></i>
-                        </div>
-                        <ul class="options-list" id="optionsListPais"></ul>
+                    <div class="custom-select-wrapper wrapper--changed1">
+                        <select class="styled-select select--changed1" id="selectPais2">
+                            <option disabled selected>Pais</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
-                    <p class="input__error error--change">Por favor, seleccione un país.</p>
+                    <p class="input__error error--cambio1">Por favor, seleccione un país.</p>
                 </div>
 
                 <!-- Selector de ciudad -->
                 <div class="formulario__input">
-                    <div class="custom-select select--change" id="customSelectCiudad">
-                        <input type="hidden" name="ciudad" id="inputCiudad" />
-                        <div class="select-box" id="selectBoxCiudad">
-                            <span class="selected">Ciudad</span>
-                            <i class="fa-solid fa-chevron-down arrow"></i>
-                        </div>
-                        <ul class="options-list" id="optionsListCiudad"></ul>
+                    <div class="custom-select-wrapper wrapper--changed1">
+                        <select class="styled-select select--changed1" id="selectCiudad2">
+                            <option disabled selected>Ciudad</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
-                    <p class="input__error error--change">Por favor, seleccione una ciudad.</p>
+                    <p class="input__error error--cambio5">Por favor, seleccione una ciudad.</p>
                 </div>
 
                 <div class="formulario__input">
@@ -464,7 +451,7 @@
                         130002).
                     </p>
                 </div>
-                
+
                 <div class="formulario__input">
                     <div class="input-box box--change">
                         <input type="text" autocomplete="off" placeholder="" name="Telefono" id="phone">
@@ -488,7 +475,6 @@
 
 
     <script src="js/Perfil.js"></script>
-
 </body>
 
 </html>

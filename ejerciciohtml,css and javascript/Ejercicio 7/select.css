@@ -1,0 +1,48 @@
+.custom-select-wrapper {
+    position: relative;
+    width: 400px;
+    margin: 10px 0 10px 30px;
+}
+
+.styled-select {
+    width: 100%;
+    height: 55px;
+    padding: 12px 16px;
+    padding-right: 40px;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    font: 600 18px "Poppins";
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+
+.styled-select option {
+    color: #333;
+    background-color: #ffffff;
+    font: 500 17px "Noto Sans";
+}
+
+.styled-select:focus {
+    outline: none;
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+}
+
+.custom-arrow.rotate {
+    transform: translateY(-50%) rotate(180deg);
+}

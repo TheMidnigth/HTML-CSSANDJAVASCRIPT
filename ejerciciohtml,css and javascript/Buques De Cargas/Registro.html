@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
-        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="Registro.css">
     <title>Registro</title>
 </head>
@@ -96,21 +99,19 @@
             </div>
             
             <div class="formulario__input">
-                <div class="custom-select">
-                    <div class="select-box" id="selectBox">
-                        <span class="selected">Tipo De Identificación</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </div>
-                    <ul class="options-list" id="optionsList">
-                        <li class="option" data-value="Cedula">CC(Cédula de Ciudadanía)</li>
-                        <li class="option" data-value="C.Extranjeria">CE(Cédula de Extranjería)</li>
-                        <li class="option" data-value="D.Extranjería">DE(Documento de Extranjería)</li>
-                        <li class="option" data-value="NIT">NIT(Identificación Tributaria)</li>
-                        <li class="option" data-value="PP">PP(Pasaporte)</li>
-                        <li class="option" data-value="RUT">RUT(Registro Único Tributario)</li>
-                        <li class="option" data-value="TEC">TE(Tarjeta de Extranjería)</li>
-                        <li class="option" data-value="T"> TI(Tarjeta de Identidad)</li>
-                    </ul>
+                <div class="custom-select-wrapper">
+                    <select class="styled-select" id="tipoIdentificacion">
+                        <option disabled selected>Tipo De Identificación</option>
+                        <option value="Cedula">CC (Cédula de Ciudadanía)</option>
+                        <option value="C.Extranjeria">CE (Cédula de Extranjería)</option>
+                        <option value="D.Extranjería">DE (Documento de Extranjería)</option>
+                        <option value="NIT">NIT (Identificación Tributaria)</option>
+                        <option value="PP">PP (Pasaporte)</option>
+                        <option value="RUT">RUT (Registro Único Tributario)</option>
+                        <option value="TEC">TE (Tarjeta de Extranjería)</option>
+                        <option value="T">TI (Tarjeta de Identidad)</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                 </div>
                 <p class="input__error error--changed">
                     Por favor, seleccione un tipo de identificación.

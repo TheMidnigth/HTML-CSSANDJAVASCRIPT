@@ -1,39 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () { 
-    // Manejo del menú desplegable
-    const selectBox = document.getElementById("selectBox");
-    const optionsList = document.getElementById("optionsList");
-    const selectedText = selectBox?.querySelector(".selected");
-    const options = document.querySelectorAll(".option");
-    const errorTipoId = document.querySelector(".error--changed");
-    const errorMessageBox = document.querySelector(".input__advertencia"); 
-    let tipoIdentificacionSeleccionado = false;
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (selectBox && optionsList && selectedText && options) {
-        selectBox.addEventListener("click", () => {
-            selectBox.classList.toggle("open");
-            optionsList.classList.toggle("open");
+    //Interaccion con el icono del select
+    const select = document.getElementById("tipoIdentificacion");
+        const arrow = document.getElementById("arrowIcon");
+
+        let isOpen = false;
+
+        select.addEventListener("mousedown", (e) => {
+            // Esta parte previene un fallo visual si el usuario hace clic muchas veces
+            isOpen = !isOpen;
+            arrow.classList.toggle("rotate", isOpen);
         });
 
-        options.forEach(option => {
-            option.addEventListener("click", () => {
-                selectedText.textContent = option.textContent;
-                tipoIdentificacionSeleccionado = true;
-                errorTipoId.style.display = "none";
-                errorMessageBox.style.display = "none";
-                selectBox.classList.remove("open");
-                optionsList.classList.remove("open");
-            });
+        select.addEventListener("blur", () => {
+            isOpen = false;
+            arrow.classList.remove("rotate");
         });
 
-        document.addEventListener("click", (event) => {
-            if (!selectBox.contains(event.target) && !optionsList.contains(event.target)) {
-                selectBox.classList.remove("open");
-                optionsList.classList.remove("open");
-            }
-        });
-    }
-
-    // Validaciones de formulario 
+    //Validaciones con javascript
     const fields = {
         nombre: { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/, errorMessage: "El nombre debe tener al menos 3 letras." },
         apellido: { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/, errorMessage: "El apellido debe tener al menos 3 letras." },
@@ -43,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
         password: { regex: /^.{4,12}$/, errorMessage: "La contraseña debe tener entre 4 y 12 caracteres." },
         repeatPassword: { regex: null, errorMessage: "Las contraseñas no coinciden." }
     };
+
+    const tipoIdentificacionSelect = document.getElementById("tipoIdentificacion");
+    const advertencia = document.querySelector(".input__advertencia");
 
     Object.keys(fields).forEach(fieldId => {
         const input = document.getElementById(fieldId);
@@ -55,17 +42,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const label = inputBox.querySelector("label");
 
         input.addEventListener("input", () => {
+            hideAdvertencia();
             const value = input.value.trim();
+
             if (value === "") {
-                inputBox.classList.remove("input-error");
                 checkIcon.style.display = "none";
                 errorIcon.style.display = "none";
                 errorMessage.style.display = "none";
                 input.style.border = "";
                 label.style.color = "";
+                inputBox.classList.remove("input-error");
             } else if (fieldId === "repeatPassword") {
                 const passwordValue = document.getElementById("password").value.trim();
-                if (value === passwordValue && value !== "") {
+                if (value === passwordValue) {
                     checkIcon.style.display = "inline-block";
                     errorIcon.style.display = "none";
                     errorMessage.style.display = "none";
@@ -98,40 +87,90 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Validación en tiempo real de repeatPassword cuando cambia password
-    const passwordInput = document.getElementById("password");
-    const repeatPasswordInput = document.getElementById("repeatPassword");
-    
-    passwordInput.addEventListener("input", () => {
-        repeatPasswordInput.dispatchEvent(new Event("input"));
-    });
-
     const form = document.querySelector("form");
-    const errorMessages = document.querySelectorAll(".input__error");
     const inputs = document.querySelectorAll("input:not([type='checkbox'])");
     const checkbox = document.querySelector(".remember-forgot input");
+    const tipoIdentificacionError = tipoIdentificacionSelect.closest(".formulario__input").querySelector(".input__error");
+
+    [...inputs, tipoIdentificacionSelect].forEach(el => {
+        el.addEventListener("input", hideAdvertencia);
+        el.addEventListener("change", hideAdvertencia);
+    });
+
+    checkbox.addEventListener("change", hideAdvertencia);
 
     form.addEventListener("submit", function (event) {
         let valid = true;
+        let emptyCount = 0;
+        let tipoIdentificacionInvalido = tipoIdentificacionSelect.selectedIndex === 0;
 
-        errorMessages.forEach(error => error.style.display = "none");
-        inputs.forEach(input => { if (input.value.trim() === "") valid = false; });
-        if (!checkbox.checked) valid = false;
+        Object.keys(fields).forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            const value = input.value.trim();
 
-        const camposVacios = [...inputs].filter(input => input.value.trim() === "").length;
-        if (!tipoIdentificacionSeleccionado && camposVacios === 0) {
-            errorTipoId.style.display = "block";
-            valid = false;
-        } else {
-            errorTipoId.style.display = "none";
+            if (value === "") {
+                emptyCount++;
+                valid = false;
+            } else if (fieldId === "repeatPassword") {
+                const passwordValue = document.getElementById("password").value.trim();
+                if (value !== passwordValue) {
+                    valid = false;
+                }
+            } else if (!fields[fieldId].regex.test(value)) {
+                valid = false;
+            }
+        });
+
+        // Caso: todos los campos vacíos y checkbox no marcado
+        const allFieldsEmpty = emptyCount === Object.keys(fields).length && tipoIdentificacionInvalido && !checkbox.checked;
+
+        if (allFieldsEmpty) {
+            advertencia.style.display = "block";
+            tipoIdentificacionError.style.display = "none";
+            tipoIdentificacionSelect.style.border = "";
+            event.preventDefault();
+            return;
         }
 
+        // Caso: solo el select está vacío
+        if (tipoIdentificacionInvalido && emptyCount === 0 && checkbox.checked) {
+            tipoIdentificacionError.style.display = "block";
+            tipoIdentificacionSelect.style.border = "2px solid #fd1f1f";
+            advertencia.style.display = "none";
+            event.preventDefault();
+            return;
+        }
+
+        // Validar tipoIdentificacion si es inválido
+        if (tipoIdentificacionInvalido) {
+            tipoIdentificacionError.style.display = "block";
+            tipoIdentificacionSelect.style.border = "2px solid #fd1f1f";
+            valid = false;
+        } else {
+            tipoIdentificacionError.style.display = "none";
+            tipoIdentificacionSelect.style.border = "2px solid #0034de";
+        }
+
+        // Validar checkbox
+        if (!checkbox.checked) {
+            valid = false;
+        }
+
+        // Si hay otros errores
         if (!valid) {
-            errorMessageBox.style.display = "flex";
+            advertencia.style.display = "block";
             event.preventDefault();
         }
     });
 
-    inputs.forEach(input => input.addEventListener("input", () => errorMessageBox.style.display = "none"));
-    checkbox.addEventListener("change", () => errorMessageBox.style.display = "none");
+    const passwordInput = document.getElementById("password");
+    const repeatPasswordInput = document.getElementById("repeatPassword");
+    passwordInput.addEventListener("input", () => {
+        repeatPasswordInput.dispatchEvent(new Event("input"));
+    });
+
+    function hideAdvertencia() {
+        advertencia.style.display = "none";
+    }
 });
+
