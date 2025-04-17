@@ -291,23 +291,28 @@
     </div>
 
     <!-- Modal Detalles -->
-    <div id="modalNotificacion" class="modal">
+    <div id="modalNotificacion" class="modal hidden">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Detalles de la Notificación</h2>
-            <p><strong>Tipo:</strong> <span id="modalTipo"></span></p>
-            <p><strong>Fecha:</strong> <span id="modalFecha"></span></p>
-            <p><strong>ID/Código:</strong> <span id="modalCodigo"></span></p>
-            <p><strong>Ubicación:</strong> <span id="modalUbicacion"></span></p>
-            <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
-            <p><strong>Descripción:</strong></p>
-            <div id="modalDescripcion" class="modal__descripcion"></div>
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h2 class="modal-title">📝 Detalles de la Notificación</h2>
+            <div class="modal-info">
+                <p class="modal__text"><strong class="text__str">Tipo:</strong> <span id="modalTipo"></span></p>
+                <p class="modal__text"><strong class="text__str">Fecha:</strong> <span id="modalFecha"></span></p>
+                <p class="modal__text"><strong class="text__str">ID/Código:</strong> <span id="modalCodigo"></span></p>
+                <p class="modal__text"><strong class="text__str">Ubicación:</strong> <span id="modalUbicacion"></span>
+                </p>
+                <p class="modal__text"><strong class="text__str">Estado:</strong> <span id="modalEstado"></span></p>
+            </div>
+            <div class="modal-description">
+                <h3>📄 Descripción:</h3>
+                <p id="modalDescripcion"></p>
+            </div>
         </div>
     </div>
 
     <!--Modal editar-->
     <div class="modal__editar" id="modalEditar">
-        <div class="content--changed">
+        <div class="modal-content content--changed">
             <span class="close">&times;</span>
             <h2 class="content__titulo">Editar Información</h2>
 
@@ -328,7 +333,7 @@
                 <div class="formulario__input">
                     <div class="input-box box--change">
                         <input type="text" autocomplete="off" placeholder="" name="Apellido" id="apellido">
-                        <label class="label label--change" for="nombre">Apellido</label>
+                        <label class="label label--change" for="apellido">Apellido</label>
                         <span class="box__icon icon--change"><i class="ri-check-line"></i></span>
                         <span class="box__icon icon--change"><i class="ri-close-line"></i></span>
                     </div>
@@ -339,7 +344,7 @@
 
                 <div class="formulario__input ">
                     <div class="input-box box--change">
-                        <input type="text" autocomplete="off" placeholder="" name="Name" id="nameEmpresa">
+                        <input type="text" autocomplete="off" placeholder="" name="NameEmpresa" id="nameEmpresa">
                         <label class="label label--change" for="nameEmpresa">Nombre Empresa</label>
                         <span class="box__icon icon--change"><i class="ri-check-line"></i></span>
                         <span class="box__icon icon--change"><i class="ri-close-line"></i></span>
@@ -400,7 +405,7 @@
                         </select>
                         <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
-                    <p class="input__error error--change">
+                    <p class="input__error error--tipoIdentificacion">
                         Por favor, seleccione un tipo de identificación.
                     </p>
                 </div>
@@ -425,7 +430,7 @@
                         </select>
                         <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
-                    <p class="input__error error--cambio1">Por favor, seleccione un país.</p>
+                    <p class="input__error error--pais">Por favor, seleccione un país.</p>
                 </div>
 
                 <!-- Selector de ciudad -->
@@ -436,7 +441,7 @@
                         </select>
                         <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
-                    <p class="input__error error--cambio5">Por favor, seleccione una ciudad.</p>
+                    <p class="input__error error--ciudad">Por favor, seleccione una ciudad.</p>
                 </div>
 
                 <div class="formulario__input">

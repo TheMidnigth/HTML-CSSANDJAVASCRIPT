@@ -282,7 +282,12 @@ input:checked+.slider__label:before {
     display: none;
 }
 
-.error--changed {
+
+.error--respuesta1{
+    margin: 10px 0 0px 2px;
+}
+
+.error--respuesta2{
     margin: 10px 0 0px 2px;
 }
 
@@ -311,80 +316,57 @@ input:checked+.slider__label:before {
     margin: -5px 10px 0 0;
 }
 
-.custom-select {
+.custom-select-wrapper {
     position: relative;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     margin: 20px 0 10px 20px;
 }
 
-.selected {
-    font-size: 15px !important;
-    font-weight: 500;
-    font-family: "Noto Sans";
-    color: #333;
-}
-
-.select-box {
+.styled-select {
+    width: 100%;
+    max-width: 350px;
     height: 55px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
     padding: 12px 16px;
-    border-radius: 8px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    font: 400 16px "Poppins";
+    color: #8d8d8d;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease-in-out;
+    border: 1px solid #ccc;
 }
 
-.arrow {
-    transition: 0.3s;
+
+
+.styled-select option {
+    color: #333;
+    background-color: #ffffff;
+    font: 500 17px "Noto Sans";
+}
+
+
+.styled-select:focus {
+    outline: none;
+}
+
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
     font-size: 16px;
     color: #666;
+    pointer-events: none;
 }
 
-.select-box.open .arrow {
-    transform: rotate(180deg);
-}
-
-
-.options-list {
-    list-style: none;
-    margin: 8px 0 0 0;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: none;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    padding: 0 10px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-
-.option {
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: transparent;
-    transition: background-color 1s ease;
-    font: 500 15px "Noto Sans";
-}
-
-.option:first-child {
-    margin-top: 10px;
-}
-
-.option:hover {
-    background-color: #f2f2f2;
-}
-
-.select-box.open+.options-list {
-    display: block;
+.custom-arrow.rotate {
+    transform: translateY(-50%) rotate(180deg);
 }
 
 
@@ -397,6 +379,7 @@ input:checked+.slider__label:before {
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
+    font: 500 16px "Noto Sans";
 }
 
 .formulario__input .input__btn:hover:not(.btn-delete) {
@@ -505,6 +488,7 @@ button {
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
+    font: 500 17px "Noto Sans";
 }
 
 button:hover:not(.btn-delete) {

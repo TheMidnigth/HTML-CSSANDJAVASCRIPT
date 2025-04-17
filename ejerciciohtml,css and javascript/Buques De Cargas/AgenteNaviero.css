@@ -1,0 +1,246 @@
+:root {
+    /*========== Colors ==========*/
+    --color-primario: #13294B;
+    --color-secundario: #FFD500;
+    --color-tercario: #ffffff;
+    --color-cuartario: #4488FF;
+    --color-quintario: #000000;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**Encabezado */
+.header {
+    background-color: var(--color-tercario);
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    margin-right: 30px;
+}
+
+
+.nav__img {
+    width: 80px;
+    cursor: pointer;
+}
+
+.nav__menu {
+    position: absolute;
+    top: 85%;
+    right: 1%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.nav__menu.open__menu {
+    max-height: 400px;
+}
+
+.menu__sub {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.sub__info {
+    display: flex;
+    align-items: center;
+}
+
+.sub__info .info__title {
+    font: 600 25px "Poppins";
+    color: #525252;
+}
+
+.sub__info .info__img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 0 15px 0 -10px;
+}
+
+.menu__sub hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin: 15px 0 10px;
+
+}
+
+.sub__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub__link .link__text {
+    width: 100%;
+    font: 500 17px "Noto Sans";
+
+}
+
+.sub__link:hover .link__text {
+    font-weight: 700;
+
+}
+
+.sub__link i:not(.ri-arrow-right-s-line) {
+    font-size: 20px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub__link .link__flec {
+    transition: transform .5s;
+    color: #555;
+    font: 900 22px "Noto Sans";
+
+}
+
+.sub__link:hover .link__flec {
+    transform: translateX(5px);
+
+}
+
+.nav__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    margin-right: 42%;
+}
+
+.search__input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 350px;
+}
+
+.search__icon {
+    font-size: 1.2rem;
+    color: #888;
+    margin-right: 0.5rem;
+    /* Cambia esto */
+    margin-left: 0;
+    /* Asegúrate que no se mantenga el left */
+}
+
+
+/* Estilo del botón de tema */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.theme-toggle i {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border-radius: 20%;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Sol: fondo negro, icono claro */
+#sun-icon {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Luna: fondo gris claro, icono oscuro */
+#moon-icon {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.nav__pais {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; /* Puedes usar var(--color-header-bg) si tienes una variable */
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    margin-right: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.nav__toggle {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-texto, #333);
+    margin-right: 15.5%;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background-color: var(--color-tercario);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding-top: 100px; /* Espacio para que no se solape con el header */
+}
+
+.sidebar__menu {
+    list-style-type: none;
+}
+
+.sidebar__item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar__item:hover {
+    background-color: #f1f1f1;
+}
+
+.sidebar__item i {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.sidebar__text {
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,90 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
-    
+
+    <aside class="sidebar">
+        <ul class="sidebar__menu">
+            <li class="sidebar__item">
+                <i class="ri-home-2-fill"></i>
+                <span class="sidebar__text">Inicio</span>
+            </li>
+            <li class="sidebar__item">
+                <i class="ri-ship-fill"></i>
+                <span class="sidebar__text">Solicitud De Atraque</span>
+            </li>
+            <li class="sidebar__item">
+                <i class="ri-file-list-3-fill"></i>
+                <span class="sidebar__text">Lista De Solicitudes</span>
+            </li>
+            <li class="sidebar__item">
+                <i class="ri-flow-chart"></i>
+                <span class="sidebar__text">Procesos</span>
+            </li>
+        </ul>
+    </aside>
+
+    <header class="header">
+        <nav class="header__nav">
+            <!-- Icono del menú hamburguesa -->
+            <div class="nav__toggle" onclick="toggleSidebar()">
+                <i class="ri-menu-line"></i>
+            </div>
+            
+            <div class="nav__search">
+                <i class="ri-search-line search__icon"></i>
+                <input type="text" placeholder="Buscar..." class="search__input" />
+            </div>
+
+            <!-- Botón modo claro/oscuro -->
+            <div class="theme-toggle" title="Cambiar tema">
+                <i class="ri-sun-fill" id="sun-icon" onclick="setLightTheme()"></i>
+                <i class="ri-moon-fill" id="moon-icon" onclick="setDarkTheme()"></i>
+            </div>
+
+
+            <img class="nav__img" src="assets/image/fotousuario.webp" onclick="toggleMenu()">
+
+            <div class="nav__menu" id="SubMenu">
+                <div class="menu__sub">
+                    <div class="sub__info">
+                        <img class="info__img" src="assets/image/fotousuario.webp">
+                        <h2 class="info__title">Keyner Reyes</h2>
+                    </div>
+                    <hr>
+
+                    <a href="Perfil.html" target="_blank" class="sub__link">
+                        <i class="ri-user-fill"></i>
+                        <p class="link__text">Perfil</p>
+                        <span class="link__flec"> <i class="ri-arrow-right-s-line"></i></span>
+                    </a>
+
+                    <a href="Configuraciones.html" target="_blank" class="sub__link">
+                        <i class="ri-settings-5-fill"></i>
+                        <p class="link__text">Configuracion</p>
+                        <span class="link__flec"> <i class="ri-arrow-right-s-line"></i></span>
+                    </a>
+
+                    <a href="Notificaciones.html" target="_blank" class="sub__link">
+                        <i class="ri-notification-2-fill"></i>
+                        <p class="link__text">Notificaciones</p>
+                        <span class="link__flec"> <i class="ri-arrow-right-s-line"></i></span>
+                    </a>
+
+                    <a href="" class="sub__link">
+                        <i class="ri-logout-box-r-fill"></i>
+                        <p class="link__text">Cerrar Seccion</p>
+                        <span class="link__flec"><i class="ri-arrow-right-s-line"></i></span>
+                    </a>
+                </div>
+            </div>
+
+
+        </nav>
+    </header>
+
+    <script src="js/agentenaviero.js"></script>
 </body>
+
 </html>

@@ -52,17 +52,14 @@
 
                 <form class="formulario">
                     <div class="formulario__input">
-                        <div class="custom-select">
-                            <input type="hidden" name="Pregunta" id="pregunta1" />
-                            <div class="select-box" id="selectBox">
-                                <span class="selected">Selecciona una pregunta 1</span>
-                                <i class="fa-solid fa-chevron-down arrow"></i>
-                            </div>
-                            <ul class="options-list" id="optionsList">
-                                <li class="option" data-value="Mascota">¿Cuál es el nombre de tu primera mascota?</li>
-                                <li class="option" data-value="Colelgio">¿Cuál fue tu primer colegio?</li>
-                                <li class="option" data-value="Nacimiento">¿En qué ciudad naciste?</li>
-                            </ul>
+                        <div class="custom-select-wrapper">
+                            <select class="styled-select" id="pregunta1">
+                                <option disabled selected>Selecciona una pregunta 1</option>
+                                <option value="Mascota">¿Cuál es el nombre de tu  mascota?</option>
+                                <option value="Colegio">¿Cuál fue tu primer colegio?</option>
+                                <option value="Nacimiento">¿En qué ciudad naciste?</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
                         <p class="input__error">
                             Por favor, seleccione una pregunta
@@ -76,23 +73,20 @@
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
-                        <p class="input__error error--changed">
-                            No puedes dejar esto vacio
+                        <p class="input__error error--respuesta1">
+                            La respuesta de la pregunta es obligatoria
                         </p>
                     </div>
 
                     <div class="formulario__input input--changed">
-                        <div class="custom-select">
-                            <input type="hidden" name="Pregunta" id="pregunta2" />
-                            <div class="select-box" id="selectBox">
-                                <span class="selected">Selecciona una pregunta 2</span>
-                                <i class="fa-solid fa-chevron-down arrow"></i>
-                            </div>
-                            <ul class="options-list" id="optionsList">
-                                <li class="option" data-value="Comida">¿Cuál es tu comida favorita?</li>
-                                <li class="option" data-value="Trabajo">¿Cuál fue tu primer trabajo?</li>
-                                <li class="option" data-value="Amigo">¿Cómo se llama tu mejor amigo de la infancia?</li>
-                            </ul>
+                        <div class="custom-select-wrapper">
+                            <select class="styled-select" id="pregunta2">
+                                <option disabled selected>Selecciona una pregunta 2</option>
+                                <option value="Comida">¿Cuál es tu comida favorita?</option>
+                                <option value="Trabajo">¿Cuál fue tu primer trabajo?</option>
+                                <option value="Amigo">¿Cómo se llama tu mejor amigo ?</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
                         <p class="input__error">
                             Por favor, seleccione una pregunta
@@ -106,12 +100,12 @@
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
-                        <p class="input__error error--changed">
-                            No puedes dejar esto vacio
+                        <p class="input__error error--respuesta2">
+                            La respuesta de la pregunta es obligatoria
                         </p>
                     </div>
 
-                    <p class="input__advertencia advertencia--changed">
+                    <p class="input__advertencia">
                         <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario
                         correctamente.
                     </p>

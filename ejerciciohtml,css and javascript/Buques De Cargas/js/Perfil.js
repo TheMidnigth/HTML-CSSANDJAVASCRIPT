@@ -22,6 +22,135 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    //Validaciones De editar perfil
+    const fieldEdit = {
+        nombre: { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/, errorMessage: "El nombre debe tener al menos 3 letras." },
+        apellido: { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/, errorMessage: "El apellido debe tener al menos 3 letras." },
+        nameEmpresa: {regex: /^.{1,}$/,errorMessage: "El nombre de la empresa es obligatorio."},
+        emailCompany: {regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,errorMessage: "El correo solo puede contener letras,numeros,puntos,guiones y guion bajo."},
+        niT: {regex: /^\d+$/,errorMessage: "El NIT no puede estar vacío y debe contener solo números."},
+        email: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, errorMessage: "El correo solo puede contener letras,numeros,puntos,guiones y guion bajo." },
+        identificacion: { regex: /^\d{6,10}$/, errorMessage: "La cédula debe contener entre 6 y 10 dígitos." },
+        address: {regex: /^(?=.*\d)(?=.*[A-Za-z])[A-Za-z0-9\s#.,-]{5,}$/,errorMessage: "Ingresa una dirección válida (ej. Calle 45 #10-23, 130002 o San Fernando, Calle 45 #10-23, 130002)."},
+        phone: { regex: /^\d{1,10}$/, errorMessage: "El teléfono solo puede contener números (máx. 10)." }
+    };
+
+    const formEdit = document.querySelector(".edit__formulario");
+    const advertenciaEdit = document.querySelector(".advertencia--change");
+    const selectPaisEdit = document.getElementById("selectPais2");
+    const selectCiudadEdit = document.getElementById("selectCiudad2");
+    const errorPaisEdit = document.querySelector(".error--pais");
+    const errorCiudadEdit = document.querySelector(".error--ciudad");
+    const selectTipoIdentificacion = document.getElementById("tipoIdentificacion");
+    const errortipoIdentificacion = document.querySelector(".error--tipoIdentificacion");
+
+    // Validar en tiempo real los inputs
+    Object.keys(fieldEdit).forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        if (!input) return;
+
+        const inputBox = input.closest(".input-box");
+        const checkIcon = inputBox.querySelector(".ri-check-line");
+        const errorIcon = inputBox.querySelector(".ri-close-line");
+        const errorMessage = inputBox.nextElementSibling;
+        const label = inputBox.querySelector("label");
+
+        input.addEventListener("input", () => {
+            advertenciaEdit.style.display = "none";
+
+            const value = input.value.trim();
+            if (value === "") {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else if (fieldEdit[fieldId].regex.test(value)) {
+                checkIcon.style.display = "inline-block";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "2px solid #0034de";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "inline-block";
+                errorMessage.style.display = "block";
+                input.style.border = "2px solid #fd1f1f";
+                label.style.color = "red";
+                inputBox.classList.add("input-error");
+            }
+        });
+    });
+
+    // Ocultar advertencias y errores de select al interactuar
+    [selectPaisEdit, selectCiudadEdit,selectTipoIdentificacion].forEach(select => {
+        select.addEventListener("change", () => {
+            advertenciaEdit.style.display = "none";
+
+            if (select === selectPaisEdit && select.selectedIndex > 0) {
+                errorPaisEdit.style.display = "none";
+            }
+            if (select === selectCiudadEdit && select.selectedIndex > 0) {
+                errorCiudadEdit.style.display = "none";
+            }
+
+            if (select === selectTipoIdentificacion && select.selectedIndex > 0) {
+                errortipoIdentificacion.style.display = "none";
+            }
+        });
+    });
+
+    // Validación al enviar el formulario
+    formEdit.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let formularioValido = true;
+        let todosInputsValidos = true;
+
+        // Validar todos los inputs
+        Object.keys(fieldEdit).forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            const regex = fieldEdit[fieldId].regex;
+
+            if (!regex.test(input.value.trim())) {
+                formularioValido = false;
+                todosInputsValidos = false;
+            }
+        });
+
+        const paisSeleccionado = selectPaisEdit.selectedIndex > 0;
+        const ciudadSeleccionada = selectCiudadEdit.selectedIndex > 0;
+        const tipoIdentificacionSeleccionada = selectTipoIdentificacion.selectedIndex > 0;
+
+        // Caso: Inputs válidos, pero selects incompletos
+        if (todosInputsValidos && (!paisSeleccionado || !ciudadSeleccionada || !tipoIdentificacionSeleccionada)) {
+            if (!paisSeleccionado) errorPaisEdit.style.display = "block";
+            if (!ciudadSeleccionada) errorCiudadEdit.style.display = "block";
+            if (!tipoIdentificacionSeleccionada) errortipoIdentificacion.style.display = "block";
+            advertenciaEdit.style.display = "block";
+            return;
+        }
+
+        // Caso: Inputs o selects inválidos
+        if (!formularioValido) {
+            advertenciaEdit.style.display = "block";
+            //  no mostramos errores de selects si inputs están mal
+            return;
+        }
+
+        // Todo correcto: ocultar advertencias y errores
+        advertenciaEdit.style.display = "none";
+        errorPaisEdit.style.display = "none";
+        errorCiudadEdit.style.display = "none";
+
+
+        // Enviar formulario
+        formEdit.submit();
+    });
+
+
     //Validaciones cambiar contraseña
     const fields = {
         contraseñaAntigua: {
@@ -146,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Ventana Modal Tabla
     const modal = document.getElementById("modalNotificacion");
-    const closeBtn = document.querySelector(".modal .close");
+    const closeBtn = document.getElementById("closeModal");
 
     const modalTipo = document.getElementById("modalTipo");
     const modalDescripcion = document.getElementById("modalDescripcion");
