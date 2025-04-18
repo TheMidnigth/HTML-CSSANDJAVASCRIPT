@@ -16,20 +16,20 @@
 </head>
 
 <body>
-
     <aside class="sidebar">
         <ul class="sidebar__menu">
-            <li class="sidebar__item">
+            <div class="sidebar__indicator"></div> <!-- Indicador móvil -->
+            <li class="sidebar__item active">
                 <i class="ri-home-2-fill"></i>
                 <span class="sidebar__text">Inicio</span>
             </li>
             <li class="sidebar__item">
                 <i class="ri-ship-fill"></i>
-                <span class="sidebar__text">Solicitud De Atraque</span>
+                <span class="sidebar__text">Solicitud Atraque</span>
             </li>
             <li class="sidebar__item">
                 <i class="ri-file-list-3-fill"></i>
-                <span class="sidebar__text">Lista De Solicitudes</span>
+                <span class="sidebar__text">Lista Solicitudes</span>
             </li>
             <li class="sidebar__item">
                 <i class="ri-flow-chart"></i>
@@ -40,11 +40,11 @@
 
     <header class="header">
         <nav class="header__nav">
-            <!-- Icono del menú hamburguesa -->
             <div class="nav__toggle" onclick="toggleSidebar()">
-                <i class="ri-menu-line"></i>
+                <i class="ri-arrow-left-line line--left"></i>
+                <i class="ri-arrow-right-line line--right"></i>
             </div>
-            
+
             <div class="nav__search">
                 <i class="ri-search-line search__icon"></i>
                 <input type="text" placeholder="Buscar..." class="search__input" />
@@ -52,10 +52,45 @@
 
             <!-- Botón modo claro/oscuro -->
             <div class="theme-toggle" title="Cambiar tema">
-                <i class="ri-sun-fill" id="sun-icon" onclick="setLightTheme()"></i>
                 <i class="ri-moon-fill" id="moon-icon" onclick="setDarkTheme()"></i>
             </div>
 
+            <div class="language-wrapper">
+                <div class="language-selector" data-flag="https://flagcdn.com/w40/es.png" onclick="toggleLanguageMenu()">
+                    <img id="currentFlag" src="https://flagcdn.com/w40/es.png" alt="Español" />
+                </div>
+            
+                <div class="language-menu" id="languageMenu">
+                    <div class="language-option" data-lang="es" data-flag="https://flagcdn.com/w40/es.png">
+                        <img src="https://flagcdn.com/w40/es.png" alt="Español" />
+                        <span>Español</span>
+                    </div>
+                    <div class="language-option" data-lang="zh" data-flag="https://flagcdn.com/w40/cn.png">
+                        <img src="https://flagcdn.com/w40/cn.png" alt="Chino" />
+                        <span>Chino</span>
+                    </div>
+                    <div class="language-option" data-lang="en" data-flag="https://flagcdn.com/w40/us.png">
+                        <img src="https://flagcdn.com/w40/us.png" alt="Inglés" />
+                        <span>Inglés</span>
+                    </div>
+                    <div class="language-option" data-lang="pt" data-flag="https://flagcdn.com/w40/pt.png">
+                        <img src="https://flagcdn.com/w40/pt.png" alt="Portugués" />
+                        <span>Portugués</span>
+                    </div>
+                    <div class="language-option" data-lang="fr" data-flag="https://flagcdn.com/w40/fr.png">
+                        <img src="https://flagcdn.com/w40/fr.png" alt="Francés" />
+                        <span>Francés</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="icono__notification">
+                <i class="ri-notification-2-fill"></i>
+            </div>
+
+            <div class="icono__notification">
+                <i class="ri-settings-4-fill"></i>
+            </div>
 
             <img class="nav__img" src="assets/image/fotousuario.webp" onclick="toggleMenu()">
 
@@ -92,8 +127,6 @@
                     </a>
                 </div>
             </div>
-
-
         </nav>
     </header>
 
