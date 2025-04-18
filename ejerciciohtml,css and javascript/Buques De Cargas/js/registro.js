@@ -2,20 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Interaccion con el icono del select
     const select = document.getElementById("tipoIdentificacion");
-        const arrow = document.getElementById("arrowIcon");
+    const arrow = document.getElementById("arrowIcon");
 
-        let isOpen = false;
+    let isOpen = false;
 
-        select.addEventListener("mousedown", (e) => {
-            // Esta parte previene un fallo visual si el usuario hace clic muchas veces
-            isOpen = !isOpen;
-            arrow.classList.toggle("rotate", isOpen);
-        });
+    select.addEventListener("mousedown", (e) => {
+        // Esta parte previene un fallo visual si el usuario hace clic muchas veces
+        isOpen = !isOpen;
+        arrow.classList.toggle("rotate", isOpen);
+    });
 
-        select.addEventListener("blur", () => {
-            isOpen = false;
-            arrow.classList.remove("rotate");
-        });
+    select.addEventListener("blur", () => {
+        isOpen = false;
+        arrow.classList.remove("rotate");
+    });
 
     //Validaciones con javascript
     const fields = {
@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         identificacion: { regex: /^\d{6,10}$/, errorMessage: "La cédula debe contener entre 6 y 10 dígitos." },
         telefono: { regex: /^\d{1,10}$/, errorMessage: "El teléfono solo puede contener números (máx. 10)." },
         email: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, errorMessage: "El correo solo puede contener letras,numeros,puntos,guiones y guion bajo." },
+        password: { regex: /^.{4,12}$/, errorMessage: "La contraseña debe tener entre 4 y 12 caracteres." },
+        repeatPassword: { regex: null, errorMessage: "Las contraseñas no coinciden." }
     };
 
     const tipoIdentificacionSelect = document.getElementById("tipoIdentificacion");
@@ -90,6 +92,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkbox = document.querySelector(".remember-forgot input");
     const tipoIdentificacionError = tipoIdentificacionSelect.closest(".formulario__input").querySelector(".input__error");
 
+    // Validación del select: ocultar error al seleccionar opción válida
+    tipoIdentificacionSelect.addEventListener("change", () => {
+        if (tipoIdentificacionSelect.selectedIndex !== 0) {
+            tipoIdentificacionError.style.display = "none";
+            tipoIdentificacionSelect.style.border = "2px solid #0034de";
+        }
+        hideAdvertencia();
+    });
+
+
     [...inputs, tipoIdentificacionSelect].forEach(el => {
         el.addEventListener("input", hideAdvertencia);
         el.addEventListener("change", hideAdvertencia);
@@ -134,15 +146,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (tipoIdentificacionInvalido && emptyCount === 0 && checkbox.checked) {
             tipoIdentificacionError.style.display = "block";
             tipoIdentificacionSelect.style.border = "2px solid #fd1f1f";
-            advertencia.style.display = "none";
+            advertencia.style.display = "flex";
             event.preventDefault();
             return;
         }
 
         // Validar tipoIdentificacion si es inválido
         if (tipoIdentificacionInvalido) {
-            tipoIdentificacionError.style.display = "block";
-            tipoIdentificacionSelect.style.border = "2px solid #fd1f1f";
+            tipoIdentificacionError.style.display = "none";
+            tipoIdentificacionSelect.style.border = "";
             valid = false;
         } else {
             tipoIdentificacionError.style.display = "none";
@@ -158,6 +170,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!valid) {
             advertencia.style.display = "block";
             event.preventDefault();
+        } else {
+            // Si el formulario es válido, mostrar el modal de éxito
+            openModal();
+            event.preventDefault(); // Evitar el envío real hasta que el modal se cierre
+            setTimeout(function() {
+                form.submit(); // Enviar el formulario después de un tiempo (simulando un retardo de éxito)
+            }, 2000); // Ajusta el tiempo según necesites
         }
     });
 
@@ -170,5 +189,18 @@ document.addEventListener("DOMContentLoaded", function () {
     function hideAdvertencia() {
         advertencia.style.display = "none";
     }
+
+    // Función para abrir el modal
+    function openModal() {
+        const modal = document.getElementById("modalSuccess");
+        modal.style.display = "block"; // Mostrar el modal
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+        const modal = document.getElementById("modalSuccess");
+        modal.style.display = "none"; // Ocultar el modal
+    }
+
 });
 
