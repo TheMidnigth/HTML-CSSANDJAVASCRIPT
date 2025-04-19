@@ -258,15 +258,17 @@ body {
 .sidebar__indicator {
     position: absolute;
     width: calc(100% - 30px);
-    /* igual que el padding horizontal */
     height: 48px;
     background-color: #3651d4;
     border-radius: 8px;
     left: 15px;
     top: 1px;
     z-index: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    transform: translateY(114px); 
+    opacity: 1;
 }
+
 
 /* Ítems generales */
 .sidebar__item {
