@@ -13,10 +13,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
 </head>
 
 <body>
-    <aside class="sidebar"> 
+    <aside class="sidebar">
         <ul class="sidebar__menu">
             <li class="sidebar__item">
                 <i class="ri-home-2-fill"></i>
@@ -36,10 +37,6 @@
 
     <header class="header">
         <nav class="header__nav">
-            <div class="nav__toggle" onclick="toggleSidebar()">
-                <i class="ri-arrow-left-line line--left"></i>
-                <i class="ri-arrow-right-line line--right"></i>
-            </div>
 
             <div class="nav__search">
                 <i class="ri-search-line search__icon"></i>
@@ -47,10 +44,11 @@
             </div>
 
             <div class="language-wrapper">
-                <div class="language-selector" data-flag="https://flagcdn.com/w40/es.png" onclick="toggleLanguageMenu()">
+                <div class="language-selector" data-flag="https://flagcdn.com/w40/es.png"
+                    onclick="toggleLanguageMenu()">
                     <img id="currentFlag" src="https://flagcdn.com/w40/es.png" alt="Español" />
                 </div>
-            
+
                 <div class="language-menu" id="languageMenu">
                     <div class="language-option" data-lang="es" data-flag="https://flagcdn.com/w40/es.png">
                         <img src="https://flagcdn.com/w40/es.png" alt="Español" />
@@ -75,8 +73,8 @@
                 </div>
             </div>
 
-            <!-- Botón modo claro/oscuro -->
             <div class="theme-toggle" title="Cambiar tema">
+                <i class="ri-sun-fill" id="sun-icon" onclick="setLightTheme()"></i>
                 <i class="ri-moon-fill" id="moon-icon" onclick="setDarkTheme()"></i>
             </div>
 
@@ -126,6 +124,136 @@
             </div>
         </nav>
     </header>
+
+    <main class="main__content">
+        <section class="table__container">
+            <div class="container__table">
+                <h2 class="notification__title">Solicitud Atraque</h2>
+
+                <div class="notification__search-container">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="notificationSearch" placeholder="Buscar..." class="notification__search">
+                </div>
+
+                <div class="notification__table-container">
+                    <table class="notification__table">
+                        <thead>
+                            <tr>
+                                <th>Tipo Operacion</th>
+                                <th>Tipo Carga</th>
+                                <th>Tipo Producto</th>
+                                <th>Peso Total</th>
+                                <th>Descripción</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="notificationBody">
+                            <tr>
+                                <td>Solicitud De Carga</td>
+                                <td>Carga Suelta</td>
+                                <td>Televisores</td>
+                                <td>220kg</td>
+                                <td class="notification__description">
+                                    El buque "Ocean Pearl" ha llegado al puerto tras completar su travesía desde Asia,
+                                    trayendo mercancía importante para los sectores industriales clave del país.
+                                    Durante su viaje, enfrentó condiciones climáticas adversas que retrasaron
+                                    ligeramente su arribo, sin embargo, logró mantener la integridad de la carga.
+                                    Se espera que la descarga comience en las próximas horas, priorizando productos
+                                    tecnológicos, componentes automotrices y suministros médicos.
+                                </td>
+                                <td>
+                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
+                                    <span class="content__icon"><i class="ri-delete-bin-6-line"></i></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Solicitud De Carga</td>
+                                <td>Carga Suelta</td>
+                                <td>Televisores</td>
+                                <td>220kg</td>
+                                <td class="notification__description">
+                                    El buque "Ocean Pearl" ha llegado al puerto tras completar su travesía desde Asia,
+                                    trayendo mercancía importante para los sectores industriales clave del país.
+                                    Durante su viaje, enfrentó condiciones climáticas adversas que retrasaron
+                                    ligeramente su arribo, sin embargo, logró mantener la integridad de la carga.
+                                    Se espera que la descarga comience en las próximas horas, priorizando productos
+                                    tecnológicos, componentes automotrices y suministros médicos.
+                                </td>
+                                <td>
+                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
+                                    <span class="content__icon"><i class="ri-delete-bin-6-line"></i></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Solicitud De Carga</td>
+                                <td>Carga Suelta</td>
+                                <td>Televisores</td>
+                                <td>220kg</td>
+                                <td class="notification__description">
+                                    El buque "Ocean Pearl" ha llegado al puerto tras completar su travesía desde Asia,
+                                    trayendo mercancía importante para los sectores industriales clave del país.
+                                    Durante su viaje, enfrentó condiciones climáticas adversas que retrasaron
+                                    ligeramente su arribo, sin embargo, logró mantener la integridad de la carga.
+                                    Se espera que la descarga comience en las próximas horas, priorizando productos
+                                    tecnológicos, componentes automotrices y suministros médicos.
+                                </td>
+                                <td>
+                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
+                                    <span class="content__icon"><i class="ri-delete-bin-6-line"></i></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Solicitud De Carga</td>
+                                <td>Carga Suelta</td>
+                                <td>Televisores</td>
+                                <td>220kg</td>
+                                <td class="notification__description">
+                                    El buque "Ocean Pearl" ha llegado al puerto tras completar su travesía desde Asia,
+                                    trayendo mercancía importante para los sectores industriales clave del país.
+                                    Durante su viaje, enfrentó condiciones climáticas adversas que retrasaron
+                                    ligeramente su arribo, sin embargo, logró mantener la integridad de la carga.
+                                    Se espera que la descarga comience en las próximas horas, priorizando productos
+                                    tecnológicos, componentes automotrices y suministros médicos.
+                                </td>
+                                <td>
+                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
+                                    <span class="content__icon icon--delete"><i class="ri-delete-bin-6-line"></i></span>
+                                </td>
+                            </tr>
+                            <!-- Más filas si es necesario -->
+                        </tbody>
+                    </table>
+
+                    <div class="notification__pagination">
+                        <p class="pagination__text">Mostrando 1-4 De 16</p>
+                        <button class="pagination__flec"><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__flec"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalNotificacion" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h2 class="modal-title">📝 Detalles de la Notificación</h2>
+            <div class="modal-info">
+                <p class="modal__text"><strong class="text__str">Tipo Operacion:</strong> <span id="modalOperacion"></span></p>
+                <p class="modal__text"><strong class="text__str">Tipo Carga:</strong> <span id="modalCarga"></span></p>
+                <p class="modal__text"><strong class="text__str">Tipo Producto:</strong> <span id="modalProducto"></span></p>
+                <p class="modal__text"><strong class="text__str">Peso Total:</strong> <span id="modalPeso"></span>
+                </p>
+            </div>
+            <div class="modal-description">
+                <h3>📄 Descripción:</h3>
+                <p id="modalDescripcion"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/procesos.js"></script>
 </body>
