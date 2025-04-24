@@ -170,4 +170,127 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Validar add new registro
+    const fieldAdd = {
+        PesoTotal:{regex: /^.{1,}$/,errorMessage: "Por favor,ingrese un peso total."},
+        descripcion:{regex: /^.{1,}$/,errorMessage: "Por favor, ingrese una descripción."}
+    }
+
+    const formadd = document.querySelector(".add__formulario");
+    const advertencia = document.querySelector(".input__advertencia");
+    const selectTipoOperacion = document.getElementById("tipoOperaciones");
+    const errortipoOperacion = document.querySelector(".error--tipoOperaciones");
+    const selecttipoCarga = document.getElementById("tipoCarga");
+    const errortipoCarga = document.querySelector(".error--tipoCarga");
+    const selecttipoProducto = document.getElementById("tipoProducto");
+    const errortipoProducto = document.querySelector(".error--tipoProducto");
+
+
+    // Validar en tiempo real los inputs
+    Object.keys(fieldAdd).forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        if (!input) return;
+
+        const inputBox = input.closest(".input-box");
+        const checkIcon = inputBox.querySelector(".ri-check-line");
+        const errorIcon = inputBox.querySelector(".ri-close-line");
+        const errorMessage = inputBox.nextElementSibling;
+        const label = inputBox.querySelector("label");
+
+        input.addEventListener("input", () => {
+            advertencia.style.display = "none";
+
+            const value = input.value.trim();
+            if (value === "") {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else if (fieldAdd[fieldId].regex.test(value)) {
+                checkIcon.style.display = "inline-block";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "2px solid #0034de";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "inline-block";
+                errorMessage.style.display = "block";
+                input.style.border = "2px solid #fd1f1f";
+                label.style.color = "red";
+                inputBox.classList.add("input-error");
+            }
+        });
+    });
+
+
+    // Ocultar advertencias y errores de select al interactuar
+    [selectPaisEdit, selectCiudadEdit,selectTipoIdentificacion].forEach(select => {
+        select.addEventListener("change", () => {
+            advertenciaEdit.style.display = "none";
+
+            if (select === selectPaisEdit && select.selectedIndex > 0) {
+                errorPaisEdit.style.display = "none";
+            }
+            if (select === selectCiudadEdit && select.selectedIndex > 0) {
+                errorCiudadEdit.style.display = "none";
+            }
+
+            if (select === selectTipoIdentificacion && select.selectedIndex > 0) {
+                errortipoIdentificacion.style.display = "none";
+            }
+        });
+    });
+
+    // Validación al enviar el formulario
+    formEdit.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let formularioValido = true;
+        let todosInputsValidos = true;
+
+        // Validar todos los inputs
+        Object.keys(fieldEdit).forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            const regex = fieldEdit[fieldId].regex;
+
+            if (!regex.test(input.value.trim())) {
+                formularioValido = false;
+                todosInputsValidos = false;
+            }
+        });
+
+        const paisSeleccionado = selectPaisEdit.selectedIndex > 0;
+        const ciudadSeleccionada = selectCiudadEdit.selectedIndex > 0;
+        const tipoIdentificacionSeleccionada = selectTipoIdentificacion.selectedIndex > 0;
+
+        // Caso: Inputs válidos, pero selects incompletos
+        if (todosInputsValidos && (!paisSeleccionado || !ciudadSeleccionada || !tipoIdentificacionSeleccionada)) {
+            if (!paisSeleccionado) errorPaisEdit.style.display = "block";
+            if (!ciudadSeleccionada) errorCiudadEdit.style.display = "block";
+            if (!tipoIdentificacionSeleccionada) errortipoIdentificacion.style.display = "block";
+            advertenciaEdit.style.display = "block";
+            return;
+        }
+
+        // Caso: Inputs o selects inválidos
+        if (!formularioValido) {
+            advertenciaEdit.style.display = "block";
+            //  no mostramos errores de selects si inputs están mal
+            return;
+        }
+
+        // Todo correcto: ocultar advertencias y errores
+        advertenciaEdit.style.display = "none";
+        errorPaisEdit.style.display = "none";
+        errorCiudadEdit.style.display = "none";
+
+
+        // Enviar formulario
+        formEdit.submit();
+    });
+
 });

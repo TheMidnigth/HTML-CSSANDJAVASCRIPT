@@ -19,7 +19,7 @@
 
 body {
     overflow-x: hidden;
-    background-color: #e0e0e0;
+    background-color: #f5f5f5;
 }
 
 * {
@@ -143,7 +143,7 @@ body {
     padding: 0.4rem 1rem;
     border-radius: 10px;
     transition: background-color 0.3s;
-    margin-right:29% ;
+    margin-right:30px;
 }
 
 .search__input {
@@ -166,17 +166,15 @@ body {
 }
 
 .icono__notification i{
-    font-size: 30px;
+    font-size: 20px;
     cursor: pointer;
-    margin-right: 5px;
     padding: 8px;
     border-radius: 10px;
-    transition: background-color .5s ease,color .5s ease;
+    transition: color .5s ease;
     color: #525252;
 }
 
 .icono__notification i:hover{
-    background-color: #e0e0e0;
     color: #000;
 }
 
@@ -187,33 +185,29 @@ body {
 .theme-toggle {
     display: flex;
     align-items: center;
-    margin-right: 30px;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 .theme-toggle i {
-    font-size: 1.4rem;
+    font-size: 20px;
     padding: 0.5rem;
     border-radius: 20%;
-    font-size: 30px;
     padding: 5px 8px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Sol: fondo negro, icono claro */
-#sun-icon {
-    background-color: #000;
-    color: #fff;
-}
-
 /* Luna: fondo gris claro, icono oscuro */
 #moon-icon {
-    background-color: #e0e0e0;
-    color: #000;
-    transition: background-color .5s ease,color .5s ease;
+    color: #525252;
+    transition: color .6s ease;
 }
+
+#moon-icon:hover {
+    color: #000;
+}
+
 
 .nav__pais {
     display: flex;
@@ -232,7 +226,7 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 260px;
+    width: 300px;
     padding-top: 100px;
 }
 
@@ -246,11 +240,11 @@ body {
 /* Indicador que se mueve con transform */
 .sidebar__indicator {
     position: absolute;
-    width: calc(100% - 30px);
+    width: calc(100% - 50px);
     height: 48px;
     background-color: #ffff;
     border-left: 5px solid #3651d4;
-    left: 15px;
+    left: 45px;
     top: 1px;
     z-index: 0;
     transition: transform 0.3s ease, opacity 0.2s ease;
@@ -267,7 +261,7 @@ body {
     font-size: 18px;
     color: #333;
     cursor: pointer;
-    margin: 8px 15px;
+    margin: 8px 0 8px 45px;
     border-radius: 8px;
     transition: color 0.25s ease;
     position: relative;
@@ -280,6 +274,7 @@ body {
     color: inherit;
 }
 
+
 .sidebar__item.active {
     color: #3651d4;
 }
@@ -287,6 +282,7 @@ body {
 .sidebar__item.active i,
 .sidebar__item.active .sidebar__text {
     color: #3651d4;
+
 }
 
 .sidebar__item i {
@@ -310,14 +306,14 @@ body {
     cursor: pointer;
     font-size: 24px;
     color: var(--text-color);
-    margin-right: 20px;
+    margin-right: 10px;
     position: relative;
 }
 
 
 .language-selector img{
-    width: 45px;
-    height: 45px;
+    width: 25px;
+    height: 25px;
     margin: 5px 0 0 0;
     border-radius: 50%;
 }
@@ -367,16 +363,53 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.container__button{
+    position: relative;
+}
+
+
+.button__add{
+    position: absolute;
+    top: -50px;
+    left: 52%;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+    font: 500 17px "Noto Sans";
+    background-color: var(--color-cuartario);
+    color: var(--color-tercario);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: 0 0 0 398px;
+    transition: background-color .7s ease;
+}
+
+.button__add:hover{
+    background-color:#3366cc ;
+}
+
+.button__add i{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+}
+
+.add__text{
+    margin-left: 30px;
+}
 
 /* Notificaciones */
 .container__table {
     background-color: var(--color-tercario);
     padding: 2rem;
-    border-radius: 25px;
+    border-radius: 20px;
     box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 1180px;
-    margin: 20px 0 0 170px;
+    margin: 20px 0 0 190px;
     position: relative;
 
 }
@@ -537,6 +570,248 @@ body {
 .main__content,.table__container{
     margin-left: 70px; /* igual al ancho del sidebar */
     padding-top: 80px; /* un poco más que el header para que haya espacio */
+}
+
+.content__titulo{
+    font: 600 25px "Poppins";
+    margin: 0 0 0 30px;
+}
+
+
+.input-box {
+    position: relative;
+}
+
+.input-box .label {
+    font: 500 17px "Montserrat";
+    position: absolute;
+    color: #8d8d8d;
+    pointer-events: none;
+    background-color: transparent;
+    left: 40px;
+    top: 15px;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
+}
+
+.input-box input {
+    margin:10px  0 20px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    width: 500px;
+    height: 55px;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.input-box input:focus {
+    outline: none;
+    border:2px solid #0034de;
+}
+
+.input-box input:focus~.label,
+.input-box input:not(:placeholder-shown)~.label {
+    background-color: #fff;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+    padding: 0 5px;
+    color: #0034de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
+}
+
+.input-box textarea {
+    margin: 10px 0 25px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 100px;
+    letter-spacing: 1px;
+    outline: none;
+    field-sizing: content;
+}
+
+.input-box textarea:focus {
+    outline: none;
+    border:2px solid #0034de;
+}
+
+.input-box textarea:focus~.label,
+.input-box textarea:not(:placeholder-shown)~.label {
+    background-color: #fff;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+    padding: 0 5px;
+    color: #0034de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
+}
+
+
+.custom-select-wrapper {
+    position: relative;
+    width: 500px;
+    margin: 10px 0 30px 20px;
+    background: transparent;
+}
+
+.styled-select {
+    width: 100%;
+    height: 55px;
+    padding: 12px 16px;
+    padding-right: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: transparent;
+    font: 500 17px "Montserrat";
+    color: #8d8d8d;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
+.styled-select option {
+    color: #333;
+    background-color: #ffffff;
+    font: 500 17px "Noto Sans";
+}
+
+.styled-select:focus {
+    outline: none;
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+}
+
+.custom-arrow.rotate {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.box__icon i{
+    position: absolute;
+    top: 25px;
+    left: 90%;
+    font:900 18px "Montserrat";
+    
+}
+
+.box__icon .ri-check-line{
+    background-color: #34A853;
+    border-radius: 50%;
+    padding: 1px 1px;
+    color: #fff;
+    display: none;
+}
+
+.box__icon .ri-close-line{
+    background-color: #fd1f1f;
+    border-radius: 50%;
+    padding: 1px 1px;
+    color: #fff;
+    display: none;
+}
+
+.input__error{
+    font: 600 15px "Montserrat";
+    width: 400px;
+    margin: 0 0 10px 33px;
+    display: none;
+}
+
+.error--tipoOperaciones{
+    margin: -10px 0 15px 20px;
+}
+
+.error--tipoCarga{
+    margin: -10px 0 15px 20px;
+}
+
+.error--tipoProducto{
+    margin: -10px 0 10px 20px;
+}
+
+.error--peso{
+    margin:0 0 10px 20px ;
+}
+
+.error--descripcion{
+    margin: -10px 0 20px 20px;
+}
+
+
+.input__advertencia{
+    font:700 15px "Montserrat";
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 500px;
+    background-color: #fd1f1f;
+    padding: 20px 15px;
+    border-radius: 5px;
+    grid-column: span 2; 
+    margin: 0 0 25px 20px; 
+    display: flex;
+    justify-content: flex-start;
+    display:none;
+}
+
+.input__advertencia i {
+    font-size: 1.7rem; 
+    margin:-5px 10px 0 0; 
+}
+
+.formulario__button {
+    background-color: #fff;
+    width:100%;
+    font:700 15px "Noto Sans";
+    max-width: 500px;
+    height: 55px;
+    margin: 0px 0 0 20px;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0,0.3),
+        -6px -6px 12px #fff;
+    cursor: pointer;
+}
+
+.formulario__button::before {
+    content: '';
+    width: 0;
+    height: 55px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #4D8FD8, #512da8 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+
+.formulario__button:hover::before{
+    width: 100%;
 }
 
 /* Modal */
