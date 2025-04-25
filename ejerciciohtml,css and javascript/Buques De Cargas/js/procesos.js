@@ -132,20 +132,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mostrar primera página al cargar
     showPage(1, filteredRows);
 
-
+    //Ventana Modal Solicitud Atraque
     const filas = document.querySelectorAll("#notificationBody tr");
     const modal = document.getElementById("modalNotificacion");
     const closeModal = document.getElementById("closeModal");
-
+    
     const modalOperacion = document.getElementById("modalOperacion");
     const modalCarga = document.getElementById("modalCarga");
     const modalProducto = document.getElementById("modalProducto");
     const modalPeso = document.getElementById("modalPeso");
     const modalDescripcion = document.getElementById("modalDescripcion");
-
-
+    
     filas.forEach(fila => {
-        fila.addEventListener("click", () => {
+        fila.addEventListener("click", (e) => {
+            // Verifica si el clic fue en un icono de editar o eliminar
+            const clickedElement = e.target;
+            if (clickedElement.closest('.content__icon')) {
+                // Detiene la propagación si fue en un icono de editar o eliminar
+                e.stopPropagation();
+                return;
+            }
+    
+            // Si no fue un clic en un icono, abre el modal
             const celdas = fila.querySelectorAll("td");
             if (celdas.length >= 6) {
                 modalOperacion.textContent = celdas[0].textContent.trim();
@@ -153,27 +161,52 @@ document.addEventListener("DOMContentLoaded", function () {
                 modalProducto.textContent = celdas[2].textContent.trim();
                 modalPeso.textContent = celdas[3].textContent.trim();
                 modalDescripcion.textContent = celdas[4].textContent.trim();
-
+    
                 modal.classList.remove("hidden");
                 modal.style.display = "block";
             }
         });
     });
-
+    
     closeModal.addEventListener("click", () => {
         modal.style.display = "none";
     });
-
+    
     window.addEventListener("click", e => {
         if (e.target === modal) {
             modal.style.display = "none";
         }
     });
 
+    //Ventana Modal de add new Registro
+    const modaladd = document.getElementById("modalnewadd");
+    const btnAbrirModal = document.querySelector(".button__add");
+    const btnCerrarModal = document.querySelector(".modal__close");
+
+    // Mostrar el modal cuando el botón sea clickeado
+    btnAbrirModal.addEventListener("click", function () {
+        modaladd.classList.remove("newadd--hidden");
+        modaladd.classList.add("newadd--visible");
+    });
+
+    // Cerrar el modal cuando se haga clic en el botón de cerrar
+    btnCerrarModal.addEventListener("click", function () {
+        modaladd.classList.add("newadd--hidden");
+        modaladd.classList.remove("newadd--visible");
+    });
+
+    // Cerrar el modal cuando se haga clic fuera del contenido del modal
+    modaladd.addEventListener("click", function (event) {
+        if (event.target === modaladd) {  // Si el clic ocurrió en la capa de fondo del modal
+            modaladd.classList.add("newadd--hidden");
+            modaladd.classList.remove("newadd--visible");
+        }
+    });
+
     // Validar add new registro
     const fieldAdd = {
-        PesoTotal:{regex: /^.{1,}$/,errorMessage: "Por favor,ingrese un peso total."},
-        descripcion:{regex: /^.{1,}$/,errorMessage: "Por favor, ingrese una descripción."}
+        PesoTotal: { regex: /^.{1,}$/, errorMessage: "Por favor,ingrese un peso total." },
+        descripcion: { regex: /^.{1,}$/, errorMessage: "Por favor, ingrese una descripción." }
     }
 
     const formadd = document.querySelector(".add__formulario");
@@ -228,34 +261,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Ocultar advertencias y errores de select al interactuar
-    [selectPaisEdit, selectCiudadEdit,selectTipoIdentificacion].forEach(select => {
+    [selectTipoOperacion, selecttipoCarga, selecttipoProducto].forEach(select => {
         select.addEventListener("change", () => {
-            advertenciaEdit.style.display = "none";
+            advertencia.style.display = "none";
 
-            if (select === selectPaisEdit && select.selectedIndex > 0) {
-                errorPaisEdit.style.display = "none";
-            }
-            if (select === selectCiudadEdit && select.selectedIndex > 0) {
-                errorCiudadEdit.style.display = "none";
+            // Verifica si se seleccionó una opción válida
+            if (select.selectedIndex > 0) {
+                select.style.border = "2px solid #0034de";
+            } else {
+                select.style.border = "";
             }
 
-            if (select === selectTipoIdentificacion && select.selectedIndex > 0) {
-                errortipoIdentificacion.style.display = "none";
+            if (select === selectTipoOperacion && select.selectedIndex > 0) {
+                errortipoOperacion.style.display = "none";
+            }
+            if (select === selecttipoCarga && select.selectedIndex > 0) {
+                errortipoCarga.style.display = "none";
+            }
+
+            if (select === selecttipoProducto && select.selectedIndex > 0) {
+                errortipoProducto.style.display = "none";
             }
         });
     });
 
     // Validación al enviar el formulario
-    formEdit.addEventListener("submit", function (e) {
+    formadd.addEventListener("submit", function (e) {
         e.preventDefault();
 
         let formularioValido = true;
         let todosInputsValidos = true;
 
         // Validar todos los inputs
-        Object.keys(fieldEdit).forEach(fieldId => {
+        Object.keys(fieldAdd).forEach(fieldId => {
             const input = document.getElementById(fieldId);
-            const regex = fieldEdit[fieldId].regex;
+            const regex = fieldAdd[fieldId].regex;
 
             if (!regex.test(input.value.trim())) {
                 formularioValido = false;
@@ -263,34 +303,44 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        const paisSeleccionado = selectPaisEdit.selectedIndex > 0;
-        const ciudadSeleccionada = selectCiudadEdit.selectedIndex > 0;
-        const tipoIdentificacionSeleccionada = selectTipoIdentificacion.selectedIndex > 0;
+        const tipoOperacionSeleccionada = selectTipoOperacion.selectedIndex > 0;
+        const tipoCargaSeleccionada = selecttipoCarga.selectedIndex > 0;
+        const tipoProductoSeleccionada = selecttipoProducto.selectedIndex > 0;
 
         // Caso: Inputs válidos, pero selects incompletos
-        if (todosInputsValidos && (!paisSeleccionado || !ciudadSeleccionada || !tipoIdentificacionSeleccionada)) {
-            if (!paisSeleccionado) errorPaisEdit.style.display = "block";
-            if (!ciudadSeleccionada) errorCiudadEdit.style.display = "block";
-            if (!tipoIdentificacionSeleccionada) errortipoIdentificacion.style.display = "block";
-            advertenciaEdit.style.display = "block";
+        if (todosInputsValidos && (!tipoOperacionSeleccionada || !tipoCargaSeleccionada || !tipoProductoSeleccionada)) {
+            if (!tipoOperacionSeleccionada) {
+                errortipoOperacion.style.display = "block";
+                selectTipoOperacion.style.border = "2px solid #fd1f1f";
+            }
+            if (!tipoCargaSeleccionada) {
+                errortipoCarga.style.display = "block";
+                selecttipoCarga.style.border = "2px solid #fd1f1f";
+            }
+            if (!tipoProductoSeleccionada) {
+                errortipoProducto.style.display = "block";
+                selecttipoProducto.style.border = "2px solid #fd1f1f";
+            }
+            advertencia.style.display = "block";
             return;
         }
 
         // Caso: Inputs o selects inválidos
         if (!formularioValido) {
-            advertenciaEdit.style.display = "block";
+            advertencia.style.display = "block";
             //  no mostramos errores de selects si inputs están mal
             return;
         }
 
         // Todo correcto: ocultar advertencias y errores
-        advertenciaEdit.style.display = "none";
-        errorPaisEdit.style.display = "none";
-        errorCiudadEdit.style.display = "none";
+        advertencia.style.display = "none";
+        errortipoOperacion.style.display = "none";
+        errortipoCarga.style.display = "none";
+        errortipoProducto.style.display = "none";
 
 
         // Enviar formulario
-        formEdit.submit();
+        formadd.submit();
     });
 
 });
