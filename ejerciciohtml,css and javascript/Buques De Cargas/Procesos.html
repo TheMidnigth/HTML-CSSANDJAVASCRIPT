@@ -169,8 +169,12 @@
                                     tecnológicos, componentes automotrices y suministros médicos.
                                 </td>
                                 <td>
-                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
-                                    <span class="content__icon"><i class="ri-delete-bin-6-line"></i></span>
+                                    <button class="content__icon" onclick="abrirModal('editar')">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="content__icon icon--delete"  onclick="abrirModal('eliminar')">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -187,8 +191,12 @@
                                     tecnológicos, componentes automotrices y suministros médicos.
                                 </td>
                                 <td>
-                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
-                                    <span class="content__icon"><i class="ri-delete-bin-6-line"></i></span>
+                                    <button class="content__icon" onclick="abrirModal('editar')">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="content__icon icon--delete"  onclick="abrirModal('eliminar')">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -205,8 +213,12 @@
                                     tecnológicos, componentes automotrices y suministros médicos.
                                 </td>
                                 <td>
-                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
-                                    <span class="content__icon"><i class="ri-delete-bin-6-line"></i></span>
+                                    <button class="content__icon" onclick="abrirModal('editar')">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="content__icon icon--delete"  onclick="abrirModal('eliminar')">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -223,8 +235,12 @@
                                     tecnológicos, componentes automotrices y suministros médicos.
                                 </td>
                                 <td>
-                                    <span class="content__icon"><i class="ri-pencil-line"></i></span>
-                                    <span class="content__icon icon--delete"><i class="ri-delete-bin-6-line"></i></span>
+                                    <button class="content__icon" onclick="abrirModal('editar')">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="content__icon icon--delete"  onclick="abrirModal('eliminar')">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
                                 </td>
                             </tr>
                             <!-- Más filas si es necesario -->
@@ -243,6 +259,25 @@
             </div>
         </section>
     </main>
+
+    <!-- MODAL PARA CONFIRMACIÓN editar -->
+    <div id="modalConfirmacion" class="modal__confirmacion confirmacion--hidden">
+        <div class="modal__contenido">
+            <p class="contenido__text">¿Estas Seguro que quieres editar este registro?</p>
+            <button class="boton boton-si">Sí</button>
+            <button class="boton boton-no">No</button>
+        </div>
+    </div>
+
+    <!-- MODAL PARA CONFIRMACIÓN eliminar -->
+    <div id="modalConfirmacion2" class="modal__confirmacion2 confirmacion--hidden2">
+        <div class="modal__contenido2">
+            <p class="contenido__text2">¿Estas Seguro que quieres eliminar este registro?</p>
+            <button class="boton2 boton-si2">Sí</button>
+            <button class="boton2 boton-no2">No</button>
+        </div>
+    </div>
+
 
     <div id="modalNotificacion" class="modal hidden">
         <div class="modal-content">
@@ -305,10 +340,9 @@
                 </div>
 
                 <div class="formulario__input">
-                    <div class="custom-select-wrapper">
+                    <div class="custom-select-wrapper wrapper--changed">
                         <select class="styled-select" id="tipoProducto">
                             <option disabled selected>Tipo De Producto</option>
-                            
                         </select>
                         <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                     </div>
@@ -319,17 +353,18 @@
 
                 <div class="formulario__input">
                     <div class="input-box">
-                        <input type="number" autocomplete="off" placeholder="" name="pesoTotal" id="PesoTotal">
+                        <input type="number" min="50" max="10000" autocomplete="off" placeholder="" name="pesoTotal"
+                            id="PesoTotal">
                         <label class="label" for="PesoTotal">Peso Total</label>
                         <span class="box__icon"><i class="ri-check-line"></i></span>
                         <span class="box__icon"><i class="ri-close-line"></i></span>
                     </div>
                     <p class="input__error error--peso">
-                        Por favor,ingrese un peso total.
+                        El Peso minimos es de 50 y el maximo de 1000.
                     </p>
                 </div>
 
-                <div class="formulario__input"> 
+                <div class="formulario__input">
                     <div class="input-box">
                         <textarea autocomplete="off" placeholder="" name="Descripcion" id="descripcion"></textarea>
                         <label class="label" for="descripcion">Descripcion</label>
@@ -347,6 +382,91 @@
             </form>
         </div>
     </div>
+
+    <!--Modal de editar-->
+    <div class="modal__newedit newedit--hidden" id="modalnewedit">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <h2 class="content__titulo">Editar Registro</h2>
+            <div class="content__relleno"></div>
+            <form class="add__formulario" action="">
+
+                <div class="formulario__input">
+                    <div class="custom-select-wrapper">
+                        <select class="styled-select" id="tipoOperaciones">
+                            <option disabled selected>Tipo De Operacion</option>
+                            <option value="SC">SC (Solicitud De Carga)</option>
+                            <option value="SD">SD (Solicitud De Descarga)</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
+                    </div>
+                    <p class="input__error error--tipoOperaciones">
+                        Por favor, seleccione un tipo de operacion.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="custom-select-wrapper">
+                        <select class="styled-select" id="tipoCarga">
+                            <option disabled selected>Tipo De Carga</option>
+                            <option value="RO">RO (Carga RORO)</option>
+                            <option value="CS">CS (Carga Suelta)</option>
+                            <option value="CN">CN (Contenedores)</option>
+                            <option value="GL">GL (Granel Limpio)</option>
+                            <option value="GS">GS (Granel Sucio)</option>
+                            <option value="LQ">LQ (Liquido)</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
+                    </div>
+                    <p class="input__error error--tipoCarga">
+                        Por favor, seleccione un tipo de carga.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="custom-select-wrapper wrapper--changed">
+                        <select class="styled-select" id="tipoProducto">
+                            <option disabled selected>Tipo De Producto</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
+                    </div>
+                    <p class="input__error error--tipoProducto">
+                        Por favor, seleccione un tipo de producto.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <input type="number" min="50" max="10000" autocomplete="off" placeholder="" name="pesoTotal"
+                            id="PesoTotal">
+                        <label class="label" for="PesoTotal">Peso Total</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--peso">
+                        El Peso minimos es de 50 y el maximo de 1000.
+                    </p>
+                </div>
+
+                <div class="formulario__input">
+                    <div class="input-box">
+                        <textarea autocomplete="off" placeholder="" name="Descripcion" id="descripcion"></textarea>
+                        <label class="label" for="descripcion">Descripcion</label>
+                        <span class="box__icon"><i class="ri-check-line"></i></span>
+                        <span class="box__icon"><i class="ri-close-line"></i></span>
+                    </div>
+                    <p class="input__error error--descripcion">Por favor, ingrese una descripción.</p>
+                </div>
+
+                <p class="input__advertencia">
+                    <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
+                </p>
+
+                <button class="formulario__button" type="submit">Guardar Registro Editado</button>
+            </form>
+        </div>
+    </div>
+
 
     <script src="js/procesos.js"></script>
 </body>

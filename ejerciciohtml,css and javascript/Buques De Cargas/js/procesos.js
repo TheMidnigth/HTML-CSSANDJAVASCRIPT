@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    //Sidebar
     const items = document.querySelectorAll('.sidebar__item');
     const indicator = document.querySelector('.sidebar__indicator');
 
@@ -37,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+
+    //Lenguaje 
     const languageMenu = document.getElementById("languageMenu");
     const languageSelector = document.querySelector(".language-selector");
     const currentFlag = document.getElementById("currentFlag");
@@ -64,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    //Pagination de la tabla
     const rows = Array.from(document.querySelectorAll("#notificationBody tr"));
     const paginationContainer = document.querySelector(".notification__pagination");
     const paginationButtons = paginationContainer.querySelectorAll(".pagination__btn");
@@ -132,17 +136,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mostrar primera página al cargar
     showPage(1, filteredRows);
 
-    //Ventana Modal Solicitud Atraque
+    //Ventana Modal Procesos
     const filas = document.querySelectorAll("#notificationBody tr");
     const modal = document.getElementById("modalNotificacion");
     const closeModal = document.getElementById("closeModal");
-    
+
     const modalOperacion = document.getElementById("modalOperacion");
     const modalCarga = document.getElementById("modalCarga");
     const modalProducto = document.getElementById("modalProducto");
     const modalPeso = document.getElementById("modalPeso");
     const modalDescripcion = document.getElementById("modalDescripcion");
-    
+
     filas.forEach(fila => {
         fila.addEventListener("click", (e) => {
             // Verifica si el clic fue en un icono de editar o eliminar
@@ -152,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.stopPropagation();
                 return;
             }
-    
+
             // Si no fue un clic en un icono, abre el modal
             const celdas = fila.querySelectorAll("td");
             if (celdas.length >= 6) {
@@ -161,17 +165,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 modalProducto.textContent = celdas[2].textContent.trim();
                 modalPeso.textContent = celdas[3].textContent.trim();
                 modalDescripcion.textContent = celdas[4].textContent.trim();
-    
+
                 modal.classList.remove("hidden");
                 modal.style.display = "block";
             }
         });
     });
-    
+
     closeModal.addEventListener("click", () => {
         modal.style.display = "none";
     });
-    
+
     window.addEventListener("click", e => {
         if (e.target === modal) {
             modal.style.display = "none";
@@ -203,144 +207,158 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Validar add new registro
-    const fieldAdd = {
-        PesoTotal: { regex: /^.{1,}$/, errorMessage: "Por favor,ingrese un peso total." },
-        descripcion: { regex: /^.{1,}$/, errorMessage: "Por favor, ingrese una descripción." }
+    // Función para validar los formularios
+    function validarFormulario(formulario) {
+        const fieldAdd = {
+            PesoTotal: { regex: /^(?:50|[5-9][0-9]|[1-9][0-9]{2}|10000)$/, errorMessage: "El peso mínimo es de 50 y el máximo de 1000." },
+            descripcion: { regex: /^.{1,}$/, errorMessage: "Por favor, ingrese una descripción." }
+        };
+
+        const advertencia = formulario.querySelector(".input__advertencia");
+        const selectTipoOperacion = formulario.querySelector("#tipoOperaciones");
+        const errortipoOperacion = formulario.querySelector(".error--tipoOperaciones");
+        const selecttipoCarga = formulario.querySelector("#tipoCarga");
+        const errortipoCarga = formulario.querySelector(".error--tipoCarga");
+        const selecttipoProducto = formulario.querySelector("#tipoProducto");
+        const errortipoProducto = formulario.querySelector(".error--tipoProducto");
+
+
+        // Validar en tiempo real los inputs
+        Object.keys(fieldAdd).forEach(fieldId => {
+            const input = formulario.querySelector(`#${fieldId}`);
+            if (!input) return;
+
+            const inputBox = input.closest(".input-box");
+            const checkIcon = inputBox.querySelector(".ri-check-line");
+            const errorIcon = inputBox.querySelector(".ri-close-line");
+            const errorMessage = inputBox.nextElementSibling;
+            const label = inputBox.querySelector("label");
+
+            input.addEventListener("input", () => {
+                advertencia.style.display = "none";
+
+                const value = input.value.trim();
+                if (value === "") {
+                    checkIcon.style.display = "none";
+                    errorIcon.style.display = "none";
+                    errorMessage.style.display = "none";
+                    input.style.border = "";
+                    label.style.color = "";
+                    inputBox.classList.remove("input-error");
+                } else if (fieldAdd[fieldId].regex.test(value)) {
+                    checkIcon.style.display = "inline-block";
+                    errorIcon.style.display = "none";
+                    errorMessage.style.display = "none";
+                    input.style.border = "2px solid #0034de";
+                    label.style.color = "";
+                    inputBox.classList.remove("input-error");
+                } else {
+                    checkIcon.style.display = "none";
+                    errorIcon.style.display = "inline-block";
+                    errorMessage.style.display = "block";
+                    input.style.border = "2px solid #fd1f1f";
+                    label.style.color = "red";
+                    inputBox.classList.add("input-error");
+                }
+            });
+        });
+
+        // Ocultar advertencias y errores de select al interactuar
+        [selectTipoOperacion, selecttipoCarga, selecttipoProducto].forEach(select => {
+            select.addEventListener("change", () => {
+                advertencia.style.display = "none";
+
+                if (select.selectedIndex > 0) {
+                    select.style.border = "2px solid #0034de";
+                } else {
+                    select.style.border = "";
+                }
+
+                if (select === selectTipoOperacion && select.selectedIndex > 0) {
+                    errortipoOperacion.style.display = "none";
+                }
+                if (select === selecttipoCarga && select.selectedIndex > 0) {
+                    errortipoCarga.style.display = "none";
+                }
+
+                if (select === selecttipoProducto && select.selectedIndex > 0) {
+                    errortipoProducto.style.display = "none";
+                }
+
+            });
+        });
+
+        // Validación al enviar el formulario
+        formulario.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let formularioValido = true;
+            let todosInputsValidos = true;
+
+            // Validar todos los inputs
+            Object.keys(fieldAdd).forEach(fieldId => {
+                const input = formulario.querySelector(`#${fieldId}`);
+                const regex = fieldAdd[fieldId].regex;
+
+                if (!regex.test(input.value.trim())) {
+                    formularioValido = false;
+                    todosInputsValidos = false;
+                }
+            });
+
+            const tipoOperacionSeleccionada = selectTipoOperacion.selectedIndex > 0;
+            const tipoCargaSeleccionada = selecttipoCarga.selectedIndex > 0;
+            const tipoProductoSeleccionada = selecttipoProducto.selectedIndex > 0;
+
+
+            // Caso: Inputs válidos, pero selects incompletos
+            if (todosInputsValidos && (!tipoOperacionSeleccionada || !tipoCargaSeleccionada || !tipoProductoSeleccionada)) {
+                if (!tipoOperacionSeleccionada) {
+                    errortipoOperacion.style.display = "block";
+                    selectTipoOperacion.style.border = "2px solid #fd1f1f";
+                }
+                if (!tipoCargaSeleccionada) {
+                    errortipoCarga.style.display = "block";
+                    selecttipoCarga.style.border = "2px solid #fd1f1f";
+                }
+                if (!tipoProductoSeleccionada) {
+                    errortipoProducto.style.display = "block";
+                    selecttipoProducto.style.border = "2px solid #fd1f1f";
+                }
+
+
+                advertencia.style.display = "block";
+                return;
+            }
+
+            // Caso: Inputs o selects inválidos
+            if (!formularioValido) {
+                advertencia.style.display = "block";
+                return;
+            }
+
+            // Todo correcto: ocultar advertencias y errores
+            advertencia.style.display = "none";
+            errortipoOperacion.style.display = "none";
+            errortipoCarga.style.display = "none";
+            errortipoProducto.style.display = "none";
+
+            // Enviar formulario
+            formulario.submit();
+        });
     }
 
-    const formadd = document.querySelector(".add__formulario");
-    const advertencia = document.querySelector(".input__advertencia");
-    const selectTipoOperacion = document.getElementById("tipoOperaciones");
-    const errortipoOperacion = document.querySelector(".error--tipoOperaciones");
-    const selecttipoCarga = document.getElementById("tipoCarga");
-    const errortipoCarga = document.querySelector(".error--tipoCarga");
-    const selecttipoProducto = document.getElementById("tipoProducto");
-    const errortipoProducto = document.querySelector(".error--tipoProducto");
-
-
-    // Validar en tiempo real los inputs
-    Object.keys(fieldAdd).forEach(fieldId => {
-        const input = document.getElementById(fieldId);
-        if (!input) return;
-
-        const inputBox = input.closest(".input-box");
-        const checkIcon = inputBox.querySelector(".ri-check-line");
-        const errorIcon = inputBox.querySelector(".ri-close-line");
-        const errorMessage = inputBox.nextElementSibling;
-        const label = inputBox.querySelector("label");
-
-        input.addEventListener("input", () => {
-            advertencia.style.display = "none";
-
-            const value = input.value.trim();
-            if (value === "") {
-                checkIcon.style.display = "none";
-                errorIcon.style.display = "none";
-                errorMessage.style.display = "none";
-                input.style.border = "";
-                label.style.color = "";
-                inputBox.classList.remove("input-error");
-            } else if (fieldAdd[fieldId].regex.test(value)) {
-                checkIcon.style.display = "inline-block";
-                errorIcon.style.display = "none";
-                errorMessage.style.display = "none";
-                input.style.border = "2px solid #0034de";
-                label.style.color = "";
-                inputBox.classList.remove("input-error");
-            } else {
-                checkIcon.style.display = "none";
-                errorIcon.style.display = "inline-block";
-                errorMessage.style.display = "block";
-                input.style.border = "2px solid #fd1f1f";
-                label.style.color = "red";
-                inputBox.classList.add("input-error");
-            }
-        });
+    // Llamar a la función de validación para ambos formularios
+    document.querySelectorAll('.add__formulario').forEach(form => {
+        validarFormulario(form);
     });
 
 
-    // Ocultar advertencias y errores de select al interactuar
-    [selectTipoOperacion, selecttipoCarga, selecttipoProducto].forEach(select => {
-        select.addEventListener("change", () => {
-            advertencia.style.display = "none";
 
-            // Verifica si se seleccionó una opción válida
-            if (select.selectedIndex > 0) {
-                select.style.border = "2px solid #0034de";
-            } else {
-                select.style.border = "";
-            }
+    //Ventana Modal de editar
+    
 
-            if (select === selectTipoOperacion && select.selectedIndex > 0) {
-                errortipoOperacion.style.display = "none";
-            }
-            if (select === selecttipoCarga && select.selectedIndex > 0) {
-                errortipoCarga.style.display = "none";
-            }
+    //Ventana Modal de eliminar
 
-            if (select === selecttipoProducto && select.selectedIndex > 0) {
-                errortipoProducto.style.display = "none";
-            }
-        });
-    });
-
-    // Validación al enviar el formulario
-    formadd.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        let formularioValido = true;
-        let todosInputsValidos = true;
-
-        // Validar todos los inputs
-        Object.keys(fieldAdd).forEach(fieldId => {
-            const input = document.getElementById(fieldId);
-            const regex = fieldAdd[fieldId].regex;
-
-            if (!regex.test(input.value.trim())) {
-                formularioValido = false;
-                todosInputsValidos = false;
-            }
-        });
-
-        const tipoOperacionSeleccionada = selectTipoOperacion.selectedIndex > 0;
-        const tipoCargaSeleccionada = selecttipoCarga.selectedIndex > 0;
-        const tipoProductoSeleccionada = selecttipoProducto.selectedIndex > 0;
-
-        // Caso: Inputs válidos, pero selects incompletos
-        if (todosInputsValidos && (!tipoOperacionSeleccionada || !tipoCargaSeleccionada || !tipoProductoSeleccionada)) {
-            if (!tipoOperacionSeleccionada) {
-                errortipoOperacion.style.display = "block";
-                selectTipoOperacion.style.border = "2px solid #fd1f1f";
-            }
-            if (!tipoCargaSeleccionada) {
-                errortipoCarga.style.display = "block";
-                selecttipoCarga.style.border = "2px solid #fd1f1f";
-            }
-            if (!tipoProductoSeleccionada) {
-                errortipoProducto.style.display = "block";
-                selecttipoProducto.style.border = "2px solid #fd1f1f";
-            }
-            advertencia.style.display = "block";
-            return;
-        }
-
-        // Caso: Inputs o selects inválidos
-        if (!formularioValido) {
-            advertencia.style.display = "block";
-            //  no mostramos errores de selects si inputs están mal
-            return;
-        }
-
-        // Todo correcto: ocultar advertencias y errores
-        advertencia.style.display = "none";
-        errortipoOperacion.style.display = "none";
-        errortipoCarga.style.display = "none";
-        errortipoProducto.style.display = "none";
-
-
-        // Enviar formulario
-        formadd.submit();
-    });
-
+    
 });
