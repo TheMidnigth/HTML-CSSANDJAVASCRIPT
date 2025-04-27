@@ -416,22 +416,19 @@ body {
     box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 1180px;
-    margin: 20px 0 0 190px;
+    margin: 20px 0 0 180px;
     position: relative;
 
 }
 
-
-
 .notification__title {
-    font: 600 24px "Poppins", sans-serif;
+    font: 600 27px "Poppins", sans-serif;
     color: #34495e;
     text-align: left;
-    margin-bottom: 20px;
+    margin:0 0 20px 50px;
     letter-spacing: 1px;
     flex: 1;
 }
-
 
 /* Tabla */
 .notification__table-container {
@@ -478,8 +475,8 @@ body {
 
 .notification__search-container {
     position: relative;
-    width: 260px;
-    margin: -60px 0 20px 77%;
+    width: 400px;
+    margin: -60px 0 20px 56%;
     flex: 1;
 }
 
@@ -511,7 +508,100 @@ body {
     box-shadow: 0 0 0 2px rgba(92, 158, 255, 0.2);
 }
 
-.content__icon{
+.content__descarga {
+    position: relative;
+    width: 260px;
+    margin: -60px 0 20px 96%;
+    flex: 1;
+}
+
+.content__descarga i:not(.ri-arrow-right-long-line) {
+    font-size: 35px;
+    padding: 5px 5px;
+    border-radius: 8px;
+    background-color: #f4fbff;
+    cursor: pointer;
+    color: var(--color-quintario);
+    transition: background-color .7s ease;
+}
+
+.content__descarga i:hover:not(.ri-arrow-right-long-line) {
+    background-color: #e0e0e0;
+}
+
+.exportar {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    right: 210px;
+    width: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    background: #fff;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    pointer-events: none; /* No se puede hacer clic si está oculto */
+}
+
+.exportar.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.exportar-header {
+    background-color: #58c18f;
+    color: var(--color-quintario);
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font: 600 20px "Noto Sans";
+}
+
+.exportar-header i {
+    font-size: 25px;
+    margin: 0 0 0 10px;
+}
+
+.exportar__item {
+    display: flex;
+    flex-direction: column;
+}
+
+.exportar-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+}
+
+.exportar-option:hover {
+    background-color: #f0f0f0;
+}
+
+.exportar-option span {
+    font: 500 1.2rem "Noto Sans";
+    color: #333;
+    margin: 0 0 0 20px;
+}
+
+.exportar-option img {
+    width: 35px;
+    height: 35px;
+}
+
+.content__icon {
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -613,7 +703,6 @@ body {
 }
 
 
-
 .input-box {
     position: relative;
 }
@@ -710,9 +799,10 @@ input[type=number]::-webkit-inner-spin-button {
     background: transparent;
 }
 
-.wrapper--changed{
+.wrapper--changed {
     margin: 10px 0 20px 20px;
 }
+
 .styled-select {
     width: 100%;
     height: 55px;
@@ -847,23 +937,19 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
-
-.formulario__button:hover::before {
-    width: 100%;
-}
-
 /* Modal de action */
 .modal__confirmacion {
-    display:none; /* Inicialmente oculto */
+    display: none;
+    /* Inicialmente oculto */
     position: fixed;
     z-index: 999;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px); 
+    backdrop-filter: blur(3px);
     animation: fadeIn 0.3s ease-out;
 }
 
-/* Contenido del modal */
+/*Ventana modal del boton editar */
 .modal__contenido {
     background-color: #ffffff;
     margin: 20% auto;
@@ -924,8 +1010,68 @@ input[type=number]::-webkit-inner-spin-button {
     background-color: #d32f2f;
 }
 
-.confirmacion--hidden{
+.confirmacion--hidden {
     display: none;
+}
+
+.confirmacion--visible {
+    display: block;
+}
+
+/*Ventana modal del boton eliminar */
+.modal__confirmacion2 {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+
+.confirmacion--hidden2 {
+    display: none;
+}
+
+/* Botones del modal */
+.modal__botones2 {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.boton2 {
+    width: 100%;
+    max-width: 150px;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+    font: 500 1.1rem "Noto Sans", sans-serif;
+}
+
+/* Botón "Sí" */
+.boton-si2 {
+    background-color: #4caf50;
+    color: white;
+    margin: 0 0 0 90px;
+}
+
+.boton-si2:hover {
+    background-color: #45a049;
+}
+
+/* Botón "No" */
+.boton-no2 {
+    background-color: #f44336;
+    color: white;
+    margin: 0 0 0 10px;
+}
+
+.boton-no2:hover {
+    background-color: #d32f2f;
 }
 
 
@@ -940,23 +1086,6 @@ input[type=number]::-webkit-inner-spin-button {
         transform: translateY(0);
     }
 }
-
-
-.modal__confirmacion2 {
-    display:none; 
-    position: fixed;
-    z-index: 999;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px); 
-    animation: fadeIn 0.3s ease-out;
-}
-
-
-.confirmacion--hidden2{
-    display: none;
-}
-
 
 /* Modal */
 .modal {
@@ -1050,24 +1179,6 @@ input[type=number]::-webkit-inner-spin-button {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
 }
-
-.modal__newedit{
-    display:none;
-    position: fixed;
-    z-index: 999;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-}
-
-.newedit--hidden{
-    display:none;
-}
-
-.newedit--visible {
-    display: block;
-}
-
 
 .modal__content {
     position: relative;
