@@ -74,6 +74,11 @@ hr{
     color:#34495e;
 }
 
+.name__encabezado i{
+    font-size: 20px;
+}
+
+
 .nav__img {
     width: 80px;
     cursor: pointer;
@@ -325,6 +330,80 @@ hr{
     font: 600 17px "Noto Sans";
     transition: color 0.25s ease;
     color: #888;
+}
+
+.card {
+    position: relative;
+    width: 256px;
+    background: linear-gradient(180deg, #7B7FFF 0%, #2E22FF 100%);
+    border-radius: 1rem;
+    padding: 3.5rem 1.5rem 2rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(123, 127, 255, 0.5);
+    margin: 17em 0 0 20px;
+}
+
+.circle {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(180deg, #7B7FFF 0%, #2E22FF 100%);
+    border-radius: 50%;
+    border: 4px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.circle i {
+    font-size: 25px;
+    font-weight: 800;
+    color: #2E22FF;
+    background-color: var(--color-tercario);
+    padding: 5px 6px;
+    border-radius: 50%;
+}
+
+.card__title{
+    font: 600 1.125rem/1.33 "Poppins";
+    margin: 0 0 0.5rem 0;
+}
+
+.card__text{
+    font: 400 0.875rem/ 1.43 "Montserrat";
+    margin: 0 0 1.5rem 0;
+    padding: 0 0.5rem;
+}
+
+.card__btn {
+    width: 100%;
+    background: linear-gradient(180deg, #7B7FFF 0%, #2E22FF 100%);
+    border: none;
+    border-radius: 9999px;
+    padding: 0.625rem 0;
+    color: white;
+    font: 400 0.875rem/ 1.43 "Noto Sans";
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(123, 127, 255, 0.5);
+    transition: filter 0.3s ease;
+}
+
+.card__btn:hover,
+.card__btn:focus {
+    filter: brightness(1.1);
+    outline: none;
+}
+
+@media (max-width: 320px) {
+    .card {
+        width: 100%;
+        padding: 3.5rem 1rem 2rem;
+    }
 }
 
 .language-wrapper {
