@@ -28,13 +28,26 @@ body {
     box-sizing: border-box;
 }
 
+
+hr{
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+}
+
 /**Encabezado */
 .header {
-    background-color: var(--color-tercario);
-    width: 100%;
+    width: 90%; 
+    max-width: 680px; 
     height: 80px;
     position: fixed;
-    top: 0;
+    top: 15px; 
+    left: 76.5%;
+    transform: translateX(-50%); 
+    background-color: var(--color-tercario);
+    border-radius: 50px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    padding: 0 20px; 
 }
 
 .header__nav {
@@ -42,13 +55,35 @@ body {
     justify-content: flex-end;
     align-items: center;
     height: 100%;
-    margin-right: 30px;
 }
 
+.name__encabezado{
+    position: absolute;
+    top: 20px;
+    left: 22%;
+}
+
+.encabezado__pages{
+    font: 400 15px "Noto Sans";
+    color:#222;
+    text-decoration: none;
+    transition: text-decoration .5s ease;
+}
+
+.encabezado__pages:hover{
+    text-decoration: underline;
+}
+
+.encabezado__title{
+    font: 600 35px "Poppins";
+    margin-top: -1px;
+    color:#34495e;
+}
 
 .nav__img {
     width: 80px;
     cursor: pointer;
+    margin: 0 -20px 0 0;
 }
 
 .nav__menu {
@@ -141,9 +176,9 @@ body {
     align-items: center;
     background-color: #f1f1f1;
     padding: 0.4rem 1rem;
-    border-radius: 10px;
+    border-radius: 50px;
     transition: background-color 0.3s;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .search__input {
@@ -228,6 +263,7 @@ body {
     height: 100%;
     width: 300px;
     padding-top: 100px;
+    background-color: var(--color-tercario);
 }
 
 .sidebar__menu {
@@ -235,16 +271,17 @@ body {
     padding: 0;
     margin: 0;
     position: relative;
+    margin-top: 20px;
 }
 
 /* Indicador que se mueve con transform */
 .sidebar__indicator {
     position: absolute;
-    width: calc(100% - 50px);
+    width: calc(100% - 30px);
     height: 48px;
-    background-color: #ffff;
-    border-left: 5px solid #3651d4;
-    left: 45px;
+    background-color: #f4fbff;
+    border-radius: 8px;
+    left: 15px;
     top: 1px;
     z-index: 0;
     transition: transform 0.3s ease, opacity 0.2s ease;
@@ -261,7 +298,7 @@ body {
     font-size: 18px;
     color: #333;
     cursor: pointer;
-    margin: 8px 0 8px 45px;
+    margin: 8px 0 8px 25px;
     border-radius: 8px;
     transition: color 0.25s ease;
     position: relative;
@@ -293,7 +330,7 @@ body {
 }
 
 .sidebar__text {
-    font: 500 17px "Noto Sans";
+    font: 600 17px "Noto Sans";
     transition: color 0.25s ease;
     color: #888;
 }
@@ -416,7 +453,7 @@ body {
     box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 1180px;
-    margin: 20px 0 0 180px;
+    margin: 20px 0 0 190px;
     position: relative;
 
 }

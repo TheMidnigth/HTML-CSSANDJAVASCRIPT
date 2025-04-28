@@ -16,7 +16,8 @@
 </head>
 
 <body>
-    <aside class="sidebar"> 
+    <aside class="sidebar">
+        <hr>
         <ul class="sidebar__menu">
             <li class="sidebar__item">
                 <i class="ri-home-2-fill"></i>
@@ -26,20 +27,16 @@
                 <i class="ri-ship-fill"></i>
                 <span class="sidebar__text">Solicitud Atraque</span>
             </li>
+            <div class="sidebar__indicator"></div>
             <li class="sidebar__item">
                 <i class="ri-flow-chart"></i>
                 <span class="sidebar__text">Procesos</span>
             </li>
-            <div class="sidebar__indicator"></div>
         </ul>
     </aside>
 
     <header class="header">
         <nav class="header__nav">
-            <div class="nav__toggle" onclick="toggleSidebar()">
-                <i class="ri-arrow-left-line line--left"></i>
-                <i class="ri-arrow-right-line line--right"></i>
-            </div>
 
             <div class="nav__search">
                 <i class="ri-search-line search__icon"></i>
@@ -47,10 +44,11 @@
             </div>
 
             <div class="language-wrapper">
-                <div class="language-selector" data-flag="https://flagcdn.com/w40/es.png" onclick="toggleLanguageMenu()">
+                <div class="language-selector" data-flag="https://flagcdn.com/w40/es.png"
+                    onclick="toggleLanguageMenu()">
                     <img id="currentFlag" src="https://flagcdn.com/w40/es.png" alt="Español" />
                 </div>
-            
+
                 <div class="language-menu" id="languageMenu">
                     <div class="language-option" data-lang="es" data-flag="https://flagcdn.com/w40/es.png">
                         <img src="https://flagcdn.com/w40/es.png" alt="Español" />
@@ -75,7 +73,6 @@
                 </div>
             </div>
 
-            <!-- Botón modo claro/oscuro -->
             <div class="theme-toggle" title="Cambiar tema">
                 <i class="ri-moon-fill" id="moon-icon" onclick="setDarkTheme()"></i>
             </div>
@@ -126,6 +123,13 @@
             </div>
         </nav>
     </header>
+
+    <div class="name__encabezado">
+        <a class="encabezado__pages" href="">Pages /</a>
+        <a class="encabezado__pages" href="">Solicitud Atraque</a>
+        <h1 class="encabezado__title">Solicitud Atraque</h1>
+    </div>
+
 
     <script src="js/solicitudatraque.js"></script>
 </body>
