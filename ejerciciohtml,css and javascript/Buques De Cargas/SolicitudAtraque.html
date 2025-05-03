@@ -82,9 +82,8 @@
             </div>
 
             <div class="theme-toggle" title="Cambiar tema">
-                <i class="ri-moon-fill" id="moon-icon" onclick="setDarkTheme()"></i>
+                <i class="ri-moon-fill" id="moon-icon"></i>
             </div>
-
 
             <div class="icono__notification">
                 <i class="ri-notification-2-fill"></i>
@@ -193,12 +192,10 @@
                                 <th>Matrícula</th>
                                 <th>Nombre</th>
                                 <th>Tipo Buque</th>
-                                <th>País Procedencia</th>
-                                <th>Ciudad Procedencia</th>
-                                <th>Puerto Procedencia</th>
-                                <th>País Destino</th>
-                                <th>Ciudad Destino</th>
-                                <th>Puerto Destino</th>
+                                <th>Procedencia</th>
+                                <th>Destino</th>
+                                <th>Fecha Salida</th>
+                                <th>Fecha Entrada</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -207,12 +204,10 @@
                                 <td>ABC123</td>
                                 <td>Buque Esperanza</td>
                                 <td>Carga</td>
-                                <td>España</td>
-                                <td>Valencia</td>
-                                <td>Puerto Valencia</td>
-                                <td>Argentina</td>
-                                <td>Buenos Aires</td>
-                                <td>Puerto Madero</td>
+                                <td>España/Barcelona/Puerto De Barcelona</td>
+                                <td>Portugal/Madeira/Puerto De Madeira</td>
+                                <td>03/05/2025</td>
+                                <td>06/15/2025</td>
                                 <td>
                                     <div class="action-buttons">
                                         <button class="content__icon icon--edit">
@@ -228,12 +223,10 @@
                                 <td>ABC123</td>
                                 <td>Buque Esperanza</td>
                                 <td>Carga</td>
-                                <td>España</td>
-                                <td>Valencia</td>
-                                <td>Puerto Valencia</td>
-                                <td>Argentina</td>
-                                <td>Buenos Aires</td>
-                                <td>Puerto Madero</td>
+                                <td>España/Barcelona/Puerto De Barcelona</td>
+                                <td>Portugal/Madeira/Puerto De Madeira</td>
+                                <td>03/05/2025</td>
+                                <td>06/15/2025</td>
                                 <td>
                                     <div class="action-buttons">
                                         <button class="content__icon icon--edit">
@@ -249,12 +242,10 @@
                                 <td>ABC123</td>
                                 <td>Buque Esperanza</td>
                                 <td>Carga</td>
-                                <td>España</td>
-                                <td>Valencia</td>
-                                <td>Puerto Valencia</td>
-                                <td>Argentina</td>
-                                <td>Buenos Aires</td>
-                                <td>Puerto Madero</td>
+                                <td>España/Barcelona/Puerto De Barcelona</td>
+                                <td>Portugal/Madeira/Puerto De Madeira</td>
+                                <td>03/05/2025</td>
+                                <td>06/15/2025</td>
                                 <td>
                                     <div class="action-buttons">
                                         <button class="content__icon icon--edit">
@@ -270,12 +261,10 @@
                                 <td>ABC123</td>
                                 <td>Buque Esperanza</td>
                                 <td>Carga</td>
-                                <td>España</td>
-                                <td>Valencia</td>
-                                <td>Puerto Valencia</td>
-                                <td>Argentina</td>
-                                <td>Buenos Aires</td>
-                                <td>Puerto Madero</td>
+                                <td>España/Barcelona/Puerto De Barcelona</td>
+                                <td>Portugal/Madeira/Puerto De Madeira</td>
+                                <td>03/05/2025</td>
+                                <td>06/15/2025</td>
                                 <td>
                                     <div class="action-buttons">
                                         <button class="content__icon icon--edit">
@@ -333,20 +322,14 @@
                 <p class="modal__text"><strong class="text__str">Nombre:</strong> <span id="modalNombre"></span></p>
                 <p class="modal__text"><strong class="text__str">Tipo Buque:</strong> <span id="modalTipoBuque"></span>
                 </p>
-                <p class="modal__text"><strong class="text__str">Pais Procedencia:</strong> <span
-                        id="modalPaisProcedencia"></span>
+                <p class="modal__text"><strong class="text__str">Procedencia:</strong> <span
+                        id="modalProcedencia"></span>
                 </p>
-                <p class="modal__text"><strong class="text__str">Ciudad Procedencia:</strong> <span
-                        id="modalCiudadProcedencia"></span></p>
-                <p class="modal__text"><strong class="text__str">Puerto Procedencia:</strong> <span
-                        id="modalPuertoProcedencia"></span></p>
-                <p class="modal__text"><strong class="text__str">Pais Destino:</strong> <span
-                        id="modalPaisDestino"></span>
-                </p>
-                <p class="modal__text"><strong class="text__str">Ciudad Destino:</strong> <span
-                        id="modalCiudadDestino"></span></p>
-                <p class="modal__text"><strong class="text__str">Puerto Destino:</strong> <span
-                        id="modalPuertoDestino"></span></p>
+                <p class="modal__text"><strong class="text__str">Destino:</strong> <span id="modalDestino"></span></p>
+                <p class="modal__text"><strong class="text__str">FechaSalida:</strong> <span
+                        id="modalFechaSalida"></span></p>
+                <p class="modal__text"><strong class="text__str">FechaEntrada:</strong> <span
+                        id="modalFechaEntrada"></span></p>
             </div>
         </div>
     </div>
@@ -407,6 +390,46 @@
                         </p>
                     </div>
 
+
+                    <div class="formulario__input">
+                        <div class="input-box">
+                            <input type="number" min="50" max="5000" autocomplete="off" placeholder="" name="Ancho"
+                                id="ancho">
+                            <label class="label label--changed1" for="ancho">Ancho (M)</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            El ancho minima es de 50 y el maximo de 5000.
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box">
+                            <input type="number" min="50" max="5000" autocomplete="off" placeholder="" name="Altura"
+                                id="altura">
+                            <label class="label label--changed1" for="altura">Altura (M)</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            La altura minima es de 50 y el maximo de 5000.
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box">
+                            <input type="number" min="50" max="5000" autocomplete="off" placeholder="" name="Peso"
+                                id="peso">
+                            <label class="label label--changed1" for="peso">Peso (T)</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            El peso minimo es de 50 y el maximo de 1000.
+                        </p>
+                    </div>
+
                     <!-- Selector de país -->
                     <div class="formulario__input">
                         <div class="custom-select-wrapper">
@@ -438,8 +461,8 @@
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
-                        <p class="input__error error--Procedencia">
-                            Puerto no válido. Ingrese un nombre valido 
+                        <p class="input__error error--PuertoProcedencia">
+                            Puerto no válido. Ingrese un nombre valido
                             (ej. "Puerto de Barcelona") o un código válido
                             (ej. "ESBCN").
                         </p>
@@ -478,11 +501,44 @@
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
                         <p class="input__error error--PuertoDestino">
-                            Puerto no válido. Ingrese un nombre valido 
+                            Puerto no válido. Ingrese un nombre valido
                             (ej. "Puerto de Barcelona") o un código válido
                             (ej. "ESBCN").
                         </p>
                     </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box box--changed">
+                            <input type="text" autocomplete="off" placeholder="" name="FechaSalida" id="fechaSalida"
+                                title="Formato requerido: dd/mm/yyyy">
+                            <label class="label label--changed1" for="fechaSalida">Fecha Salida</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            Fecha no válida. Ingrese una fecha en formato <strong>dd/mm/yyyy</strong>
+                            (ej. "03/05/2025").
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box box--changed">
+                            <input type="text" autocomplete="off" placeholder="" name="FechaEntrada" id="fechaEntrada"
+                                title="Formato requerido: dd/mm/yyyy">
+                            <label class="label label--changed1" for="fechaEntrada">Fecha Entrada</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            Fecha no válida. Ingrese una fecha en formato <strong>dd/mm/yyyy</strong>
+                            (ej. "03/05/2025").
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <button class="formulario__button" type="submit">Guardar Nuevo Registro</button>
+                    </div>
+                    
 
                 </fieldset>
 
@@ -490,7 +546,6 @@
                     <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
                 </p>
 
-                <button class="formulario__button" type="submit">Guardar Nuevo Registro</button>
             </form>
         </div>
     </div>
@@ -502,14 +557,14 @@
             <span class="modal__close">&times;</span>
             <h2 class="content__titulo">Editar Solicitud Atraque</h2>
             <div class="content__relleno"></div>
-            <form class="add__formulario" action="">
+            <form class="edit__formulario" action="">
 
                 <fieldset class="buque__field">
-                    <legend class="field__legend">Acomplete los siguientes datos por favor.</legend>
+                    <legend class="field__legend">Edite los siguientes datos por favor.</legend>
                     <div class="formulario__input">
                         <div class="input-box ">
-                            <input type="text" autocomplete="off" placeholder="" name="Matricula" id="matricula">
-                            <label class="label label--changed1" for="matricula">Matricula</label>
+                            <input type="text" autocomplete="off" placeholder="" name="Matricula" id="tuition">
+                            <label class="label label--changed1" for="tuition">Matricula</label>
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
@@ -522,8 +577,8 @@
 
                     <div class="formulario__input">
                         <div class="input-box">
-                            <input type="text" autocomplete="off" placeholder="" name="NombreBuque" id="nombreBuque">
-                            <label class="label label--changed1" for="nombreBuque">Nombre</label>
+                            <input type="text" autocomplete="off" placeholder="" name="NombreBuque" id="nameVessel">
+                            <label class="label label--changed1" for="nameVessel">Nombre</label>
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
@@ -534,7 +589,7 @@
 
                     <div class="formulario__input">
                         <div class="custom-select-wrapper">
-                            <select class="styled-select" id="tipoBuque">
+                            <select class="styled-select" id="tipoBuque2">
                                 <option disabled selected>Tipo De Buque</option>
                                 <option value="CG">Carga General</option>
                                 <option value="PC">Portacontenedores</option>
@@ -547,44 +602,84 @@
                             </select>
                             <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
-                        <p class="input__error error--tipoBuque">
+                        <p class="input__error error--tipoBuque2">
                             Por favor, seleccione un tipo de buque.
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box">
+                            <input type="number" min="50" max="5000" autocomplete="off" placeholder="" name="Ancho"
+                                id="ancho2">
+                            <label class="label label--changed1" for="ancho2">Ancho (M)</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            El ancho minima es de 50 y el maximo de 5000.
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box">
+                            <input type="number" min="50" max="5000" autocomplete="off" placeholder="" name="Altura"
+                                id="altura2">
+                            <label class="label label--changed1" for="altura2">Altura (M)</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            La altura minima es de 50 y el maximo de 5000.
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box">
+                            <input type="number" min="50" max="5000" autocomplete="off" placeholder="" name="Peso"
+                                id="peso2">
+                            <label class="label label--changed1" for="peso2">Peso (T)</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            El peso minimo es de 50 y el maximo de 1000.
                         </p>
                     </div>
 
                     <!-- Selector de país -->
                     <div class="formulario__input">
                         <div class="custom-select-wrapper">
-                            <select class="styled-select" id="selectPaisProcedencia">
+                            <select class="styled-select" id="selectPaisProcedencia2">
                                 <option disabled selected>Pais Procedencia</option>
                             </select>
                             <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
-                        <p class="input__error error--PaisProcedencia">Por favor, seleccione un país de procedencia.</p>
+                        <p class="input__error error--PaisProcedencia2">Por favor, seleccione un país de procedencia.
+                        </p>
                     </div>
 
                     <!-- Selector de ciudad -->
                     <div class="formulario__input">
                         <div class="custom-select-wrapper wrapper--changed">
-                            <select class="styled-select" id="selectCiudadProcedencia">
+                            <select class="styled-select" id="selectCiudadProcedencia2">
                                 <option disabled selected>Ciudad Procedencia</option>
                             </select>
                             <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
-                        <p class="input__error error--CiudadProcedencia">Por favor, seleccione una ciudad de
+                        <p class="input__error error--CiudadProcedencia2">Por favor, seleccione una ciudad de
                             procedencia.</p>
                     </div>
 
                     <div class="formulario__input">
                         <div class="input-box box--changed">
                             <input type="text" autocomplete="off" placeholder="" name="PuertoProcedencia"
-                                id="puertoProcedencia">
-                            <label class="label label--changed" for="puertoProcedencia">Puerto Procedencia</label>
+                                id="portOrigin">
+                            <label class="label label--changed" for="portOrigin">Puerto Procedencia</label>
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
-                        <p class="input__error error--Procedencia">
-                            Puerto no válido. Ingrese un nombre valido 
+                        <p class="input__error error--PuertoProcedencia">
+                            Puerto no válido. Ingrese un nombre valido
                             (ej. "Puerto de Barcelona") o un código válido
                             (ej. "ESBCN").
                         </p>
@@ -593,23 +688,23 @@
                     <!-- Selector de país -->
                     <div class="formulario__input">
                         <div class="custom-select-wrapper">
-                            <select class="styled-select" id="selectPaisDestino">
+                            <select class="styled-select" id="selectPaisDestino2">
                                 <option disabled selected>Pais Destino</option>
                             </select>
                             <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
-                        <p class="input__error error--PaisDestino">Por favor, seleccione un país de Destino.</p>
+                        <p class="input__error error--PaisDestino2">Por favor, seleccione un país de Destino.</p>
                     </div>
 
                     <!-- Selector de ciudad -->
                     <div class="formulario__input">
                         <div class="custom-select-wrapper wrapper--changed">
-                            <select class="styled-select" id="selectCiudadDestino">
+                            <select class="styled-select" id="selectCiudadDestino2">
                                 <option disabled selected>Ciudad Destino</option>
                             </select>
                             <i class="fa-solid fa-chevron-down custom-arrow" id="arrowIcon"></i>
                         </div>
-                        <p class="input__error error--CiudadDestino">
+                        <p class="input__error error--CiudadDestino2">
                             Por favor, seleccione una ciudad de Destino.
                         </p>
                     </div>
@@ -617,30 +712,67 @@
                     <div class="formulario__input">
                         <div class="input-box box--changed">
                             <input type="text" autocomplete="off" placeholder="" name="PuertoDestino"
-                                id="puertoDestino">
-                            <label class="label label--changed" for="puertoDestino">Puerto Destino</label>
+                                id="portDestination">
+                            <label class="label label--changed" for="portDestination">Puerto Destino</label>
                             <span class="box__icon"><i class="ri-check-line"></i></span>
                             <span class="box__icon"><i class="ri-close-line"></i></span>
                         </div>
                         <p class="input__error error--PuertoDestino">
-                            Puerto no válido. Ingrese un nombre valido 
+                            Puerto no válido. Ingrese un nombre valido
                             (ej. "Puerto de Barcelona") o un código válido
                             (ej. "ESBCN").
                         </p>
                     </div>
 
+                    <div class="formulario__input">
+                        <div class="input-box box--changed">
+                            <input type="text" autocomplete="off" placeholder="" name="FechaSalida" id="fechaSalida2"
+                                title="Formato requerido: dd/mm/yyyy">
+                            <label class="label label--changed1" for="fechaSalida2">Fecha Salida</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            Fecha no válida. Ingrese una fecha en formato <strong>dd/mm/yyyy</strong>
+                            (ej. "03/05/2025").
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <div class="input-box box--changed">
+                            <input type="text" autocomplete="off" placeholder="" name="FechaEntrada" id="fechaEntrada2"
+                                title="Formato requerido: dd/mm/yyyy">
+                            <label class="label label--changed1" for="fechaEntrada2">Fecha Entrada</label>
+                            <span class="box__icon"><i class="ri-check-line"></i></span>
+                            <span class="box__icon"><i class="ri-close-line"></i></span>
+                        </div>
+                        <p class="input__error">
+                            Fecha no válida. Ingrese una fecha en formato <strong>dd/mm/yyyy</strong>
+                            (ej. "03/05/2025").
+                        </p>
+                    </div>
+
+                    <div class="formulario__input">
+                        <button class="formulario__button" type="submit">Guardar Nuevo Registro</button>
+                    </div>
+
                 </fieldset>
 
-                <p class="input__advertencia">
+                <p class="input__advertencia advertencia--change">
                     <i class="ri-error-warning-line"></i> <b>Error:</b> Por favor rellene el formulario correctamente.
                 </p>
 
-                <button class="formulario__button" type="submit">Guardar Actualizacion</button>
             </form>
         </div>
     </div>
 
     <script src="js/solicitudatraque.js"></script>
+    <!-- jsPDF para exportar a PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- autoTable (complemento para jsPDF) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"></script>
+    <!-- autoTable (complemento para Excel) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </body>
 
 </html>

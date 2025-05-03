@@ -1044,12 +1044,13 @@ hr {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
+    overflow-y: auto;
 }
 
 .modal__content {
     position: relative;
     background-color: #ffffff;
-    margin: 10% auto;
+    margin: 8% auto;
     border-radius: 15px;
     padding: 30px;
     width: 100%;
@@ -1186,6 +1187,15 @@ hr {
 }
 
 
+input[type=number]::-webkit-inner-spin-button {
+    margin-right: 25px;
+    /* mueve el spinner a la derecha */
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+
 .custom-select-wrapper {
     position: relative;
     width: 370px;
@@ -1267,7 +1277,7 @@ hr {
     font: 600 15px "Montserrat";
     width: 400px;
     margin: 0 0 10px -25px;
-    display:none ;
+    display:none;
 }
 
 .error--Matricula{
@@ -1276,7 +1286,7 @@ hr {
     width: 380px;
 }
 
-.error--Procedencia{
+.error--PuertoProcedencia{
     margin: -19px 0 10px -25px;
     white-space: pre-line; 
 }
@@ -1315,9 +1325,9 @@ hr {
     color: var(--color-tercario);
     width: 100%;
     font: 700 17px "Noto Sans";
-    max-width: 500px;
+    max-width: 370px;
     height: 55px;
-    margin: 0px 0 0 18em;
+    margin: 10px 0 0 -1.5em;
     border-radius: 5px;
     border: none;
     position: relative;
@@ -1327,3 +1337,4 @@ hr {
         -6px -6px 12px #fff;
     cursor: pointer;
 }
+
