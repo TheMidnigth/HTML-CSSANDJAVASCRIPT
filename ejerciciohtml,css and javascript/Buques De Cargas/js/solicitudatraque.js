@@ -67,5 +67,500 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    //Pagination de la tabla
+    const rows = Array.from(document.querySelectorAll("#notificationBody tr"));
+    const paginationContainer = document.querySelector(".notification__pagination");
+    const paginationButtons = paginationContainer.querySelectorAll(".pagination__btn");
+    const flechas = paginationContainer.querySelectorAll(".pagination__flec");
+    const paginationText = paginationContainer.querySelector(".pagination__text");
+    const searchInput = document.getElementById("notificationSearch");
+
+    const rowsPerPage = 4;
+    let currentPage = 1;
+    let filteredRows = [...rows];
+
+    function showPage(page, dataRows) {
+        currentPage = page;
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        // Ocultar todas
+        rows.forEach(row => row.style.display = "none");
+
+        // Mostrar solo las necesarias
+        dataRows.slice(start, end).forEach(row => row.style.display = "");
+
+        updatePagination(dataRows.length);
+    }
+
+    function updatePagination(totalItems) {
+        const start = (currentPage - 1) * rowsPerPage + 1;
+        const end = Math.min(currentPage * rowsPerPage, totalItems);
+        paginationText.textContent = `Mostrando ${start}-${end} De ${totalItems}`;
+
+        paginationButtons.forEach((btn, index) => {
+            btn.classList.toggle("active", index + 1 === currentPage);
+        });
+    }
+
+    paginationButtons.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            showPage(index + 1, filteredRows);
+        });
+    });
+
+    flechas[0].addEventListener("click", () => {
+        if (currentPage > 1) {
+            showPage(currentPage - 1, filteredRows);
+        }
+    });
+
+    flechas[1].addEventListener("click", () => {
+        const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+        if (currentPage < totalPages) {
+            showPage(currentPage + 1, filteredRows);
+        }
+    });
+
+    // Búsqueda
+    if (searchInput) {
+        searchInput.addEventListener("input", () => {
+            const searchValue = searchInput.value.toLowerCase();
+            filteredRows = rows.filter(row => row.textContent.toLowerCase().includes(searchValue));
+
+            // Reiniciar a la página 1 al buscar
+            showPage(1, filteredRows);
+        });
+    }
+
+    // Mostrar primera página al cargar
+    showPage(1, filteredRows);
+
+
+    //Ventana Modal solicitud atraque
+    const filas = document.querySelectorAll("#notificationBody tr");
+    const modal = document.getElementById("modalNotificacion");
+    const closeModal = document.getElementById("closeModal");
+
+    const modalMatricula = document.getElementById("modalMatricula");
+    const modalNombre = document.getElementById("modalNombre");
+    const modalTipoBuque = document.getElementById("modalTipoBuque");
+    const modalPaisProcedencia = document.getElementById("modalPaisProcedencia");
+    const modalCiudadProcedencia = document.getElementById("modalCiudadProcedencia");
+    const modalPuertoProcedencia = document.getElementById("modalPuertoProcedencia");
+    const modalPaisDestino = document.getElementById("modalPaisDestino");
+    const modalCiudadDestino = document.getElementById("modalCiudadDestino");
+    const modalPuertoDestino = document.getElementById("modalPuertoDestino");
+
+    filas.forEach(fila => {
+        fila.addEventListener("click", (e) => {
+            // Verifica si el clic fue en un icono de editar o eliminar
+            const clickedElement = e.target;
+            if (clickedElement.closest('.content__icon')) {
+                // Detiene la propagación si fue en un icono de editar o eliminar
+                e.stopPropagation();
+                return;
+            }
+
+            // Si no fue un clic en un icono, abre el modal
+            const celdas = fila.querySelectorAll("td");
+            if (celdas.length >= 6) {
+                modalMatricula.textContent = celdas[0].textContent.trim();
+                modalNombre.textContent = celdas[1].textContent.trim();
+                modalTipoBuque.textContent = celdas[2].textContent.trim();
+                modalPaisProcedencia.textContent = celdas[3].textContent.trim();
+                modalCiudadProcedencia.textContent = celdas[4].textContent.trim();
+                modalPuertoProcedencia.textContent = celdas[5].textContent.trim();
+                modalPaisDestino.textContent = celdas[6].textContent.trim();
+                modalCiudadDestino.textContent = celdas[7].textContent.trim();
+                modalPuertoDestino.textContent = celdas[8].textContent.trim();
+
+                modal.classList.remove("hidden");
+                modal.style.display = "block";
+            }
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", e => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    //Ventana Modal de add new Registro
+    const modaladd = document.getElementById("modalnewadd");
+    const btnAbrirModal = document.querySelector(".button__add");
+    const btnCerrarModal = document.querySelector(".modal__close");
+
+    // Mostrar el modal cuando el botón sea clickeado
+    btnAbrirModal.addEventListener("click", function () {
+        modaladd.classList.remove("newadd--hidden");
+        modaladd.classList.add("newadd--visible");
+    });
+
+    // Cerrar el modal cuando se haga clic en el botón de cerrar
+    btnCerrarModal.addEventListener("click", function () {
+        modaladd.classList.add("newadd--hidden");
+        modaladd.classList.remove("newadd--visible");
+    });
+
+    // Cerrar el modal cuando se haga clic fuera del contenido del modal
+    modaladd.addEventListener("click", function (event) {
+        if (event.target === modaladd) {  // Si el clic ocurrió en la capa de fondo del modal
+            modaladd.classList.add("newadd--hidden");
+            modaladd.classList.remove("newadd--visible");
+        }
+    });
+
+    //Validaciones de solicitud Atraque
+    function validarFormulario(formulario) {
+        const fieldAdd = {
+            matricula: { regex: /^[A-Z]{2}-[A-Z]{3}-\d{5}$/, errorMessage: "La matrícula ingresada no es válida.Asegúrese de que esté en el formato correcto.(Ejemplo: PC-PAN-22388)" },
+            nombreBuque: { regex: /^[A-Za-z\s\-\.]+$/, errorMessage: " El nombre del buque es obligatorio." },
+            puertoProcedencia: { regex: /^(?:[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+|[A-Z]{4,5})$/, errorMessage: "Puerto no válido. Ingrese un nombre valido (ej. Puerto de Barcelona) o un código válido(ej. ESBCN)." },
+            puertoDestino: { regex: /^(?:[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+|[A-Z]{4,5})$/, errorMessage: "Puerto no válido. Ingrese un nombre valido (ej. Puerto de Barcelona) o un código válido(ej. ESBCN)." }
+        };
+
+        // variables 
+        const advertencia = formulario.querySelector(".input__advertencia");
+        const selectTipoBuque = formulario.querySelector("#tipoBuque");
+        const errorTipoBuque = formulario.querySelector(".error--tipoBuque");
+        const selectPaisProcedencia = formulario.querySelector("#selectPaisProcedencia");
+        const errorPaisProcedencia = formulario.querySelector(".error--PaisProcedencia");
+        const selectCiudadProcedencia = formulario.querySelector("#selectCiudadProcedencia");
+        const errorCiudadProcedencia = formulario.querySelector(".error--CiudadProcedencia");
+        const selectPaisDestino = formulario.querySelector("#selectPaisDestino");
+        const errorPaisDestino = formulario.querySelector(".error--PaisDestino");
+        const selectCiudadDestino = formulario.querySelector("#selectCiudadDestino");
+        const errorCiudadDestino = formulario.querySelector(".error--CiudadDestino");
+
+        // Validar en tiempo real los inputs
+        Object.keys(fieldAdd).forEach(fieldId => {
+            const input = formulario.querySelector(`#${fieldId}`);
+            if (!input) return;
+
+            const inputBox = input.closest(".input-box");
+            const checkIcon = inputBox.querySelector(".ri-check-line");
+            const errorIcon = inputBox.querySelector(".ri-close-line");
+            const errorMessage = inputBox.nextElementSibling;
+            const label = inputBox.querySelector("label");
+
+            input.addEventListener("input", () => {
+                advertencia.style.display = "none";
+
+                const value = input.value.trim();
+                if (value === "") {
+                    checkIcon.style.display = "none";
+                    errorIcon.style.display = "none";
+                    errorMessage.style.display = "none";
+                    input.style.border = "";
+                    label.style.color = "";
+                    inputBox.classList.remove("input-error");
+                } else if (fieldAdd[fieldId].regex.test(value)) {
+                    checkIcon.style.display = "inline-block";
+                    errorIcon.style.display = "none";
+                    errorMessage.style.display = "none";
+                    input.style.border = "2px solid #0034de";
+                    label.style.color = "";
+                    inputBox.classList.remove("input-error");
+                } else {
+                    checkIcon.style.display = "none";
+                    errorIcon.style.display = "inline-block";
+                    errorMessage.style.display = "block";
+                    input.style.border = "2px solid #fd1f1f";
+                    label.style.color = "red";
+                    inputBox.classList.add("input-error");
+                }
+            });
+        });
+
+        // Ocultar advertencias y errores de select al interactuar
+        [selectTipoBuque,selectPaisProcedencia, selectCiudadProcedencia, selectPaisDestino,selectCiudadDestino].forEach(select => {
+            select.addEventListener("change", () => {
+                advertencia.style.display = "none";
+
+                if (select.selectedIndex > 0) {
+                    select.style.border = "2px solid #0034de";
+                } else {
+                    select.style.border = "";
+                }
+
+                if (select === selectTipoBuque && select.selectedIndex > 0) {
+                    errorTipoBuque.style.display = "none";
+                }
+                if (select === selectPaisProcedencia && select.selectedIndex > 0) {
+                    errorPaisProcedencia.style.display = "none";
+                }
+
+                if (select === selectCiudadProcedencia && select.selectedIndex > 0) {
+                    errorCiudadProcedencia.style.display = "none";
+                }
+
+                if (select === selectPaisDestino && select.selectedIndex > 0) {
+                    errorPaisDestino.style.display = "none";
+                }
+
+                if (select === selectCiudadDestino && select.selectedIndex > 0) {
+                    errorCiudadDestino.style.display = "none";
+                }
+
+
+            });
+        });
+
+        // Validación al enviar el formulario
+        formulario.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let formularioValido = true;
+            let todosInputsValidos = true;
+
+            // Validar todos los inputs
+            Object.keys(fieldAdd).forEach(fieldId => {
+                const input = formulario.querySelector(`#${fieldId}`);
+                const regex = fieldAdd[fieldId].regex;
+
+                if (!regex.test(input.value.trim())) {
+                    formularioValido = false;
+                    todosInputsValidos = false;
+                }
+            });
+
+            const tipoBuqueSeleccionada = selectTipoBuque.selectedIndex > 0;
+            const paisProcedenciaSeleccionada = selectPaisProcedencia.selectedIndex > 0;
+            const ciudadProcedenciaSeleccionada = selectCiudadProcedencia.selectedIndex > 0;
+            const paisDestinoSeleccionada = selectPaisDestino.selectedIndex > 0;
+            const ciudadDestinoSeleccionada = selectCiudadDestino.selectedIndex > 0;
+
+
+            // Caso: Inputs válidos, pero selects incompletos
+            if (todosInputsValidos && (!tipoBuqueSeleccionada || !paisProcedenciaSeleccionada || !ciudadProcedenciaSeleccionada || !paisDestinoSeleccionada || !ciudadDestinoSeleccionada)) {
+                if (!tipoBuqueSeleccionada) {
+                    errorTipoBuque.style.display = "block";
+                    selectTipoBuque.style.border = "2px solid #fd1f1f";
+                }
+                if (!paisProcedenciaSeleccionada) {
+                    errorPaisProcedencia.style.display = "block";
+                    selectPaisProcedencia.style.border = "2px solid #fd1f1f";
+                }
+                if (!ciudadProcedenciaSeleccionada) {
+                    errorCiudadProcedencia.style.display = "block";
+                    selectCiudadProcedencia.style.border = "2px solid #fd1f1f";
+                }
+
+                if (!paisDestinoSeleccionada) {
+                    errorPaisDestino.style.display = "block";
+                    selectPaisDestino.style.border = "2px solid #fd1f1f";
+                }
+                if (!ciudadDestinoSeleccionada) {
+                    errorCiudadDestino.style.display = "block";
+                    selectCiudadDestino.style.border = "2px solid #fd1f1f";
+                }
+
+
+                advertencia.style.display = "block";
+                return;
+            }
+
+            // Caso: Inputs o selects inválidos
+            if (!formularioValido) {
+                advertencia.style.display = "block";
+                return;
+            }
+
+            // Todo correcto: ocultar advertencias y errores
+            advertencia.style.display = "none";
+            errorTipoBuque.style.display = "none";
+            errorPaisProcedencia.style.display = "none";
+            errorCiudadProcedencia.style.display = "none";
+            errorPaisDestino.style.display = "none";
+            errorCiudadDestino.style.display = "none";
+
+            // Enviar formulario
+            formulario.submit();
+        });
+
+    }
+
+     // Llamar a la función de validación para ambos formularios
+    document.querySelectorAll('.add__formulario').forEach(form => {
+        validarFormulario(form);
+    });
+
+
+    // Api de pais y ciudad que barbaro
+    // Función para cargar países en un select específico
+    function cargarPaises(selectElement) {
+        fetch("https://restcountries.com/v3.1/all")
+            .then(res => res.json())
+            .then(data => {
+                const sortedCountries = data.sort((a, b) =>
+                    a.name.common.localeCompare(b.name.common)
+                );
+
+                const countriesSet = new Set();
+
+                sortedCountries.forEach(country => {
+                    if (!countriesSet.has(country.name.common)) {
+                        countriesSet.add(country.name.common);
+                        const option = document.createElement("option");
+                        option.value = country.name.common;
+                        option.textContent = country.name.common;
+                        selectElement.appendChild(option);
+                    }
+                });
+            })
+            .catch(error => console.error("Error al cargar países:", error));
+    }
+
+    // Función para cargar ciudades en un select según país
+    function cargarCiudades(paisSelect, ciudadSelect) {
+        paisSelect.addEventListener("change", () => {
+            const selectedCountry = paisSelect.value;
+            ciudadSelect.innerHTML = '<option disabled selected>Ciudad</option>';
+
+            fetch("https://countriesnow.space/api/v0.1/countries/cities", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ country: selectedCountry })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const cities = data.data;
+                    const citiesSet = new Set();
+
+                    if (Array.isArray(cities) && cities.length > 0) {
+                        cities.forEach(city => {
+                            if (!citiesSet.has(city)) {
+                                citiesSet.add(city);
+                                const option = document.createElement("option");
+                                option.value = city;
+                                option.textContent = city;
+                                ciudadSelect.appendChild(option);
+                            }
+                        });
+                    } else {
+                        const option = document.createElement("option");
+                        option.disabled = true;
+                        option.textContent = "No se encontraron ciudades.";
+                        ciudadSelect.appendChild(option);
+                    }
+                })
+                .catch(err => {
+                    console.error("Error al obtener ciudades:", err);
+                });
+        });
+    }
+
+    // Obtener todos los selects
+    const selectPaisProcedencia = document.getElementById("selectPaisProcedencia");
+    const selectCiudadProcedencia = document.getElementById("selectCiudadProcedencia");
+    const selectPaisDestino = document.getElementById("selectPaisDestino");
+    const selectCiudadDestino = document.getElementById("selectCiudadDestino");
+    
+
+    // Cargar países en ambos select de país
+    cargarPaises(selectPaisProcedencia);
+    cargarPaises(selectPaisDestino);
+
+    // Activar carga de ciudades en ambos casos
+    cargarCiudades(selectPaisProcedencia, selectCiudadProcedencia);
+    cargarCiudades(selectPaisDestino, selectCiudadDestino);
+
+    //Ventana Modal de editar y eliminar
+    const botonesEditar = document.querySelectorAll('.icon--edit');
+    const botonesEliminar = document.querySelectorAll('.icon--delete');
+
+    // Modales
+    const modalEditar = document.getElementById('modalConfirmacion');
+    const modalEliminar = document.getElementById('modalConfirmacion2');
+    const modalEditRegistro = document.getElementById('modalnewadd2');
+
+    // Botones "Sí" y "No"
+    const botonSiEditar = modalEditar.querySelector('.boton-si');
+    const botonNoEditar = modalEditar.querySelector('.boton-no');
+    const botonNoEliminar = modalEliminar.querySelector('.boton-no2');
+
+    // Funciones para abrir y cerrar modales
+    function abrirModal(modal) {
+        modal.classList.remove('confirmacion--hidden');
+        modal.classList.add('confirmacion--visible');
+    }
+
+    function cerrarModal(modal) {
+        modal.classList.remove('confirmacion--visible');
+        modal.classList.add('confirmacion--hidden');
+    }
+
+    // Eventos abrir modal editar
+    botonesEditar.forEach(boton => {
+        boton.addEventListener('click', () => {
+            abrirModal(modalEditar);
+        });
+    });
+
+    // Eventos abrir modal eliminar
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener('click', () => {
+            abrirModal(modalEliminar);
+        });
+    });
+
+    // Eventos cerrar modales al hacer click en "No"
+    botonNoEditar.addEventListener('click', () => {
+        cerrarModal(modalEditar);
+    });
+
+    botonNoEliminar.addEventListener('click', () => {
+        cerrarModal(modalEliminar);
+    });
+
+    // Evento cuando hacen click en "Sí" en editar
+    botonSiEditar.addEventListener('click', () => {
+        cerrarModal(modalEditar);     // Cerramos el modal de confirmación
+        modalEditRegistro.classList.remove('newadd--hidden');
+        modalEditRegistro.classList.add('newadd--visible');
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    modalEditar.addEventListener('click', (e) => {
+        if (e.target === modalEditar) {
+            cerrarModal(modalEditar);
+        }
+    });
+
+    modalEliminar.addEventListener('click', (e) => {
+        if (e.target === modalEliminar) {
+            cerrarModal(modalEliminar);
+        }
+    });
+
+    const botonCerrarModalEdit = modalEditRegistro.querySelector('.modal__close');
+
+    botonCerrarModalEdit.addEventListener('click', () => {
+        modalEditRegistro.classList.remove('newadd--visible');
+        modalEditRegistro.classList.add('newadd--hidden');
+    });
+
+    modalEditRegistro.addEventListener('click', (e) => {
+        if (e.target === modalEditRegistro) {
+            modalEditRegistro.classList.remove('newadd--visible');
+            modalEditRegistro.classList.add('newadd--hidden');
+        }
+    });
+
+    //Apertura de la exportacion
+    const iconoDescarga = document.querySelector('.content__descarga i');
+    const exportarDiv = document.querySelector('.exportar');
+
+    iconoDescarga.addEventListener('click', () => {
+        exportarDiv.classList.toggle('active');
+    });
+
+
 });
 
