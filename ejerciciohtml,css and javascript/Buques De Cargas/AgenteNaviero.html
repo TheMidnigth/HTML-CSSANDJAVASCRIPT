@@ -84,7 +84,7 @@
             </div>
 
             <div class="theme-toggle" title="Cambiar tema">
-                <i class="ri-moon-fill" id="moon-icon" onclick="setDarkTheme()"></i>
+                <i class="ri-moon-fill" id="theme-icon"></i>
             </div>
 
 
@@ -124,7 +124,7 @@
                         <span class="link__flec"> <i class="ri-arrow-right-s-line"></i></span>
                     </a>
 
-                    <a href="" class="sub__link">
+                    <a href="index.html" class="sub__link">
                         <i class="ri-logout-box-r-fill"></i>
                         <p class="link__text">Cerrar Seccion</p>
                         <span class="link__flec"><i class="ri-arrow-right-s-line"></i></span>
@@ -175,22 +175,21 @@
 
             <div id="chartdiv2"></div>
             <div class="controls">
+                <div class="controls__select">
+                    <h2 class="select__title" id="title__change">Distribución Tipo De Buques</h2>
+                </div>
+
                 <div class="controls__btn">
                     <button class="control-button" onclick="changeChart('buques')">Tipos De Buques</button>
                     <div class="separator"></div>
-                    <button class="control-button button--changed" onclick="changeChart('carga')">Tipos De Cargas</button>
+                    <button class="control-button button--changed" onclick="changeChart('carga')">Tipos De
+                        Cargas</button>
                 </div>
-                <select class="select__periodicidad" id="timeframe-select" onchange="changeTimeframe(this.value)">
-                    <option value="week">Semanas</option>
-                    <option value="month">Meses</option>
-                    <option value="year">Años</option>
-                </select>
             </div>
         </section>
     </main>
 
     <script src="js/agentenaviero.js"></script>
-    <script src="js/graficos.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>

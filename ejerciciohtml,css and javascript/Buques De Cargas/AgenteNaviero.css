@@ -20,6 +20,89 @@
 body {
     overflow-x: hidden;
     background-color: #f5f5f5;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* header modo oscuro */
+body.dark-mode .header,
+body.dark-mode .sidebar{
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-mode .sidebar__indicator{
+    background-color: #121212;
+}
+
+/* Search modo oscuto */
+body.dark-mode .nav__search{
+    background-color: #121212;;
+    color: var(--color-tercario);
+}
+
+body.dark-mode .search__input{
+    color: var(--color-tercario);
+}
+
+body.dark-mode .language-menu{
+    background-color: #121212;
+}
+
+body.dark-mode .language-option:hover{
+    background-color: #1e1e1e;
+}
+
+
+body.dark-mode .icono__notification i{
+    color: var(--color-tercario);
+}
+
+body.dark-mode .encabezado__pages,
+body.dark-mode .encabezado__title {
+    color: var(--color-tercario);
+}
+
+body.dark-mode .agentenaviero__welcome,
+body.dark-mode .agentenaviero__atraque,
+body.dark-mode .agentenavierto__proceso,
+body.dark-mode .agentenaviero__total{
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .agentenaviero__atraque i,
+body.dark-mode .agentenavierto__proceso i,
+body.dark-mode .agentenaviero__total i{
+    background-color: #121212;
+}
+
+body.dark-mode #chartdiv,
+body.dark-mode #chartdiv2{
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .menu__sub{
+    background-color: #121212;
+    
+}
+
+body.dark-mode .info__title,
+body.dark-mode .link__text,
+body.dark-mode .link__flec{
+    color: var(--color-tercario);
+}
+
+body.dark-mode .control-button{
+    color: var(--color-tercario);
+}
+
+body.dark-mode .select__title{
+    color: var(--color-tercario);
 }
 
 hr {
@@ -92,6 +175,7 @@ hr {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 1000;
 }
 
 .nav__menu.open__menu {
@@ -135,6 +219,7 @@ hr {
     text-decoration: none;
     color: #525252;
     margin: 12px 0;
+    
 }
 
 .sub__link .link__text {
@@ -490,6 +575,8 @@ hr {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 8px;
+    position: relative;
+    z-index: -1;
 }
 
 .agentenaviero__welcome {
@@ -643,18 +730,21 @@ hr {
 }
 
 #chartdiv2 {
+    position: relative;
     width: 100%;
     max-width: 400px;
     height: 450px;
     border-radius: 20px;
     background-color: var(--color-tercario);
     margin: -28em 0 0 49em;
+    z-index: -1;
 }
 
 
 .controls{
     position: relative;
 }
+
 
 .controls__btn{
     position: absolute;
@@ -686,18 +776,18 @@ hr {
     margin: 0 10px; /* Espaciado a la izquierda y derecha */
 }
 
-.select__periodicidad{
+.controls__select{
     position: absolute;
     top: -27em;
-    left: 67.6em;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font: 600 16px "Noto Sans";
-    color: #888;
+    left: 50.5em;
+    display: flex;
 }
 
-.select__periodicidad option{
-    font: 600 13px "Noto Sans";
+.select__title{
+    font: 600 18px "Noto Sans";
+    color: var(--color-quintario);
+    position: absolute;
+    z-index: -1;
+    width: 600px;
 }
+

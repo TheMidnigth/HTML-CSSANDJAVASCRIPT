@@ -604,4 +604,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Escuchar el clic para exportar a Excel
     document.querySelector('.exportar-option:nth-child(4)').addEventListener('click', exportToExcel);
 
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+
+        // Cambiar el ícono
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.classList.remove('ri-moon-fill');
+            themeIcon.classList.add('ri-sun-line');
+        } else {
+            themeIcon.classList.remove('ri-sun-line');
+            themeIcon.classList.add('ri-moon-fill');
+        }
+    })
 });
