@@ -19,18 +19,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //Sidebar
+    //Sidebar
     const items = document.querySelectorAll('.sidebar__item');
     const indicator = document.querySelector('.sidebar__indicator');
 
     function moveIndicatorTo(index) {
-        const itemHeight = items[0].offsetHeight + 8; // altura del ítem más el margen
-        const offset = index * itemHeight;
-        indicator.style.transform = `translateY(${offset}px)`;
+        const item = items[index];
+        const offsetTop = item.offsetTop;
+        indicator.style.transform = `translateY(${offsetTop}px)`;
     }
 
-    // Inicializamos la posición del indicador
-    moveIndicatorTo(1);
+    // Detectar cuál item tiene la clase 'active'
+    let activeIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = 0;
 
+    // Mover el indicador al cargar la página
+    moveIndicatorTo(activeIndex);
+
+    // Manejo de clics para mover el indicador dinámicamente
     items.forEach((item, index) => {
         item.addEventListener('click', () => {
             items.forEach(el => el.classList.remove('active'));
@@ -975,5 +981,35 @@ document.addEventListener("DOMContentLoaded", function () {
             themeIcon.classList.add('ri-moon-fill');
         }
     })
+
+
+    //Abrir notificacion del header
+    const icon = document.getElementById('notificationIcon');
+    const box = document.getElementById('notificationBox');
+
+    icon.addEventListener('click', function (e) {
+        e.stopPropagation(); // Evita que el clic se propague
+        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Cerrar si se hace clic fuera
+    document.addEventListener('click', function () {
+        box.style.display = 'none';
+    });
+
+    // Evita cerrar al hacer clic dentro de la caja
+    box.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+
+    //Navegacion del sidebar 
+    document.querySelectorAll('.sidebar__item').forEach(item => {
+        item.addEventListener('click', () => {
+            const url = item.getAttribute('data-url');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
 });
 
