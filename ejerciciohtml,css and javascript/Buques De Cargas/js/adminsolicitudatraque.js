@@ -239,6 +239,205 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+      // Función para validar los formularios
+        const fieldValid = {
+            descripcion: { regex: /^.{1,}$/, errorMessage: "Por favor, ingrese una descripción." }
+        };
+
+         // variables 
+    const formulario = document.querySelector(".add__formulario");
+    const advertencia = document.querySelector(".input__advertencia");
+    const selectMuelle = document.getElementById("Muelles");
+    const errorMuelle = document.querySelector(".error--Muelles");
+
+    // Validar en tiempo real los inputs
+    Object.keys(fieldValid).forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        if (!input) return;
+
+        const inputBox = input.closest(".input-box");
+        const checkIcon = inputBox.querySelector(".ri-check-line");
+        const errorIcon = inputBox.querySelector(".ri-close-line");
+        const errorMessage = inputBox.nextElementSibling;
+        const label = inputBox.querySelector("label");
+
+        input.addEventListener("input", () => {
+            advertencia.style.display = "none";
+
+            const value = input.value.trim();
+            if (value === "") {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else if (fieldValid[fieldId].regex.test(value)) {
+                checkIcon.style.display = "inline-block";
+                errorIcon.style.display = "none";
+                errorMessage.style.display = "none";
+                input.style.border = "2px solid #0034de";
+                label.style.color = "";
+                inputBox.classList.remove("input-error");
+            } else {
+                checkIcon.style.display = "none";
+                errorIcon.style.display = "inline-block";
+                errorMessage.style.display = "block";
+                input.style.border = "2px solid #fd1f1f";
+                label.style.color = "red";
+                inputBox.classList.add("input-error");
+            }
+        });
+    });
+
+    // Ocultar advertencias y errores de select al interactuar
+    [selectMuelle].forEach(select => {
+        select.addEventListener("change", () => {
+            advertencia.style.display = "none";
+
+            if (select.selectedIndex > 0) {
+                select.style.border = "2px solid #0034de";
+            } else {
+                select.style.border = "";
+            }
+
+            if (select === selectMuelle && select.selectedIndex > 0) {
+                errorMuelle.style.display = "none";
+            }
+        });
+    });
+
+    // Validación al enviar el formulario
+    formulario.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let formularioValido = true;
+        let todosInputsValidos = true;
+
+        // Validar todos los inputs
+        Object.keys(fieldValid).forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            const regex = fieldValid[fieldId].regex;
+
+            if (!regex.test(input.value.trim())) {
+                formularioValido = false;
+                todosInputsValidos = false;
+            }
+        });
+
+
+        const muelleSeleccionada = selectMuelle.selectedIndex > 0;
+
+        // Caso: Inputs válidos, pero selects incompletos
+        if (todosInputsValidos && (!muelleSeleccionada)) {
+
+            if (!muelleSeleccionada) {
+                errorMuelle.style.display = "block";
+                selectMuelle.style.border = "2px solid #fd1f1f";
+            }
+
+            advertencia.style.display = "block";
+            return;
+        }
+
+        // Caso: Inputs o selects inválidos
+        if (!formularioValido) {
+            advertencia.style.display = "block";
+            return;
+        }
+
+        // Todo correcto: ocultar advertencias y errores
+        advertencia.style.display = "none";
+        errorMuelle.style.display = "none";
+
+        // Enviar formulario
+        formulario.submit();
+    });
+
+     //Ventana Modal de editar y eliminar
+    const botonesEditar = document.querySelectorAll('.icon--si');
+    const botonesEliminar = document.querySelectorAll('.icon--no');
+
+    // Modales
+    const modalEditar = document.getElementById('modalConfirmacion');
+    const modalEliminar = document.getElementById('modalConfirmacion2');
+    const modalEditRegistro = document.getElementById('modalnewadd2');
+
+    // Botones "Sí" y "No"
+    const botonSiEditar = modalEditar.querySelector('.boton-si');
+    const botonNoEditar = modalEditar.querySelector('.boton-no');
+    const botonNoEliminar = modalEliminar.querySelector('.boton-no2');
+
+    // Funciones para abrir y cerrar modales
+    function abrirModal(modal) {
+        modal.classList.remove('confirmacion--hidden');
+        modal.classList.add('confirmacion--visible');
+    }
+
+    function cerrarModal(modal) {
+        modal.classList.remove('confirmacion--visible');
+        modal.classList.add('confirmacion--hidden');
+    }
+
+    // Eventos abrir modal editar
+    botonesEditar.forEach(boton => {
+        boton.addEventListener('click', () => {
+            abrirModal(modalEditar);
+        });
+    });
+
+    // Eventos abrir modal eliminar
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener('click', () => {
+            abrirModal(modalEliminar);
+        });
+    });
+
+    // Eventos cerrar modales al hacer click en "No"
+    botonNoEditar.addEventListener('click', () => {
+        cerrarModal(modalEditar);
+    });
+
+    botonNoEliminar.addEventListener('click', () => {
+        cerrarModal(modalEliminar);
+    });
+
+    // Evento cuando hacen click en "Sí" en editar
+    botonSiEditar.addEventListener('click', () => {
+        cerrarModal(modalEditar);     // Cerramos el modal de confirmación
+        modalEditRegistro.classList.remove('newadd--hidden');
+        modalEditRegistro.classList.add('newadd--visible');
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    modalEditar.addEventListener('click', (e) => {
+        if (e.target === modalEditar) {
+            cerrarModal(modalEditar);
+        }
+    });
+
+    modalEliminar.addEventListener('click', (e) => {
+        if (e.target === modalEliminar) {
+            cerrarModal(modalEliminar);
+        }
+    });
+
+    const botonCerrarModalEdit = modalEditRegistro.querySelector('.modal__close');
+
+    botonCerrarModalEdit.addEventListener('click', () => {
+        modalEditRegistro.classList.remove('newadd--visible');
+        modalEditRegistro.classList.add('newadd--hidden');
+    });
+
+    modalEditRegistro.addEventListener('click', (e) => {
+        if (e.target === modalEditRegistro) {
+            modalEditRegistro.classList.remove('newadd--visible');
+            modalEditRegistro.classList.add('newadd--hidden');
+        }
+    });
+
+
+
     //Apertura de la exportacion
     const iconoDescarga = document.querySelector('.content__descarga i');
     const exportarDiv = document.querySelector('.exportar');
