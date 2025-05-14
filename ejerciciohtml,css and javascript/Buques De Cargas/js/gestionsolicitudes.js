@@ -287,12 +287,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cerrarModal(modalEliminar);
     });
 
-    // Evento cuando hacen click en "Sí" en editar
-    botonSiEditar.addEventListener('click', () => {
-        cerrarModal(modalEditar);     // Cerramos el modal de confirmación
-        modalEditRegistro.classList.remove('newadd--hidden');
-        modalEditRegistro.classList.add('newadd--visible');
-    });
 
     // Cerrar modal al hacer click fuera del contenido
     modalEditar.addEventListener('click', (e) => {
@@ -304,20 +298,6 @@ document.addEventListener("DOMContentLoaded", function () {
     modalEliminar.addEventListener('click', (e) => {
         if (e.target === modalEliminar) {
             cerrarModal(modalEliminar);
-        }
-    });
-
-    const botonCerrarModalEdit = modalEditRegistro.querySelector('.modal__close');
-
-    botonCerrarModalEdit.addEventListener('click', () => {
-        modalEditRegistro.classList.remove('newadd--visible');
-        modalEditRegistro.classList.add('newadd--hidden');
-    });
-
-    modalEditRegistro.addEventListener('click', (e) => {
-        if (e.target === modalEditRegistro) {
-            modalEditRegistro.classList.remove('newadd--visible');
-            modalEditRegistro.classList.add('newadd--hidden');
         }
     });
 
@@ -468,13 +448,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Extraer los encabezados de la tabla (sin incluir "Action")
         const headers = Array.from(table.querySelectorAll('th'))
-            .filter((header, index) => index !== 7)  // Excluir el "Action" (índice 5)
+            .filter((header, index) => index !== 7)  // Excluir el "Action" (índice 7)
             .map(header => header.innerText);
 
         // Extraer las filas de la tabla, asegurándonos de excluir la columna "Action"
         const rows = Array.from(table.querySelectorAll('tbody tr')).map(row => {
             const rowData = Array.from(row.querySelectorAll('td'))
-                .filter((cell, index) => index !== 7)  // Excluir la columna "Action" (índice 5)
+                .filter((cell, index) => index !== 7)  // Excluir la columna "Action" (índice 7)
                 .map(cell => cell.innerText);
             return rowData;
         });
