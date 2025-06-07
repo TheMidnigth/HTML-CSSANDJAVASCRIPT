@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    margin:50px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1150px;
+    height: 200px;
+    background-color: #ccc;
+    border: 1px solid #000;
+}
+
+.flex__content{
+    height: 100px;
+    background-color: purple;
+    color: #fff;
+    font-size: 29px;
+    text-align: center;
+    padding: 30px 0 0 0;
+    flex-grow: 1; /** Define cuanto espacio va a ocupar el flex item en la caja contenedora */
+    flex-shrink:1; /** Define cuanto se va a encojar un flex item en la caja contenedora */
+    flex-basis:150px; /** Define el tamaño base del flex item en la caja contenedora */
+}
+
+.flex__content:first-child{
+    background-color: blue;
+    flex-shrink:0; /** Define cuanto se va a encojar un flex item en la caja contenedora */
+    flex-grow: 4; /** Define cuanto espacio va a ocupar el flex item en la caja contenedora */
+}
+
+.flex__content:nth-child(2n){
+    background-color: red;
+    flex-shrink: 2; /** Define cuanto se va a encojar un flex item en la caja contenedora */
+    flex-grow: 8;
+}
+
+.flex__content:last-child{
+    background-color: green;
+    flex-shrink:4;/** Define cuanto se va a encojar un flex item en la caja contenedora */ 
+}
+
+
+.flex__item{
+    height: 100px;
+    background-color: purple;
+    color: #fff;
+    font-size: 29px;
+    text-align: center;
+    padding: 30px 0 0 0;
+    flex: 1 1 200px; /** Un shortHand que simplifica a flex-grow,flex-shrink y flex-basis en uno solo */
+}
+
+.flex__item:first-child{
+    background-color: blue;
+}
+
+
+.flex__item:last-child{
+    background-color: red;
+}
+
