@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.item {
+    width: 150px;
+    height: 100px;
+    background: lightblue;
+    margin: 10px;
+}
+
+.especial {
+    align-self: flex-end;
+    /* Solo este se alinea abajo */
+    background: lightcoral;
+}
